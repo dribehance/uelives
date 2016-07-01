@@ -1,4 +1,4 @@
-angular.module("Server").directive('showOnLoaded', function() {
+angular.module("Uelives").directive('showOnLoaded', function() {
 	return {
 		link: function(scope, element, attrs) {
 			$(element).css({

@@ -1,4 +1,4 @@
-angular.module("Server").directive('imageview', function() {
+angular.module("Uelives").directive('imageview', function() {
 	return {
 		restrict: 'E',
 		scope: {
