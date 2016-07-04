@@ -1,27 +1,8 @@
 <div class="industry">
-    <div class="col-ms-4 pull-left" ng-model="input.tag" ng-repeat="tag in tags">
+    <div class="col-ms-4 pull-left" ng-model="input.tag" ng-repeat="tag in tags" ng-click="select(tag)">
         <div class="tags">
-            <div class="tag">进出口贸易</div>
+            <div class="tag" ng-class="{'Highlight':tag.select}">{{tag}}</div>
         </div>
     </div>
-    <div class="col-ms-4 pull-left">
-        <div class="tags">
-            <div class="tag" ng-class="'Highlight':tag.select">机械机电</div>
-        </div>
-    </div>
-    <div class="col-ms-4 pull-left">
-        <div class="tags">
-            <div class="tag">汽车</div>
-        </div>
-    </div>
-    <div class="col-ms-4 pull-left">
-        <div class="tags">
-            <div class="tag">航空</div>
-        </div>
-    </div>
-    <div class="col-ms-4 pull-left">
-        <div class="tags">
-            <div class="tag">航空</div>
-        </div>
-    </div>
+    
 </div>

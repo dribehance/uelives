@@ -14,6 +14,7 @@
 
 input {
     outline: none;
+    border: none;
 }
 
 .col-ms-4 {
@@ -28,6 +29,10 @@ input {
     width: 39.5%
 }
 
+.col-ms-2 {
+    width: 50%
+}
+
 ///*****************首页*******************/
 .input-group {
     display: block;
@@ -38,9 +43,17 @@ input {
     .input-item {
         position: relative;
         display: block;
-        padding: 0 10px 0 40px;
         background-color: white;
         overflow: hidden;
+        &.padding-right {
+            padding-right: 10px;
+        }
+        &.padding-left {
+            padding-left: 40px;
+        }
+        &.padding {
+            padding: 0 10px;
+        }
         .text-modify {
             display: block;
             padding: 15px 0;
@@ -55,6 +68,9 @@ input {
             }
             small {
                 color: #EBEBEB;
+            }
+            .font-color {
+                color: #62C3DE;
             }
         }
     }
@@ -97,11 +113,6 @@ input {
 }
 
 ///*****************涉及行业*******************/
-.Highlight {
-    border: #00B4D6;
-    color: #00B4D6;
-}
-
 .industry {
     display: block;
     width: 100%;
@@ -118,6 +129,10 @@ input {
             text-align: center;
             border: 1px solid #EBEBEB;
             .text-overflow();
+        }
+        .Highlight {
+            border: 1px solid #00B4D6;
+            color: #00B4D6;
         }
     }
 }
@@ -186,6 +201,7 @@ input {
         position: relative;
         display: block;
         padding: 10px;
+        margin-bottom: 15px;
         background-color: white;
         border-radius: 6px;
         .list-header {
@@ -202,10 +218,11 @@ input {
         .list-content-wrap {
             position: relative;
             display: block;
-            padding: 5px;
+            padding-top: 10px;
             .list-content {
                 position: relative;
                 padding-left: 65px;
+                height: 65px;
                 display: block;
                 overflow: hidden;
                 cursor: pointer;
@@ -223,7 +240,213 @@ input {
                         display: block;
                     }
                 }
+                .list-info {
+                    display: block;
+                    overflow: hidden;
+                    font-size: 12px;
+                    .list-info-header {
+                        display: block;
+                        padding-top: 5px;
+                        margin-bottom: 30px;
+                        span {
+                            display: inline-block;
+                            padding: 0 5px;
+                        }
+                    }
+                    .list-info-content {
+                        display: block;
+                        span {
+                            display: inline-block;
+                            padding: 0 5px;
+                            &.modify {
+                                border: 2px solid #D8D9D9;
+                                border-top: none;
+                                border-bottom: none;
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
+}
+
+///****************************在线预约************************/
+.booking {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 15px;
+    .booking-person {
+        position: relative;
+        display: block;
+        padding-bottom: 5px;
+        border-radius: 6px;
+        background-color: white;
+        .booking-header {
+            display: block;
+            padding: 0 45px;
+            span {
+                display: block;
+                padding: 10px 20px;
+                color: #62C3DE;
+                border-bottom: 1px solid #000;
+            }
+        }
+        .booking-content {
+            position: relative;
+            display: block;
+            padding-top: 15px;
+            font-size: 12px;
+            overflow: hidden;
+            span {
+                position: relative;
+                top: -3px;
+            }
+            label {
+                color: #EBEBEB;
+            }
+        }
+    }
+    .booking-work {
+        display: block;
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+        .booking-content {
+            display: block;
+            padding: 10px 15px 10px 40px;
+        }
+    }
+    .booking-contact {
+        display: block;
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+        .title {
+            display: block;
+            padding: 15px;
+            color: #D8D9D9;
+        }
+        .contact-group {
+            display: block;
+            overflow: hidden;
+            .contact-item {
+                position: relative;
+                display: block;
+                padding: 15px 0;
+                margin: 0 10px;
+                overflow: hidden;
+                .box-sizing(border-box);
+                &.padding {
+                    padding-right: 75px;
+                    padding-left: 35px;
+                }
+                &.padding-both {
+                    padding-right: 100px;
+                    padding-left: 48px;
+                }
+                &.padding-left {
+                    padding-left: 35px;
+                }
+                &.padding-sm-left {
+                    padding-left: 48px;
+                }
+                &.padding-lg-left {
+                    padding-left: 90px;
+                }
+                &.modify {
+                    border-bottom: 1px solid #EBEBEB;
+                }
+                .name {
+                    position: absolute;
+                    top: 14px;
+                    left: 0;
+                    display: block;
+                }
+                .woman {
+                    position: absolute;
+                    top: 14px;
+                    right: 0;
+                    color: #EBEBEB;
+                }
+                .man {
+                    position: absolute;
+                    top: 14px;
+                    right: 45px;
+                    color: #EBEBEB;
+                }
+                .sms-code {
+                    position: absolute;
+                    top: 5px;
+                    right: 0;
+                    display: block;
+                    padding: 10px;
+                    border: 1px solid #EBEBEB;
+                    font-size: 12px;
+                    color: #EBEBEB;
+                }
+                .contact-item-title {
+                    display: block;
+                    margin-top: 15px;
+                }
+                .contact-item-content {
+                    position: relative;
+                    display: block;
+                    margin-top: 15px;
+                    .fa {
+                        color: #62C3DE;
+                    }
+                }
+                .Highlight {
+                    color: #000;
+                }
+            }
+        }
+    }
+    .policy {
+        display: block;
+        padding: 0 10px;
+        margin-bottom: 60px;
+        .policy-content {
+            display: block;
+            margin-bottom: 10px;
+            span{
+                color: #79AAE3;
+            }
+        }
+        .fa {
+            color: #62C3DE;
+        }
+    }
+}
+
+.pay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    .total {
+        display: block;
+        padding: 15px 5px 5px;
+        overflow: hidden;
+        .box-sizing(border-box);
+        &.border-right{
+            border-right: 2px solid #D8D9D9;
+        }
+        span {
+            display: block;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        label {
+            color: red;
+        }
+    }
+    .topay{
+        display: block;
+        padding: 25px 5px;
     }
 }
