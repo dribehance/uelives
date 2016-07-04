@@ -1,0 +1,229 @@
+*:not(input, textarea) {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+input {
+    outline: none;
+}
+
+.col-ms-4 {
+    width: 25%;
+}
+
+.col-ms-3 {
+    width: 33%
+}
+
+.col-ms-5 {
+    width: 39.5%
+}
+
+///*****************首页*******************/
+.input-group {
+    display: block;
+    border-radius: 6px;
+    overflow: hidden;
+    &.abbon {}
+    &.text-modify {}
+    .input-item {
+        position: relative;
+        display: block;
+        padding: 0 10px 0 40px;
+        background-color: white;
+        overflow: hidden;
+        .text-modify {
+            display: block;
+            padding: 15px 0;
+            &.modify {
+                border-bottom: 1px solid #EBEBEB;
+            }
+            span {
+                color: #EBEBEB;
+                .font-modify {
+                    margin-right: 5px;
+                }
+            }
+            small {
+                color: #EBEBEB;
+            }
+        }
+    }
+}
+
+//注意
+.mind {
+    display: block;
+    overflow: hidden;
+    .mind-title {
+        display: block;
+        margin-bottom: 15px;
+    }
+    .mind-content {
+        display: block;
+        margin-bottom: 15px;
+    }
+}
+
+.justified {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    >* {
+        display: table-cell;
+        width: 1%;
+        float: none!important;
+    }
+}
+
+.other {
+    .other-title {
+        margin-bottom: 10px;
+    }
+    .other-content {
+        font-size: 12px;
+        padding-bottom: 2px;
+    }
+}
+
+///*****************涉及行业*******************/
+.Highlight {
+    border: #00B4D6;
+    color: #00B4D6;
+}
+
+.industry {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    overflow: hidden;
+    background-color: white;
+    .tags {
+        display: block;
+        padding: 6px 5px 3px;
+        .box-sizing(border-box);
+        .tag {
+            display: block;
+            padding: 6px 5px;
+            text-align: center;
+            border: 1px solid #EBEBEB;
+            .text-overflow();
+        }
+    }
+}
+
+///*****************译员级别*******************/
+.level {
+    position: relative;
+    display: block;
+    background-color: white;
+    padding: 15px;
+    overflow: hidden;
+    .level-title {
+        position: relative;
+        padding: 5px 0 5px 25px;
+        margin-bottom: 15px;
+        display: block;
+    }
+    .fa {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        color: #00B4D6;
+    }
+    .level-content {
+        position: relative;
+        display: block;
+        padding-left: 45px;
+        margin-bottom: 15px;
+        input {
+            padding: 5px;
+            width: 30%;
+            border: 1px solid #EBEBEB;
+            border-radius: 4px;
+        }
+        .addon {}
+    }
+}
+
+///*****************译员列表*******************/
+.tab {
+    display: block;
+    overflow: hidden;
+    .tab-item {
+        display: inline-block;
+        padding: 5px;
+        width: 100%;
+        .box-sizing(border-box);
+        &.tab-modify {
+            border: 2px solid #D8D9D9;
+            border-top: none;
+            border-bottom: none;
+        }
+    }
+}
+
+.interpreter-list {
+    display: block;
+    overflow: hidden;
+    .list-center {
+        display: block;
+        padding: 10px;
+    }
+    .list-item {
+        position: relative;
+        display: block;
+        padding: 10px;
+        background-color: white;
+        border-radius: 6px;
+        .list-header {
+            display: block;
+            border-bottom: 1px solid #EBEBEB;
+            .title {
+                display: block;
+                padding: 5px 0;
+                label {
+                    color: red;
+                }
+            }
+        }
+        .list-content-wrap {
+            position: relative;
+            display: block;
+            padding: 5px;
+            .list-content {
+                position: relative;
+                padding-left: 65px;
+                display: block;
+                overflow: hidden;
+                cursor: pointer;
+                .avatar {
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    height: 65px;
+                    width: 65px;
+                    border-radius: 6px;
+                    overflow: hidden;
+                    .box-sizing(border-box);
+                    img {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
