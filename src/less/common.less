@@ -1,28 +1,40 @@
 // ---------------------------------------reset
 body {
-	font-family: gothambook, "微软雅黑";
+    font-family: gothambook, "微软雅黑";
+    background-color: #EBEBEB;
 }
+
 a {
     .link();
 }
+
 // ---------------------------------------layout
 .wrap {
-	position: relative;
-	width: 100%;
-	max-width: 1160px;
-	padding:15px;
-	margin: auto auto;
-	.box-sizing(border-box);
+    position: relative;
+    width: 100%;
+    max-width: 1160px;
+    padding: 15px;
+    margin: auto auto;
+    .box-sizing(border-box);
 }
+
 // ---------------------------------------until
 .full-width {
     width: 100%;
     .box-sizing(border-box)
 }
-.text-ellipsis,.text-overflow {
+
+.text-ellipsis,
+.text-overflow {
     .text-overflow();
 }
+
 .link() {
-	text-decoration: none;
-	color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
+
+.block {
+    display: block;
+}
+
