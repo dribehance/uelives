@@ -32,5 +32,7 @@ angular.module("Uelives").constant("config", {
 		"order_finish",
 		"order_wait",
 		"related_industry",
+		"self_booking",
+		"information",
 	]
 });

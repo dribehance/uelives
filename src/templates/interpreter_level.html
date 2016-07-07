@@ -1,7 +1,7 @@
 <div class="level">
     <div class="level-group">
-        <div class="level-title">
-            <i class="fa fa-check-square" aria-hidden="true"></i> 一般级别
+        <div class="level-title" ng-click="check('1')">
+            <i class="fa" ng-class="{'fa-check-square':input.check == '1','fa-square-o':input.check != '1'}" aria-hidden="true"></i> 一般级别
         </div>
         <div class="level-content">
             <div class="icon icon-correct"></div>
@@ -21,8 +21,8 @@
         </div>
     </div>
     <div class="level-group">
-        <div class="level-title">
-            <i class="fa fa-check-square" aria-hidden="true"></i> 商务级别
+        <div class="level-title" ng-click="check('2')">
+            <i class="fa" ng-class="{'fa-check-square':input.check == '2','fa-square-o':input.check != '2'}" aria-hidden="true"></i> 商务级别
         </div>
         <div class="level-content">
             <div class="icon icon-correct"></div>
@@ -42,8 +42,8 @@
         </div>
     </div>
     <div class="level-group">
-        <div class="level-title">
-            <i class="fa fa-check-square" aria-hidden="true"></i> 专家级别
+        <div class="level-title" ng-click="check('3')">
+            <i class="fa" ng-class="{'fa-check-square':input.check == '3','fa-square-o':input.check != '3'}" aria-hidden="true"></i> 专家级别
         </div>
         <div class="level-content">
             <div class="icon icon-correct"></div>
@@ -61,5 +61,8 @@
             <div class="icon icon-correct2"></div>
             <input level="text"> 元 / 天
         </div>
+    </div>
+    <div class="section text-center">
+        <span class="btn btn-block btn-primary">保存</span>
     </div>
 </div>

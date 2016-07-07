@@ -1,1 +1,33 @@
-语言选择
+<div class="choice">
+    <div class="choice-header border-bottom">
+        <div class="choice-search">
+            <div class="search">
+                <input name="search" ng-model="input.search" required placeholder="搜索地点" class="full-width">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="tab justified">
+            <div class="tab-item sm-padding sm-width" ng-class="{'highlight':input.choice=='1'}" ng-click="choice('1')">源语言</div>
+            <div class="tab-item sm-padding sm-width" ng-class="{'highlight':input.choice=='0'}" ng-click="choice('0')">目标语言</div>
+        </div>
+    </div>
+    <div class="choice-container">
+        <div class="choice-container-list">
+            <div class="hot hot-color">热门语言</div>
+            <div class="industry">
+                <div class="col-ms-4 pull-left" ng-repeat="language in languages" ng-click="select(language)">
+                    <div class="tags">
+                        <div class="tag" ng-class="{'highlight':input.language == language}">{{language}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="choice-container-list">
+            <div class="hot hot-border hot-padding">A</div>
+            <div class="choice-list-item" ng-repeat="language in languages">{{language}}</div>
+        </div>
+    </div>
+    <div class="letter">
+        <span ng-repeat="letter in letters">{{letter}}</span>
+    </div>
+</div>

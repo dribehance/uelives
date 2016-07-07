@@ -1,1 +1,32 @@
-译员入驻
+<div class="wrap">
+    <!-- ng-if="step == 1" -->
+    <form name="signupForm" ng-submit="ajaxForm()">
+        <div class="signup">
+            <div class="input-group">
+                <div class="input-item padding-sm-left margin-lg-bottom border-radius">
+                    <div class="addon text-center">
+                        +86
+                    </div>
+                    <div class="text-modify border-left padding">
+                        <input name="input.telephone" ng-model="input.telephone" required placeholder="手机号" class="full-width">
+                    </div>
+                </div>
+                <div class="input-item border-radius padding-lg-right margin-lg-bottom">
+                    <div class="text-modify padding">
+                        <input name="input.code" ng-model="input.code" required placeholder="验证码" class="full-width">
+                    </div>
+                    <div class="sms-code">点击发送验证码</div>
+                </div>
+                <div class="input-item border-radius margin-lg-bottom">
+                    <div class="text-modify padding">
+                        <input name="input.wechat" ng-model="input.wechat" required placeholder="微信号" class="full-width">
+                    </div>
+                </div>
+                <div class="section text-center">
+                    <button type="submit" class="btn btn-lg btn-primary">下一步</button>
+                </div>
+            </div>
+        </div>
+    </form>
+   
+</div>
