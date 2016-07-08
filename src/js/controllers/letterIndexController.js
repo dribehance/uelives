@@ -11,6 +11,9 @@ angular.module("Uelives").controller("letterIndexController", function($scope, e
 			var offset = Math.round(e.deltaY / letter_height);
 			$scope.navgation_to($(e.target), offset)
 		})
+		hammer.on("tap", function(e) {
+			$scope.$emit("letterIndexChange", $(e.target).text())
+		})
 		$scope.navgation_to = function(elem, offset) {
 			var dest = letter.index(elem) + offset;
 			dest = Math.min(dest, letter.length - 1);

@@ -13,7 +13,7 @@
     </div>
     <div class="choice-container">
         <div class="choice-container-list" ng-repeat="city in cities">
-            <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}">{{city.k}}</div>
+            <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}" data-index="{{parse_key(city.k)}}">{{city.k}}</div>
             <div class="industry" ng-if="$index =='0'">
                 <div class="col-ms-4 pull-left" ng-repeat="c in city.n" ng-click="select_hot(c.n)">
                     <div class="tags">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="letter">
-        <span ng-repeat="city in cities">{{parse_key(city.k)}}</span>
+    <div class="letter" ng-controller="letterIndexController">
+        <span ng-repeat="city in cities" on-repeat-done>{{parse_key(city.k)}}</span>
     </div>
 </div>

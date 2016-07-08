@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("choiceCityController", function($scope, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("choiceCityController", function($scope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
     $scope.input.choice = '1';
 
@@ -27,6 +27,13 @@ angular.module("Uelives").controller("choiceCityController", function($scope, us
         })
         $scope.input.choice = n;
     }
+
+    $scope.$on("letterIndexChange", function(e, args) {
+        $timeout(function() {
+            errorServices.autoHide(args);
+        }, 0);
+        $("body").scrollTop($("[data-index=" + args + "]").offset().top);
+    })
 
     //显示两个字
     $scope.parse_key = function(k) {
