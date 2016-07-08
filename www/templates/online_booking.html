@@ -1,1 +1,105 @@
-在线预订
+<div class="wrap">
+    <div class="booking">
+        <div class="booking-person">
+            <div class="booking-header text-center">
+                <span>东京专家译员翻译</span>
+            </div>
+            <div class="booking-content text-center">
+                中文 - 日语 <span>.</span>&nbsp男
+            </div>
+            <div class="booking-content text-center">
+                互联网 &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <a class="booking-content text-center" ng-href="#/choice_time">
+                6月15日
+                <label>今天</label> - 6月16日
+                <label>明天</label>&nbsp
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <div class="booking">
+        <div class="booking-work">
+            <div class="input-group">
+                <div class="input-item padding-xs-left" ng-href="#/choice_language">
+                    <div class="icon icon-content"></div>
+                    <div class="text-modify modify"><span class="font-color">具体工作内容</span></div>
+                </div>
+            </div>
+            <div class="booking-content">
+                最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译
+            </div>
+        </div>
+    </div>
+    <div class="booking">
+        <div class="booking-work">
+            <div class="input-group">
+                <div class="input-item padding-xs-left" ng-href="#/choice_language">
+                    <div class="icon icon-content"></div>
+                    <div class="text-modify modify"><span class="font-color">对翻译者的其他要求</span></div>
+                </div>
+            </div>
+            <div class="booking-content">
+                最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译
+            </div>
+        </div>
+    </div>
+    <div class="booking">
+        <div class="booking-contact">
+            <div class="title text-center">请留下您的信息，以便联系您</div>
+            <div class="contact-group">
+                <div class="contact-item padding modify">
+                    <div class="name">姓名:</div>
+                    <input class="full-width">
+                    <div class="woman" ng-class="{'Highlight':input.gender == '0'}" ng-click="select_gender('0')" >女士</div>
+                    <div class="man" ng-class="{'Highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
+                </div>
+                <div class="contact-item padding-lg-left modify">
+                    <div class="name">公司名(如有):</div>
+                    <input class="full-width">
+                </div>
+                <div class="contact-item padding-left modify">
+                    <div class="name">手机:</div>
+                    <input class="full-width">
+                </div>
+                <div class="contact-item padding-both modify">
+                    <div class="name">验证码:</div>
+                    <input class="full-width">
+                    <div class="sms-code">点击发送验证码</div>
+                </div>
+                <div class="contact-item padding-xs-left modify">
+                    <div class="name">微信号:</div>
+                    <input class="full-width">
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-title">如果译员不能接单</div>
+                    <div class="contact-item-content"><i class="fa fa-check-square" aria-hidden="true"></i>系统自动匹配其他相符译员</div>
+                    <div class="contact-item-content"><i class="fa fa-check-square" aria-hidden="true"></i>取消订单并退款</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="booking">
+        <div class="policy">
+            <div class="policy-content">
+                <i class="fa fa-check-square" aria-hidden="true"></i>同意<span>使用条款</span>
+            </div>
+            <div class="policy-content">
+                译员接单后您会收到联系方式
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pay">
+    <div class="col-ms-2 pull-left">
+        <div class="total border-right">
+            <span>5天</span>
+            <span>总共<label>6000</label>元</span>
+        </div>
+    </div>
+    <div class="col-ms-2 pull-left">
+        <div class="topay text-center">
+            去支付
+        </div>
+    </div>
+</div>

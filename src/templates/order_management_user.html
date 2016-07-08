@@ -1,1 +1,226 @@
-订单管理-用户
+<div class="order-tab">
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.status=='wait'}" ng-click="active_tab('wait')">
+            等待接单
+        </a>
+    </div>
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.status =='confirm'}" ng-click="active_tab('confirm')">
+            已确认
+        </a>
+    </div>
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.status=='finish'}" ng-click="active_tab('finish')">
+            已完成
+        </a>
+    </div>
+    <div class="col-ms-4 pull-left">
+        <a class="order-tab-item text-center" ng-class="{'text-primary':input.status=='cancel'}" ng-click="active_tab('cancel')">
+            已取消
+        </a>
+    </div>
+</div>
+<div class="wrap">
+    <div class="section" ng-repeat="order in orders">
+        <!-- 1 -->
+        <div class="order" ng-if="input.type==order.type && order.status=='1'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify">
+                <div class="order-content-item">
+                    东京中日翻译
+                </div>
+                <div class="order-content-item">
+                    2016.06.14-2016.06.16
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    日本展会，医疗设备
+                </div>
+            </a>
+            <div class="order-wait">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <img src="../images/avatar.png" class="full-width full-height">
+                    </div>
+                    <div class="order-wait-info">
+                        Vivi
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <span class="pull-right">等待医院接单</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 2 -->
+        <div class="order" ng-if="input.type==order.type && order.status=='2'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify">
+                <div class="order-content-item">
+                    东京中日翻译
+                </div>
+                <div class="order-content-item">
+                    2016.06.14-2016.06.16
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    日本展会，医疗设备
+                </div>
+            </a>
+            <div class="order-btn">
+                <div class="col-ms-2 pull-left">
+                    <div class="button text-center border-right">接受</div>
+                </div>
+                <div class="col-ms-2 pull-left">
+                    <div class="button text-center">拒绝</div>
+                </div>
+            </div>
+        </div>
+        <!-- 3 -->
+        <div class="order" ng-if="input.type==order.type && order.status=='3'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify">
+                <div class="order-content-item">
+                    东京中日翻译
+                </div>
+                <div class="order-content-item">
+                    2016.06.14-2016.06.16
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    日本展会，医疗设备
+                </div>
+            </a>
+            <div class="order-wait">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <img src="../images/avatar.png" class="full-width full-height">
+                    </div>
+                    <div class="order-wait-info">
+                        Vivi
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <span class="pull-right">等待医院接单</span>
+                    </div>
+                    <div class="order-wait-contact text-left">
+                        <i class="fa fa-mobile" aria-hidden="true"></i> 13802700000 &nbsp
+                        <i class="fa fa-weixin" aria-hidden="true"></i> 13802700000
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 4 -->
+        <div class="order" ng-if="input.type==order.type && order.status=='4'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify">
+                <div class="order-content-item">
+                    东京中日翻译
+                </div>
+                <div class="order-content-item">
+                    2016.06.14-2016.06.16
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    日本展会，医疗设备
+                </div>
+            </a>
+            <div class="order-title modify">
+                客户信息
+            </div>
+            <a class="order-content">
+                <div class="order-content-item">
+                    姓名: 纤纤
+                </div>
+                <div class="order-content-item">
+                    电话: 13802700000
+                </div>
+                <div class="order-content-item">
+                    微信号: 13802700000
+                </div>
+            </a>
+        </div>
+        <!-- 5 -->
+        <div class="order" ng-if="input.type==order.type && order.status=='5'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify">
+                <div class="order-content-item">
+                    东京中日翻译
+                </div>
+                <div class="order-content-item">
+                    2016.06.14-2016.06.16
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    日本展会，医疗设备
+                </div>
+            </a>
+            <div class="order-wait modify">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <img src="../images/avatar.png" class="full-width full-height">
+                    </div>
+                    <div class="order-wait-info">
+                        Vivi
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <span class="pull-right">等待医院接单</span>
+                    </div>
+                </div>
+            </div>
+            <a class="order-to-evaluate text-center text-primary" ng-href="#/interpreter_evaluate">
+            去评价
+        </a>
+        </div>
+        <!-- 6 -->
+        <div class="order" ng-if="input.type==order.type && order.status=='6'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify">
+                <div class="order-content-item">
+                    东京中日翻译
+                </div>
+                <div class="order-content-item">
+                    2016.06.14-2016.06.16
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    日本展会，医疗设备
+                </div>
+            </a>
+            <div class="order-btn">
+                <div class="col-ms-2 pull-left">
+                    <a class="button text-center border-right">查看评价</a>
+                </div>
+                <div class="col-ms-2 pull-left">
+                    <a class="button text-center">任务收款</a>
+                </div>
+            </div>
+        </div>
+        <!-- 7 -->
+        <div class="order" ng-if="input.type==order.type && order.status=='7'">
+            <div class="order-title modify">
+                口译
+                <span class="pull-right">已取消</span>
+            </div>
+            <a class="order-content modify">
+                <div class="order-content-item">
+                    东京中日翻译
+                </div>
+                <div class="order-content-item">
+                    2016.06.14-2016.06.16
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    日本展会，医疗设备
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

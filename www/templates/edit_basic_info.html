@@ -1,1 +1,93 @@
-编辑基本信息
+<div class="section">
+    <div class="avatar-wrap text-center">
+        <div class="avatar">
+            <img src="../images/avatar.png" class="full-width full-height">
+        </div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="edit-basic border-radius">
+        <div class="edit-content">
+            <div class="edit-title">
+                基本信息
+            </div>
+            <div class="edit-list padding-sm-left">
+                <div class="text-field">姓 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名:</div>
+                <input type="text" class="full-width" placeholder="" name="name" ng-model="input.name" required>
+            </div>
+            <div class="edit-list padding-sm-left">
+                <div class="text-field">性 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别:</div>
+                <span ng-class="{'text-primary':input.gender == '1'}" ng-click="select_gender('1')">男</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <span ng-class="{'text-primary':input.gender == '0'}" ng-click="select_gender('0')">女</span>
+            </div>
+            <div class="edit-list padding-sm-left">
+                <div class="text-field">最高学历:</div>
+                <select class="full-width" name="degree" ng-model="input.degree">
+                    <option>专科</option>
+                    <option>本科</option>
+                    <option>硕士</option>
+                    <option>博士</option>
+                </select>
+            </div>
+            <a class="edit-list" ng-href="#/choice_time">
+                出生年月:
+            </a>
+            <a class="edit-list" ng-href="#/choice_city">
+                所在城市:
+            </a>
+            <div class="edit-list padding-sm-left">
+                <div class="text-field">联系电话:</div>
+                <input type="text" class="full-width" placeholder="" name="telephone" ng-model="input.telephone" required>
+            </div>
+            <div class="edit-list padding-sm-left">
+                <div class="text-field">联系邮箱:</div>
+                <input type="text" class="full-width" placeholder="" name="email" ng-model="input.email" required>
+            </div>
+            <div class="edit-list">
+                工作类型: 
+                <span ng-class="{'text-primary':input.type == '1'}" ng-click="select_type('1')">口译</span>&nbsp&nbsp&nbsp&nbsp
+                <span ng-class="{'text-primary':input.type == '2'}" ng-click="select_type('2')">笔译</span>&nbsp&nbsp&nbsp&nbsp
+                <span ng-class="{'text-primary':input.type == '3'}" ng-click="select_type('3')">口笔译</span>
+                   
+            </div>
+            <div class="edit-list padding-sm-left">
+                <div class="text-field">工作性质:</div>
+                <select class="full-width" name="work_property" ng-model="input.work_property">
+                    <option>全职</option>
+                    <option>兼职</option>
+                </select>
+            </div>
+            <a class="edit-list" ng-href="#/choice_language">
+                母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语:
+            </a>
+            <div class="edit-list">
+                第一外语:
+                <span>英语</span>
+                <span>|</span>
+                <span>专业</span>
+                <span>流利</span>
+            </div>
+            <div class="edit-list">
+                第二外语:
+                <span>法语</span>
+                <span>|</span>
+                <span>专业</span>
+                <span>流利</span>
+            </div>
+            <a class="edit-list" ng-href="#/related_industry">
+                擅长行业/领域: 互联网
+            </a>
+            <div class="edit-list padding-lg-left">
+                <div class="text-field">翻译经验年限:</div>
+                <input type="text" class="full-width" placeholder="" name="translation_year" ng-model="input.translation_year" required>
+            </div>
+            <a class="edit-list" ng-href="#/interpreter_level">
+                翻译级别: 专家级别
+            </a>
+            <div class="edit-list padding-sm-left">
+                <div class="text-field">日&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp薪:</div>
+                <input type="text" class="full-width" placeholder="" name="per_diem" ng-model="input.per_diem" required>
+            </div>
+        </div>
+    </div>
+</div>

@@ -51,8 +51,8 @@
                 <div class="contact-item padding modify">
                     <div class="name">姓名:</div>
                     <input class="full-width">
-                    <div class="woman" ng-class="{'Highlight':input.gender == '0'}" ng-click="select_gender('0')" >女士</div>
-                    <div class="man" ng-class="{'Highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
+                    <div class="woman" ng-model="input.gender" ng-class="{'Highlight':input.gender == '0'}" ng-click="select_gender('0')">女士</div>
+                    <div class="man" ng-model="input.gender" ng-class="{'Highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
                 </div>
                 <div class="contact-item padding-lg-left modify">
                     <div class="name">公司名(如有):</div>
@@ -71,35 +71,14 @@
                     <div class="name">微信号:</div>
                     <input class="full-width">
                 </div>
-                <div class="contact-item">
-                    <div class="contact-item-title">如果译员不能接单</div>
-                    <div class="contact-item-content"><i class="fa fa-check-square" aria-hidden="true"></i>系统自动匹配其他相符译员</div>
-                    <div class="contact-item-content"><i class="fa fa-check-square" aria-hidden="true"></i>取消订单并退款</div>
+                <div class="contact-item padding-sm-left">
+                    <div class="name">预算范围:</div>
+                    <input class="full-width">
                 </div>
             </div>
         </div>
     </div>
-    <div class="booking">
-        <div class="policy">
-            <div class="policy-content">
-                <i class="fa fa-check-square" aria-hidden="true"></i>同意<span>使用条款</span>
-            </div>
-            <div class="policy-content">
-                译员接单后您会收到联系方式
-            </div>
-        </div>
-    </div>
-</div>
-<div class="pay">
-    <div class="col-ms-2 pull-left">
-        <div class="total border-right">
-            <span>5天</span>
-            <span>总共<label>6000</label>元</span>
-        </div>
-    </div>
-    <div class="col-ms-2 pull-left">
-        <div class="topay text-center">
-            去支付
-        </div>
+    <div class="section text-center">
+        <span class="btn btn-lg btn-primary">提交需求</span>
     </div>
 </div>
