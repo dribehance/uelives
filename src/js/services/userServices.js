@@ -58,7 +58,16 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			token: localStorageService.get("token")
 		})),
 		query_city: apiServices._get(angular.extend({}, config.common_params, {
-            url: "city/city_with_index.json"
+            url: "city/city_with_index.json",
+            token: localStorageService.get("token")
+        })),
+        query_inter_city: apiServices._get(angular.extend({}, config.common_params, {
+            url: "city/inter_city_with_index.json",
+            token: localStorageService.get("token")
+        })),
+        query_language: apiServices._get(angular.extend({}, config.common_params, {
+            url: "city/language.json",
+            token: localStorageService.get("token")
         })),
 	}
 });

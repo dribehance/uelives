@@ -1094,30 +1094,42 @@ textarea {
         .box-sizing(border-box);
         .hot {
             display: block;
-            padding: 15px 0 0 5px;
+            padding: 15px 0 10px 5px;
             &.hot-color {
                 color: #ACACAC;
             }
             &.hot-border {
                 border-bottom: 1px solid #EBEBEB;
+                color: #000;
             }
             &.hot-padding {
                 padding-bottom: 15px;
             }
         }
-        .choice-list-item {
-            display: block;
-            padding: 15px 0;
-            margin-left: 30px;
+        .hot-border {
             border-bottom: 1px solid #EBEBEB;
-            &:last-child {
-                border-bottom: none;
+        }
+        .hot-border-white{
+             border-bottom: 1px solid white;
+        }
+        .choice-container-item {
+            .choice-list-item {
+                display: block;
+                padding: 15px 0;
+                margin-left: 30px;
+                border-bottom: 1px solid #EBEBEB;
+                // &:last-child {
+                //     border-bottom: none;
+                // }
+            }
+            .highlight {
+                color: #37B3D5;
             }
         }
     }
     .letter {
-        position: absolute;
-        top: 120px;
+        position: fixed;
+        top: 117px;
         right: 0;
         span {
             display: block;
