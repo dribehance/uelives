@@ -28,13 +28,6 @@ angular.module("Uelives").controller("choiceCityController", function($scope, $t
         $scope.input.choice = n;
     }
 
-    $scope.$on("letterIndexChange", function(e, args) {
-        $timeout(function() {
-            errorServices.autoHide(args);
-        }, 0);
-        $("body").scrollTop($("[data-index=" + args + "]").offset().top);
-    })
-
     //显示两个字
     $scope.parse_key = function(k) {
         return k.substring(0, 2)

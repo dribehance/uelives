@@ -28,5 +28,6 @@
     </div>
     <div class="letter" ng-controller="letterIndexController">
         <span ng-repeat="city in cities" on-repeat-done>{{parse_key(city.k)}}</span>
+        <span class="tip" ng-if="letter_index">{{letter_index}}</span>
     </div>
 </div>
