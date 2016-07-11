@@ -29,12 +29,4 @@ angular.module("Uelives").controller("choiceLanguageController", function($scope
     $scope.parse_key = function(k) {
         return k.substring(0, 2)
     }
-    //点击字母，获取相对应的
-    $scope.$on("letterIndexChange", function(e, args) {
-        $timeout(function() {
-            errorServices.autoHide(args);
-        }, 0);
-        $("body").scrollTop($("[data-index=" + args + "]").offset().top);
-    })
-
 })
