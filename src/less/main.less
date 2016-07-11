@@ -37,6 +37,10 @@ textarea {
     background-color: white;
 }
 
+.col-ms-7 {
+    width: 14.28%;
+}
+
 .col-ms-4 {
     width: 25%;
 }
@@ -182,6 +186,9 @@ textarea {
     padding: 10px 0;
     overflow: hidden;
     background-color: white;
+    &.space{
+        margin-bottom: 50px;
+    }
     .tags {
         display: block;
         padding: 6px 5px 3px;
@@ -198,6 +205,7 @@ textarea {
             color: #00B4D6;
         }
     }
+
 }
 
 ///**************re***译员级别*******************/
@@ -230,7 +238,9 @@ textarea {
             border: 1px solid #EBEBEB;
             border-radius: 4px;
         }
-        .addon {}
+    }
+    .addon {
+        margin-bottom: 50px;
     }
 }
 
@@ -615,10 +625,7 @@ textarea {
         display: inline-block;
         width: 95px;
         height: 90px;
-        img {
-            display: block;
-            border-radius: 50px;
-        }
+        border-radius: 100%;
     }
     .avatar-info {
         display: block;
@@ -1042,10 +1049,81 @@ textarea {
     .time-container {
         display: block;
         overflow: hidden;
+        width: 100%;
         .container-title {
             display: block;
             padding: 15px;
             color: #B3B3B3;
+        }
+        .day-wrap {
+            display: block;
+            padding: 0 5px 5px 5px;
+            width: 100%;
+            overflow: hidden;
+            &.margin-bottom {
+                margin-bottom: 30%;
+            }
+            .box-sizing(border-box);
+            .day {
+                display: block;
+                padding: 4px 5px;
+                .box-sizing(border-box);
+                .day-item {
+                    display: block;
+                    padding: 10px 5px;
+                    border-radius: 2px;
+                    .box-sizing(border-box);
+                }
+                .background-color {
+                    background-color: #EBEBEB;
+                }
+                .border {
+                    border: 1px solid #EBEBEB;
+                }
+            }
+        }
+        .margin-left-1 {
+            margin-left: 14.28571%;
+        }
+        .margin-left-2 {
+            margin-left: 28.57142%;
+        }
+        .margin-left-3 {
+            margin-left: 42.85714%;
+        }
+        .margin-left-4 {
+            margin-left: 57.14287%;
+        }
+        .margin-left-5 {
+            margin-left: 71.52857%;
+        }
+        .margin-left-6 {
+            margin-left: 85.71428%;
+        }
+        .highlight {
+            border: 1px solid #00B5DA;
+            color: #00B5DA;
+        }
+    }
+    .time-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        .time-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin: 10px;
+            background-color: #EBEBEB;
+            float: left;
+        }
+        span {
+            display: inline-block;
+            padding: 13px 5px 5px 5px;
+            float: left;
         }
     }
 }
@@ -1109,8 +1187,8 @@ textarea {
         .hot-border {
             border-bottom: 1px solid #EBEBEB;
         }
-        .hot-border-white{
-             border-bottom: 1px solid white;
+        .hot-border-white {
+            border-bottom: 1px solid white;
         }
         .choice-container-item {
             .choice-list-item {

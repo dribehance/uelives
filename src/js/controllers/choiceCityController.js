@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("choiceCityController", function($scope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
+ angular.module("Uelives").controller("choiceCityController", function($scope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
     $scope.input.choice = '1';
 
