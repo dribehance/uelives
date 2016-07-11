@@ -15,7 +15,7 @@
         <div class="choice-container-list" ng-repeat="language in languages">
             <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}" data-index="{{parse_key(language.k)}}">{{language.k}}</div>
             <div class="industry" ng-if="$index =='0'">
-                <div class="col-ms-4 pull-left" ng-repeat="c in language.n" ng-click="select_hot(c.n)">
+                <div class="col-ms-4 pull-left" ng-repeat="c in language.n" ng-click="select_language(c.n)">
                     <div class="tags">
                         <div class="tag" ng-class="{'highlight':input.tag == c.n}">{{c.n}}</div>
                     </div>

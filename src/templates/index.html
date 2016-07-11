@@ -2,11 +2,11 @@
     <div class="input-group">
         <a class="input-item padding-xs-left padding-right" ng-href="#/choice_city">
             <div class="icon icon-location"></div>
-            <div class="text-modify modify">深圳</div>
+            <div class="text-modify modify">{{input.city}}</div>
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/choice_language">
             <div class="icon icon-language"></div>
-            <div class="text-modify modify ">中文 <span> - 请选择</span></div>
+            <div class="text-modify modify ">{{input.language.from}} <span> - {{input.language.to||"请选择"}}</span></div>
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/interpreter_level">
             <div class="icon icon-star"></div>
@@ -18,7 +18,7 @@
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/related_industry">
             <div class="icon icon-industry"></div>
-            <div class="text-modify modify "><span>设计行业/领域</span></div>
+            <div class="text-modify modify "><span>{{input.industry||"设计行业/领域"}}</span></div>
         </a>
         <a class="input-item padding-xs-left padding-right">
             <div class="icon icon-gender"></div>

@@ -15,7 +15,7 @@
         <div class="choice-container-list" ng-repeat="city in cities">
             <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}" data-index="{{parse_key(city.k)}}">{{city.k}}</div>
             <div class="industry" ng-if="$index =='0'">
-                <div class="col-ms-4 pull-left" ng-repeat="c in city.n" ng-click="select_hot(c.n)">
+                <div class="col-ms-4 pull-left" ng-repeat="c in city.n" ng-click="select_city(c.n)">
                     <div class="tags">
                         <div class="tag" ng-class="{'highlight':input.tag == c.n}">{{c.n}}</div>
                     </div>
