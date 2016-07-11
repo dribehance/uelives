@@ -13,8 +13,8 @@
     </div>
     <div class="choice-container">
         <div class="choice-container-list" ng-repeat="city in cities">
-            <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}" data-index="{{parse_key(city.k)}}">{{city.k}}</div>
-            <div class="industry" ng-if="$index =='0'">
+            <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}" data-index="{{parse_key(city.k)}}" ng-if="!input.search">{{city.k}}</div>
+            <div class="industry" ng-if="$index =='0' && !input.search">
                 <div class="col-ms-4 pull-left" ng-repeat="c in city.n" ng-click="select_city(c.n)">
                     <div class="tags">
                         <div class="tag" ng-class="{'highlight':input.tag == c.n}">{{c.n}}</div>
@@ -22,11 +22,11 @@
                 </div>
             </div>
             <div class="choice-container-item" ng-if="$index !='0'">
-                <div class="choice-list-item" ng-class="{'highlight':input.tag == c.n}" ng-repeat="c in city.n" ng-click="select_city(c.n)">{{c.n}}</div>
+                <div class="choice-list-item" ng-class="{'highlight':input.tag == c.n}" ng-repeat="c in city.n | filter:input.search" ng-click="select_city(c.n)">{{c.n}}</div>
             </div>
         </div>
     </div>
-    <div class="letter" ng-controller="letterIndexController">
+    <div class="letter" ng-controller="letterIndexController" ng-if="!input.search">
         <span ng-repeat="city in cities" on-repeat-done>{{parse_key(city.k)}}</span>
         <span class="tip" ng-if="letter_index">{{letter_index}}</span>
     </div>
