@@ -13,7 +13,7 @@
     </div>
     <div class="choice-container">
         <div class="choice-container-list" ng-repeat="language in languages">
-            <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}">{{language.k}}</div>
+            <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}" data-index="{{parse_key(language.k)}}">{{language.k}}</div>
             <div class="industry" ng-if="$index =='0'">
                 <div class="col-ms-4 pull-left" ng-repeat="c in language.n" ng-click="select_hot(c.n)">
                     <div class="tags">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="letter">
-        <span ng-repeat="language in languages">{{parse_key(language.k)}}</span>
+    <div class="letter" ng-controller="letterIndexController">
+        <span ng-repeat="language in languages" on-repeat-done>{{parse_key(language.k)}}</span>
     </div>
 </div>
