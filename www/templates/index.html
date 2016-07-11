@@ -6,11 +6,11 @@
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/choice_language">
             <div class="icon icon-language"></div>
-            <div class="text-modify modify ">{{input.language.from}} <span> - {{input.language.to||"请选择"}}</span></div>
+            <div class="text-modify modify">{{input.language.from}} <span> - {{input.language.to||"请选择"}}</span></div>
         </a>
-        <a class="input-item padding-xs-left padding-right" ng-href="#/interpreter_level">
+        <a class="input-item padding-xs-left padding-right" ng-href="#/scenes">
             <div class="icon icon-star"></div>
-            <div class="text-modify modify "><span>译员级别</span></div>
+            <div class="text-modify modify "><span>使用场景</span></div>
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/choice_time">
             <div class="icon icon-date"></div>
@@ -22,7 +22,7 @@
         </a>
         <a class="input-item padding-xs-left padding-right">
             <div class="icon icon-gender"></div>
-            <div class="text-modify">不限 &nbsp&nbsp<span>男</span>&nbsp&nbsp <span>女</span></div>
+            <div class="text-modify"><span ng-class="{'highlight':input.gender=='0'}" ng-click="select_gender('0')">不限</span> &nbsp&nbsp<span ng-class="{'highlight':input.gender=='1'}" ng-click="select_gender('1')">男</span>&nbsp&nbsp <span ng-class="{'highlight':input.gender=='2'}" ng-click="select_gender('2')">女</span></div>
         </a>
     </div>
 </div>
@@ -41,9 +41,11 @@
             <small>3.翻译人员在服务期间的交通，食宿等费用客户负责；为保证口译质量。请客户事先尽可能多的提供背景材料;</small>
         </div>
     </div>
-    <div class="section text-center">
-        <span class="btn btn-lg btn-primary">开始预约</span>
-    </div>
+</div>
+<div class="wrap text-center">
+    <a class="section" ng-href="#/interpreter_list">
+        <div class="btn btn-lg btn-primary">开始预约</div>
+    </a>
 </div>
 <div class="wrap">
     <div class="other">

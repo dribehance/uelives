@@ -29,6 +29,14 @@ input::-webkit-input-placeholder {
 　　input:-ms-input-placeholder {
 　　color: #D6D0CA !important; / Internet Explorer 10+ */
 
+select {
+    border: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+    display: inline-block;
+}
+
 select,
 input,
 textarea {
@@ -128,6 +136,12 @@ textarea {
             .font-color {
                 color: #62C3DE;
             }
+            .color-gray {
+                color: #000;
+            }
+            .highlight {
+                color: #000;
+            }
         }
         .sms-code {
             position: absolute;
@@ -186,7 +200,7 @@ textarea {
     padding: 10px 0;
     overflow: hidden;
     background-color: white;
-    &.space{
+    &.space {
         margin-bottom: 50px;
     }
     .tags {
@@ -205,7 +219,6 @@ textarea {
             color: #00B4D6;
         }
     }
-
 }
 
 ///**************re***译员级别*******************/
@@ -485,7 +498,7 @@ textarea {
                         color: #62C3DE;
                     }
                 }
-                .Highlight {
+                .highlight {
                     color: #000;
                 }
             }
@@ -626,6 +639,7 @@ textarea {
         width: 95px;
         height: 90px;
         border-radius: 100%;
+        overflow: hidden;
     }
     .avatar-info {
         display: block;
@@ -1219,7 +1233,7 @@ textarea {
             left: 0;
             right: 0;
             width: 50px;
-            top:50%;
+            top: 50%;
             margin: auto auto;
             padding: 5px;
             background-color: fade(black, 50%);
