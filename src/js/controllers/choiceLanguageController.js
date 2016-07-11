@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("choiceLanguageController", function($scope, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("choiceLanguageController", function($scope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
     $scope.input.choice = '1';
     $scope.select_hot = function(tag) {
@@ -29,5 +29,12 @@ angular.module("Uelives").controller("choiceLanguageController", function($scope
     $scope.parse_key = function(k) {
         return k.substring(0, 2)
     }
+    //点击字母，获取相对应的
+    $scope.$on("letterIndexChange", function(e, args) {
+        $timeout(function() {
+            errorServices.autoHide(args);
+        }, 0);
+        $("body").scrollTop($("[data-index=" + args + "]").offset().top);
+    })
 
 })
