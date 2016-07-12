@@ -2,10 +2,11 @@
     <div class="section">
         <div class="avatar-wrap text-center justified">
             <div class="avatar">
-                <img src="../images/avatar.png" class="full-width full-height">
+                <imageview data-rate='1' center-only src="'../images/avatar.png'"></imageview>
             </div>
             <div class="avatar-info text-center">更换头像</div>
         </div>
+        
     </div>
     <div class="edit-basic border-radius margin-bottom">
         <div class="edit-content">
@@ -22,19 +23,14 @@
                 <div class="text-field">性 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别:</div>
                 <span ng-class="{'text-primary':input.gender == '1'}" ng-click="select_gender('1')">男</span>
             </div>
-            <div class="edit-list padding-sm-left">
-                <div class="text-field">最高学历:</div>
-                <select class="full-width" name="degree" ng-model="input.degree">
-                    <option>专科</option>
-                    <option>本科</option>
-                    <option>硕士</option>
-                    <option>博士</option>
-                </select>
+            <div class="edit-list">
+                最高学历: 本科
+                
             </div>
-            <a class="edit-list" ng-href="#/choice_time">
+            <a class="edit-list">
                 出生年月: 2000/1/1
             </a>
-            <a class="edit-list" ng-href="#/choice_city">
+            <a class="edit-list">
                 所在城市: 深圳
             </a>
             <div class="edit-list padding-sm-left">
@@ -46,17 +42,13 @@
                 <input type="text" class="full-width" placeholder="" name="email" ng-model="input.email" required>
             </div>
             <div class="edit-list">
-                工作类型:
-                <span ng-class="{'text-primary':input.type == '1'}" ng-click="select_type('1')">口译</span>
+                工作类型: 口译
             </div>
             <div class="edit-list padding-sm-left">
-                <div class="text-field">工作性质:</div>
-                <select class="full-width" name="work_property" ng-model="input.work_property">
-                    <option>全职</option>
-                    <option>兼职</option>
-                </select>
+                <div class="text-field">工作性质:</div>全职
+                
             </div>
-            <a class="edit-list" ng-href="#/choice_language">
+            <a class="edit-list">
                 母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语: 中文
             </a>
             <div class="edit-list">
@@ -71,14 +63,15 @@
                 <span>|</span>
                 <span>专业</span>
             </div>
-            <a class="edit-list" ng-href="#/related_industry">
+            <a class="edit-list">
                 擅长行业/领域: 互联网
             </a>
-            <div class="edit-list padding-lg-left">
-                <div class="text-field">翻译经验年限:</div>
-                <input type="text" class="full-width" placeholder="" name="translation_year" ng-model="input.translation_year" required>
+            <div class="edit-list">
+                翻译经验年限: 10年
+                <!-- <div class="text-field"></div> -->
+                <!-- <input type="text" class="full-width" placeholder="" name="translation_year" ng-model="input.translation_year" required> -->
             </div>
-            <a class="edit-list" ng-href="#/interpreter_level">
+            <a class="edit-list">
                 翻译级别: 专家级别
             </a>
             <div class="edit-list">
@@ -141,11 +134,11 @@
                 <div class="exprience-content-wrap">
                     <div class="diploma">
                         最厉害的英语翻译
-                        <span class="pull-right">2012年10月获得</span>
+                        <span class="pull-right font-color">2012年10月获得</span>
                     </div>
                     <div class="diploma">
                         最厉害的英语翻译
-                        <span class="pull-right">2012年10月获得</span>
+                        <span class="pull-right font-color">2012年10月获得</span>
                     </div>
                 </div>
             </div>
@@ -153,7 +146,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header" ng-href="#/booking_date">
+            <a class="detail-header" ng-href="#/choice_time">
                 <span>可预约日期</span>
                 <span class="pull-right">编辑</span>
                 <div class="icon icon-infobooking pull-right"></div>
@@ -162,7 +155,7 @@
     </div>
 </div>
 <div class="detail">
-    <div class="basic-backgroup">
+    <a class="basic-backgroup" ng-href="#/online_preview">
         <div class="btn btn-block btn-primary">在线预览</div>
-    </div>
+    </a>
 </div>

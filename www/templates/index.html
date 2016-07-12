@@ -6,7 +6,7 @@
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/choice_language">
             <div class="icon icon-language"></div>
-            <div class="text-modify modify">{{input.language.from}} <span> - {{input.language.to||"请选择"}}</span></div>
+            <div class="text-modify modify">{{input.language.from}} <span ng-class="{'color-gray':input.language.to != ''}"> - {{input.language.to||"请选择"}}</span></div>
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/scenes">
             <div class="icon icon-star"></div>
