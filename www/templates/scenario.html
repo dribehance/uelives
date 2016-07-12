@@ -1,0 +1,8 @@
+<!-- 使用场景 -->
+<div class="industry space">
+    <div class="col-ms-4 pull-left" ng-repeat="tag in tags" ng-click="select(tag)">
+        <div class="tags">
+            <div class="tag" ng-class="{'highlight':input.tag == tag}">{{tag}}</div>
+        </div>
+    </div>
+</div>

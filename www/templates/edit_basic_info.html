@@ -1,7 +1,7 @@
 <div class="section">
     <div class="avatar-wrap text-center">
         <div class="avatar">
-            <img src="../images/avatar.png" class="full-width full-height">
+            <imageview data-rate='1' center-only src="'../images/avatar.png'"></imageview>
         </div>
     </div>
 </div>
@@ -22,15 +22,12 @@
             </div>
             <div class="edit-list padding-sm-left">
                 <div class="text-field">最高学历:</div>
-                <select class="full-width" name="degree" ng-model="input.degree">
-                    <option>专科</option>
-                    <option>本科</option>
-                    <option>硕士</option>
-                    <option>博士</option>
+                <select class="full-width" name="degree" ng-model="input.degree" ng-options="degree for degree in degrees">
+                   
                 </select>
             </div>
-            <a class="edit-list" ng-href="#/choice_time">
-                出生年月:
+            <a class="edit-list">
+                出生年月: <mobilepicker options="input.options"></mobilepicker>
             </a>
             <a class="edit-list" ng-href="#/choice_city">
                 所在城市:
@@ -89,4 +86,9 @@
             </div>
         </div>
     </div>
+</div>
+<div class="wrap text-center">
+    <a class="section" ng-href="#/information">
+        <div class="btn btn-lg btn-primary">保存</div>
+    </a>
 </div>

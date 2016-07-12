@@ -34,5 +34,6 @@ angular.module("Uelives").constant("config", {
 		"related_industry",
 		"self_booking",
 		"information",
+		"scenes",
 	]
 });

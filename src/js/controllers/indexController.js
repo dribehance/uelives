@@ -9,4 +9,8 @@ angular.module("Uelives").controller("indexController", function($scope, errorSe
 	$scope.input.days = "";
 	$scope.input.industry = localStorageService.get("industry") || "";
 	$scope.input.gender = 0
+    $scope.select_gender = function(n) {
+    	console.log(n)
+        $scope.input.gender = n;
+    };
 })
