@@ -10,7 +10,7 @@
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/scenes">
             <div class="icon icon-star"></div>
-            <div class="text-modify modify "><span>使用场景</span></div>
+            <div class="text-modify modify "><span ng-class="{'color-gray':input.scene!= ''}">{{scene.name||"使用场景"}}</span></div>
         </a>
         <a class="input-item padding-xs-left padding-right" ng-href="#/choice_time">
             <div class="icon icon-date"></div>

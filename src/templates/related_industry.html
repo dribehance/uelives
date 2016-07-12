@@ -1,12 +1,12 @@
 <div class="industry space">
-    <div class="col-ms-4 pull-left" ng-repeat="tag in tags" ng-click="select(tag)">
+    <div class="col-ms-4 pull-left" ng-repeat="industry in industries" ng-click="select(industry)">
         <div class="tags">
-            <div class="tag" ng-class="{'highlight':input.tag == tag}">{{tag}}</div>
+            <div class="tag" ng-class="{'highlight':industry.select}">{{industry.name}}</div>
         </div>
     </div>
 </div>
 <div class="wrap">
-    <div class="section text-center">
-        <span class="btn btn-block btn-primary">保存</span>
+    <div class="section text-center" >
+        <span class="btn btn-block btn-primary" ng-click="save()">保存</span>
     </div>
 </div>
