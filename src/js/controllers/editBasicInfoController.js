@@ -11,6 +11,14 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
     $scope.select_type = function(n) {
         $scope.input.type = n;
     }
+
+    // if (!$scope.user.birthday) {
+    //     $scope.input.birthday = $filter("date")(new Date(), "yyyy-MM-dd");
+    //     $scope.input.options.value = $scope.input.birthday
+    // } else {
+    //     $scope.input.birthday = $scope.user.birthday;
+    //     $scope.input.options.value = $scope.user.birthday;
+    // }
     
     $scope.degrees = ["请选择", "大专", "本科", "硕士", "博士"];
     $scope.input.degree = $scope.degrees[0]

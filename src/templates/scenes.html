@@ -1,8 +1,13 @@
 <!-- 使用场景 -->
 <div class="industry space">
-    <div class="col-ms-4 pull-left" ng-repeat="tag in tags" ng-click="select(tag)">
+    <div class="col-ms-4 pull-left" ng-repeat="scene in scenes" ng-click="select_scene(scene)">
         <div class="tags">
-            <div class="tag" ng-class="{'highlight':input.tag == tag}">{{tag}}</div>
+            <div class="tag" ng-class="{'highlight':scene.select}">{{scene.name}}</div>
         </div>
     </div>
+</div>
+<div class="wrap text-center">
+    <a class="section">
+        <div class="btn btn-lg btn-primary">保存</div>
+    </a>
 </div>

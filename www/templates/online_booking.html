@@ -51,7 +51,7 @@
                 <div class="contact-item padding modify">
                     <div class="name">姓名:</div>
                     <input class="full-width">
-                    <div class="woman" ng-class="{'highlight':input.gender == '0'}" ng-click="select_gender('0')" >女士</div>
+                    <div class="woman" ng-class="{'highlight':input.gender == '0'}" ng-click="select_gender('0')">女士</div>
                     <div class="man" ng-class="{'highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
                 </div>
                 <div class="contact-item padding-lg-left modify">
@@ -73,16 +73,18 @@
                 </div>
                 <div class="contact-item">
                     <div class="contact-item-title">如果译员不能接单</div>
-                    <div class="contact-item-content"><i class="fa fa-check-square" aria-hidden="true"></i>系统自动匹配其他相符译员</div>
-                    <div class="contact-item-content"><i class="fa fa-check-square" aria-hidden="true"></i>取消订单并退款</div>
+                    <div class="contact-item-content" ng-click="check('1')">
+                        <i class="fa" ng-class="{'fa-check-square':input.check == '1','fa-square-o':input.check != '1'}" aria-hidden="true"></i>系统自动匹配其他相符译员</div>
+                    <div class="contact-item-content" ng-click="check('2')">
+                        <i class="fa" ng-class="{'fa-check-square':input.check == '2','fa-square-o':input.check != '2'}" aria-hidden="true"></i>取消订单并退款</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="booking">
         <div class="policy">
-            <div class="policy-content">
-                <i class="fa fa-check-square" aria-hidden="true"></i>同意<span>使用条款</span>
+            <div class="policy-content" ng-click="isAgree()">
+                <i class="fa fa-square-o" ng-class="{'fa-check-square':input.check==true}" aria-hidden="true"></i>同意<span>使用条款</span>
             </div>
             <div class="policy-content">
                 译员接单后您会收到联系方式
