@@ -1,6 +1,6 @@
 angular.module("Uelives").controller("choiceTimeController", function($scope, $routeParams, $timeout, $route, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
-	$scope.is_my_schedule = $routeParams.single;
+	$scope.schedule_mode = $routeParams.mode;
 	$scope.select_gender = function(gender) {
 		$scope.input.gender = gender;
 	};
@@ -17,11 +17,13 @@ angular.module("Uelives").controller("choiceTimeController", function($scope, $r
 		return day.schedule_date.split("-")[2];
 	}
 	$scope.active = function(day) {
-		if ($routeParams.single) {
+		if ($routeParams.mode == 'single') {
 			$scope.single_check(day);
 			return;
 		}
-		$scope.multi_check(day);
+		if ($routeParams.mode == 'multi') {
+			$scope.multi_check(day);
+		}
 	}
 	$scope.single_check = function(day) {
 		if (day.schedule_state == 1) {
