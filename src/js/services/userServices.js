@@ -33,6 +33,10 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/UserCenter/updateBgImg",
 			token: localStorageService.get("token")
 		})),
+		update_userinfo: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserCenter/updateUserInfo",
+			token: localStorageService.get("token")
+		})),
 		realname_authen: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "api_url",
 			token: localStorageService.get("token")
@@ -72,6 +76,10 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		query_language: apiServices._get(angular.extend({}, config.common_params, {
 			url: "city/language.json",
 			token: localStorageService.get("token")
+		})),
+		// 涉及行业列表
+		query_industries: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserCenter/translateFieldList",
 		})),
 	}
 });

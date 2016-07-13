@@ -1,6 +1,6 @@
 angular.module("Uelives").constant("config", {
-	url: "http://uelives.com:9001",
-	imageUrl: "http://uelives.com:9001/files/image?name=",
+	url: "http://uelives.com",
+	imageUrl: "http://uelives.com/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -9,7 +9,8 @@ angular.module("Uelives").constant("config", {
 		"SUCCESS": 1
 	},
 	common_params: {
-		invoke: "h5"
+		invoke: "h5",
+		app_sign: "123456"
 	},
 	interceptor: [
 		"index",
@@ -33,6 +34,7 @@ angular.module("Uelives").constant("config", {
 		"order_confirm",
 		"order_finish",
 		"order_wait",
+		"languages",
 		"related_industry",
 		"self_booking",
 		"information",

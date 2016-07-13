@@ -1,4 +1,4 @@
- angular.module("Uelives").controller("choiceCityController", function($scope, $rootScope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
+ angular.module("Uelives").controller("choiceCityController", function($scope, $routeParams, $rootScope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
      $scope.input = {};
      $scope.input.tag = localStorageService.get("city") || "";
      // 1国内城市0国际城市
@@ -6,7 +6,12 @@
      //A  同类城市列表字体颜色转换
      $scope.select_city = function(city) {
          $scope.input.tag = city;
-         localStorageService.set("city", city);
+         // 缓存编辑信息
+         var cache = localStorageService.get("cache");
+         if (cache && $routeParams.cache_key) {
+             cache[$routeParams.cache_key] = city;
+             localStorageService.set("cache", cache);
+         }
          $rootScope.back();
      };
      //获取城市
