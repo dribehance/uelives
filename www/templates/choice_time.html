@@ -1,6 +1,6 @@
 <div class="choice-time">
     <div class="time-header">
-        <div class="time-title text-center">2016年6月</div>
+        <div class="time-title text-center"></div>
         <div class="week justified">
             <div class="week-item">日</div>
             <div class="week-item">一</div>
@@ -11,38 +11,24 @@
             <div class="week-item">六</div>
         </div>
     </div>
-    <div class="time-container">
-        <div class="container-title text-center">2016年6月</div>
+    <div class="time-container" ng-repeat="schedule in schedules">
+        <div class="container-title text-center">{{schedule.schedule_month}}</div>
         <div class="day-wrap">
-            <div class="col-ms-7 pull-left" ng-repeat="day in days">
-                <div class="day">
-                    <div class="day-item text-center background-color">{{day}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="time-container">
-        <div class="container-title text-center">2016年7月</div>
-        <div class="day-wrap">
-            <div class="col-ms-7 pull-left" ng-repeat="day in days">
-                <div class="day">
-                    <div class="day-item text-center border">{{day}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="time-container">
-        <div class="container-title text-center">2016年8月</div>
-        <div class="day-wrap margin-bottom">
-            <div class="col-ms-7 pull-left" ng-repeat="day in days">
-                <div class="day">
-                    <div class="day-item text-center highlight">{{day}}</div>
+            <div class="col-ms-7 pull-left" ng-repeat="day in schedule.scheduleBeans">
+                <div class="day" ng-click="active(day)">
+                    <div class="day-item text-center" ng-class="{'border-color':day.schedule_state == '1','busy':day.schedule_state == '2','background-color':day.schedule_state == '3','highlight':day.schedule_state == '4'|| day==input.day}">{{parse_time(day)}}</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="time-footer">
-    	<div class="time-icon"></div>
-    	<span>不可预约日期</span>
+        <div class="time-icon"></div>
+        <span>不可预约日期</span>
+        <div class="detail">
+            <div class="basic-backgroup">
+                <div class="btn btn-block btn-primary" ng-if="input.day.schedule_state=='2'" ng-click="mark_schedule('2')">标记为空闲</div>
+                <div class="btn btn-block btn-primary" ng-if="input.day.schedule_state=='3'" ng-click="mark_schedule('1')">标记为忙</div>
+            </div>
+        </div>
     </div>
 </div>

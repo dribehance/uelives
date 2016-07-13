@@ -124,5 +124,14 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/Home/translateSceneList",
 			token: localStorageService.get("token")
 		})),
+		// 时间表
+		query_schedule: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/ScheduleManage/scheduleList",
+			token: localStorageService.get("token")
+		})),
+		mark_schedule: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/ScheduleManage/setTranslateTime",
+			token: localStorageService.get("token")
+		})),
 	}
 });

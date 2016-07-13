@@ -1,8 +1,60 @@
-angular.module("Uelives").controller("choiceTimeController", function($scope, errorServices, toastServices, localStorageService, config) {
-    $scope.input = {};
-    $scope.days = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"];
-    $scope.input.day=$scope.days['0']
-    $scope.select_gender = function(gender) {
-        $scope.input.gender = gender;
-    };
+angular.module("Uelives").controller("choiceTimeController", function($scope, $routeParams, $timeout, $route, userServices, errorServices, toastServices, localStorageService, config) {
+	$scope.input = {};
+	$scope.is_my_schedule = $routeParams.single;
+	$scope.select_gender = function(gender) {
+		$scope.input.gender = gender;
+	};
+	toastServices.show();
+	userServices.query_schedule().then(function(data) {
+		toastServices.hide()
+		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+			$scope.schedules = data.calendarBeans;
+		} else {
+			errorServices.autoHide(data.message);
+		}
+	})
+	$scope.parse_time = function(day) {
+		return day.schedule_date.split("-")[2];
+	}
+	$scope.active = function(day) {
+		if ($routeParams.single) {
+			$scope.single_check(day);
+			return;
+		}
+		$scope.multi_check(day);
+	}
+	$scope.single_check = function(day) {
+		if (day.schedule_state == 1) {
+			return;
+		}
+		$scope.input.day = day;
+	}
+	$scope.multi_check = function(day) {
+		if (day.schedule_state < 3) {
+			return;
+		}
+		if (day.schedule_state == 3) {
+			return day.schedule_state = 4
+		}
+		if (day.schedule_state == 4) {
+			return day.schedule_state = 3
+		}
+	}
+	$scope.mark_schedule = function(type) {
+		toastServices.show();
+		userServices.mark_schedule({
+			type: type,
+			choice_currentdates: $scope.input.day.schedule_date
+		}).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
+				$timeout(function() {
+					$route.reload();
+				}, 2000)
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+	}
 })
