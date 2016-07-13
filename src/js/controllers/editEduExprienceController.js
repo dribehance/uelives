@@ -1,5 +1,6 @@
 angular.module("Uelives").controller("editEduExprienceController", function($scope, $routeParams, $filter, $rootScope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
+	$scope.input.remove_id = $routeParams.id;
 	$scope.year = parseFloat($filter("date")(new Date(), "yyyy"));
 	$scope.years = ["至今"];
 	for (i = 0; i < 50; i++) {
@@ -57,6 +58,22 @@ angular.module("Uelives").controller("editEduExprienceController", function($sco
 			school_name: $scope.input.school_name,
 			education: $scope.input.degree,
 			profession: $scope.input.major,
+		}).then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				errorServices.autoHide(data.message);
+				$timeout(function() {
+					$rootScope.back();
+				}, 2000)
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+	}
+	$scope.remove = function() {
+		toastServices.show();
+		userServices.remove_edu_experience({
+			user_edu_experience_id: $routeParams.id,
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
