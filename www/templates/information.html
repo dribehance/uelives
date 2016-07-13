@@ -18,64 +18,64 @@
                 <div class="icon icon-infohead pull-right"></div>
             </a>
             <div class="edit-list padding-sm-left">
-                <div class="text-field">姓 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名: xiaoming</div>
+                <div class="text-field">姓 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名: {{user.nickname || "暂无填写"}}</div>
                 <input type="text" class="full-width" placeholder="" name="name" ng-model="input.name" required>
             </div>
             <div class="edit-list padding-sm-left">
                 <div class="text-field">性 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别:</div>
-                <span ng-class="{'text-primary':input.gender == '1'}" ng-click="select_gender('1')">男</span>
+                <span>{{user.sex|| "暂无填写"}}</span>
             </div>
             <div class="edit-list">
-                最高学历: 本科
+                最高学历: {{user.edu || "暂无填写"}}
             </div>
             <a class="edit-list">
-                出生年月: 2000/1/1
+                出生年月: {{user.birthday || "暂无填写"}}
             </a>
             <a class="edit-list">
-                所在城市: 深圳
+                所在城市: {{user.city||"暂无填写"}}
             </a>
             <div class="edit-list padding-sm-left">
-                <div class="text-field">联系电话: 13760265469</div>
-                <input type="text" class="full-width" placeholder="" name="telephone" ng-model="input.telephone" required>
+                <div class="text-field">联系电话:</div>
+                {{user.telephone || "暂无填写"}}
             </div>
             <div class="edit-list padding-sm-left">
-                <div class="text-field">联系邮箱: www.xiaoming@gmail.com</div>
-                <input type="text" class="full-width" placeholder="" name="email" ng-model="input.email" required>
+                <div class="text-field">联系邮箱:</div>
+                {{user.email || "暂无填写"}}
             </div>
             <div class="edit-list">
-                工作类型: 口译
+                工作类型: {{user.job_type || "暂无填写"}}
             </div>
             <div class="edit-list padding-sm-left">
-                <div class="text-field">工作性质:</div>全职
+                <div class="text-field">工作性质:</div>{{user.job_property || "暂无填写"}}
             </div>
             <a class="edit-list">
-                母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语: 中文
+                母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语: {{user.mother_language || "暂无填写"}}
             </a>
             <div class="edit-list">
                 第一外语:
-                <span>英语</span>
+                <span>{{user.first_language || "暂无填写"}}</span>
                 <span>|</span>
-                <span>专业</span>
+                <span>{{user.first_language_level || "暂无填写"}}</span>
             </div>
             <div class="edit-list">
                 第二外语:
-                <span>法语</span>
+                <span>{{user.second_language || "暂无填写"}}</span>
                 <span>|</span>
-                <span>专业</span>
+                <span>{{user.second_language_level || "暂无填写"}}</span>
             </div>
             <a class="edit-list">
-                擅长行业/领域: 互联网
+                擅长行业/领域: {{user.good_field || "暂无填写"}}
             </a>
             <div class="edit-list">
-                翻译经验年限: 10年
+                翻译经验年限: {{user.translate_year || "0"}}年
                 <!-- <div class="text-field"></div> -->
                 <!-- <input type="text" class="full-width" placeholder="" name="translation_year" ng-model="input.translation_year" required> -->
             </div>
             <a class="edit-list">
-                翻译级别: 专家级别
+                翻译级别: {{user.translate_level || "暂无填写"}}
             </a>
             <div class="edit-list">
-                日&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp薪: ￥400
+                日&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp薪: {{user.pay_day || "0" |currency:"￥"}}
             </div>
         </div>
     </div>
@@ -87,14 +87,14 @@
                 <div class="icon icon-basicedu pull-right"></div>
             </a>
             <div class="exprience-content">
-                <div class="exprience-content-wrap margin-top">
+                <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserEduExperiences">
                     <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
                     <div class="line"></div>
-                    <div class="exprience-time">2015.07-至今</div>
+                    <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}</div>
                     <div class="exprience-school">
-                        香港理工大学
-                        <span class="pull-right">销售管理</span>
-                        <span class="pull-right border-right">本科</span>
+                        {{experience.school_name}}
+                        <span class="pull-right">{{experience.profession}}</span>
+                        <span class="pull-right border-right">{{experience.education}}</span>
                     </div>
                 </div>
             </div>
@@ -108,16 +108,16 @@
                 <div class="icon icon-basicwork pull-right"></div>
             </a>
             <div class="exprience-content">
-                <div class="exprience-content-wrap margin-top">
+                <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserWorkExperiences">
                     <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
                     <div class="line"></div>
-                    <div class="exprience-time">2015.07-至今</div>
+                    <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}</div>
                     <div class="exprience-company">
-                        悠译创办人
+                        {{experience.position}}
                         <label>|</label>
-                        悠译(深圳)科技有限公司
+                        {{experience.work_name}}
                     </div>
-                    <div class="duty">表现良好，项目按时完成</div>
+                    <div class="duty">{{experience.duty}}</div>
                 </div>
             </div>
         </div>
@@ -132,13 +132,9 @@
             </a>
             <div class="exprience-content">
                 <div class="exprience-content-wrap">
-                    <div class="diploma">
-                        最厉害的英语翻译
-                        <span class="pull-right font-color">2012年10月获得</span>
-                    </div>
-                    <div class="diploma">
-                        最厉害的英语翻译
-                        <span class="pull-right font-color">2012年10月获得</span>
+                    <div class="diploma" ng-repeat="experience in user.UserIdentitys">
+                        {{experience.title}}
+                        <span class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</span>
                     </div>
                 </div>
             </div>
