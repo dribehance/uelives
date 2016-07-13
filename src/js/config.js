@@ -37,5 +37,6 @@ angular.module("Uelives").constant("config", {
 		"self_booking",
 		"information",
 		"scenes",
+		"certificate",
 	]
 });

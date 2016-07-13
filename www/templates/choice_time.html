@@ -23,7 +23,7 @@
     </div>
     <div class="time-container">
         <div class="container-title text-center">2016年7月</div>
-        <div class="day-wrap margin-bottom">
+        <div class="day-wrap">
             <div class="col-ms-7 pull-left" ng-repeat="day in days">
                 <div class="day">
                     <div class="day-item text-center border">{{day}}</div>
@@ -31,7 +31,16 @@
             </div>
         </div>
     </div>
-    
+    <div class="time-container">
+        <div class="container-title text-center">2016年8月</div>
+        <div class="day-wrap margin-bottom">
+            <div class="col-ms-7 pull-left" ng-repeat="day in days">
+                <div class="day">
+                    <div class="day-item text-center highlight">{{day}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="time-footer">
     	<div class="time-icon"></div>
     	<span>不可预约日期</span>

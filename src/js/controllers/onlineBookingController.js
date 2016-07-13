@@ -4,10 +4,9 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
     $scope.select_gender = function(gender) {
         $scope.input.gender = gender;
     };
-
-    $scope.input.check = 0;
     $scope.check = function(n) {
-        $scope.input.check=n
-
+        $scope.input.check = n
     };
+
+    
 })
