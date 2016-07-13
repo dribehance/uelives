@@ -109,14 +109,15 @@
         <div class="basic-info">
             <a class="detail-header modify" ng-href="#/edit_work_exprience">
                 <span>工作经历</span>
-                <span class="pull-right">编辑</span>
+                <span class="pull-right">新增</span>
                 <div class="icon icon-basicwork pull-right"></div>
             </a>
             <div class="exprience-content">
                 <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserWorkExperiences">
                     <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
                     <div class="line"></div>
-                    <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}</div>
+                    <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}
+                    <a class="pull-right text-primary" ng-href="#/edit_work_exprience?id={{experience.user_work_experience_id}}">编辑</a></div>
                     <div class="exprience-company">
                         {{experience.position}}
                         <label>|</label>

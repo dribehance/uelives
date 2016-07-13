@@ -100,5 +100,29 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/UserEduExps/deleteUserEduExps",
 			token: localStorageService.get("token")
 		})),
+		// 新增工作经历
+		create_work_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserWorkExps/addUserWorkExps",
+			token: localStorageService.get("token")
+		})),
+		query_work_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserWorkExps/userUserWorkExpInfo",
+			token: localStorageService.get("token")
+		})),
+		// 编辑工作经历
+		update_work_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserWorkExps/editUserWorkExps",
+			token: localStorageService.get("token")
+		})),
+		// 删除工作经历
+		remove_work_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserWorkExps/deleteUserWorkExps",
+			token: localStorageService.get("token")
+		})),
+		// 工作场景
+		query_scenes: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/Home/translateSceneList",
+			token: localStorageService.get("token")
+		})),
 	}
 });

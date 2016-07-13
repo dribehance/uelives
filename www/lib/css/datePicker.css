@@ -24,7 +24,7 @@
   text-align: left;
   font-weight: 700;
   padding: 10px;
-  color: #8037AB;
+  color: #37B3D5;
 }
 #datePlugin .d-date-info {
   color: #333;
@@ -38,7 +38,7 @@
   position: relative;
 }
 #datePlugin .d-time-wrap {
-  border-top: 1px solid #8037AB;
+  border-top: 1px solid #37B3D5;
 }
 #datePlugin .d-time-wrap .d-date-cell {
   width: 50%;
@@ -65,7 +65,7 @@
   text-align: center;
 }
 #datePlugin .d-date-btns .d-btn {
-  background: #8037AB;
+  background: #37B3D5;
   display: inline-block;
   width: 50%;
   margin-top: 10px;
@@ -76,11 +76,11 @@
   padding: 10px 0;
 }
 #datePlugin .d-date-btns #d-okBtn {
-  /*    background: #8037AB;*/
+  /*    background: #37B3D5;*/
   /*border-bottom-left-radius: 5px;*/
   border-right: 1px solid #ddd;
 }
 #datePlugin .d-date-btns #d-cancleBtn {
-  background: #cc84f7;
+  background: #76c7dd;
   /* border-bottom-right-radius: 5px;*/
 }

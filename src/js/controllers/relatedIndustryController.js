@@ -11,7 +11,7 @@ angular.module("Uelives").controller("relatedIndustryController", function($scop
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
             $scope.industries = data.Result.TranslateFields;
             $scope.industries.map(function(industry) {
-                if (cache[$routeParams.cache_key].indexOf(industry.name) != -1) {
+                if (cache && cache[$routeParams.cache_key] && cache[$routeParams.cache_key].indexOf(industry.name) != -1) {
                     industry.select = true
                 }
                 return industry;

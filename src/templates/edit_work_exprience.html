@@ -1,28 +1,33 @@
-<div class="edit-work">
-    <div class="edit-group">
-    	<div class="edit-item modify">
-    		<div class="icon icon-edit"></div>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="公司名称" name="input.corporateName" ng-model="input.schoolName" required>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="你的职位" name="input.position" ng-model="input.position" required>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="入职时间" name="input.entryTime" ng-model="input.entryTime" required>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="离职时间" name="input.quitTime" ng-model="input.quitTime" required>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="一句话描述你的职责" name="input.duty" ng-model="input.duty" required>
-    	</div>
+<form name="editForm" ng-submit="ajaxForm()">
+    <div class="edit-work">
+        <div class="edit-group">
+            <div class="edit-item modify">
+                <div class="icon icon-edit"></div>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <input type="text" class="full-width" placeholder="公司名称" name="work_name" ng-model="input.work_name" required>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <input type="text" class="full-width" placeholder="你的职位" name="position" ng-model="input.position" required>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <!-- <input type="text" class="full-width" placeholder="入职时间" name="start_time" ng-model="input.start_time" required> -->
+                <mobilepicker options="input.start_time_option"></mobilepicker>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <!-- <input type="text" class="full-width" placeholder="离职时间" name="end_time" ng-model="input.end_time" required> -->
+                <mobilepicker options="input.end_time_option"></mobilepicker>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" required>
+            </div>
+            <div class="edit-item padding margin-left modify" ng-click="cache_and_go('scenes','working_scene')">
+                {{input.working_scene||"请选择工作场景"}}
+            </div>
+        </div>
     </div>
-    
-</div>
-<div class="wrap text-center">
-    <a class="section" ng-href="#/information">
-        <div class="btn btn-lg btn-primary">保存</div>
-    </a>
-</div>
+    <div class="wrap text-center">
+        <button type="button" class="btn btn-lg btn-danger" ng-click="remove()" ng-if="input.remove_id">删除</button>
+        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="editForm.$invalid">保存</button>
+    </div>
+</form>

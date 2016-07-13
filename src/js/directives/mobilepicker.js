@@ -5,7 +5,7 @@ angular.module("Uelives").directive('mobilepicker', function($timeout) {
 		scope: {
 			options: "=",
 		},
-		template: "<input type='text' name='picker' readonly ng-model='options.value'>",
+		template: "<input type='text' name='picker' placeholder='{{options.placeholder}}' readonly ng-model='options.value'>",
 		link: function(scope, element, attrs) {
 			var options = {
 				// 开始年份(默认2010开始)

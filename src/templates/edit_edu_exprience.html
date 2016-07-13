@@ -1,4 +1,4 @@
-<form name="eduForm" ng-submit="ajaxForm()">
+<form name="editForm" ng-submit="ajaxForm()">
     <div class="edit-edu">
         <div class="edit-group">
             <div class="edit-item modify">
@@ -26,6 +26,6 @@
     </div>
     <div class="wrap text-center">
         <button type="button" class="btn btn-lg btn-danger" ng-click="remove()" ng-if="input.remove_id">删除</button>
-        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="eduForm.$invalid">保存</button>
+        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="editForm.$invalid">保存</button>
     </div>
 </form>
