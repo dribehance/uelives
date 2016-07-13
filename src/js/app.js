@@ -3,7 +3,7 @@ angular.module("Uelives", [
 		"ngRoute",
 		// "ngSanitize",
 		"LocalStorageModule",
-		// "flow",
+		"flow",
 		// "timer"
 	])
 	.config(function($routeProvider, $httpProvider, $locationProvider, localStorageServiceProvider, config) {

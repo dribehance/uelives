@@ -11,7 +11,7 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		})),
 		// signup
 		signup: apiServices._get(angular.extend({}, config.common_params, {
-			url: config.url + "api_url",
+			url: config.url + "/app/UserCenter/RegistTelOne",
 		})),
 		// forget password
 		forget: apiServices._get(angular.extend({}, config.common_params, {
@@ -22,11 +22,15 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "api_url",
 		})),
 		get_smscode: apiServices._get(angular.extend({}, config.common_params, {
-			url: config.url + "api_url",
+			url: config.url + "/app/UserCenter/GetCode",
 		})),
 		// query user basic information
 		query_basicinfo: apiServices._get(angular.extend({}, config.common_params, {
-			url: config.url + "api_url",
+			url: config.url + "/app/UserCenter/userInfo",
+			token: localStorageService.get("token")
+		})),
+		update_avatar: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserCenter/updateBgImg",
 			token: localStorageService.get("token")
 		})),
 		realname_authen: apiServices._get(angular.extend({}, config.common_params, {
@@ -58,16 +62,16 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			token: localStorageService.get("token")
 		})),
 		query_city: apiServices._get(angular.extend({}, config.common_params, {
-            url: "city/city_with_index.json",
-            token: localStorageService.get("token")
-        })),
-        query_inter_city: apiServices._get(angular.extend({}, config.common_params, {
-            url: "city/inter_city_with_index.json",
-            token: localStorageService.get("token")
-        })),
-        query_language: apiServices._get(angular.extend({}, config.common_params, {
-            url: "city/language.json",
-            token: localStorageService.get("token")
-        })),
+			url: "city/city_with_index.json",
+			token: localStorageService.get("token")
+		})),
+		query_inter_city: apiServices._get(angular.extend({}, config.common_params, {
+			url: "city/inter_city_with_index.json",
+			token: localStorageService.get("token")
+		})),
+		query_language: apiServices._get(angular.extend({}, config.common_params, {
+			url: "city/language.json",
+			token: localStorageService.get("token")
+		})),
 	}
 });

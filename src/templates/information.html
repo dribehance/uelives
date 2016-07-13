@@ -2,11 +2,13 @@
     <div class="section">
         <div class="avatar-wrap text-center justified">
             <div class="avatar">
-                <imageview data-rate='1' center-only src="'../images/avatar.png'"></imageview>
+               <!--  <div data-rate="1" flow-init='{singleFile:true}'>
+                    <img src='../images/avatar.png' flow-btn flow-img='$flow.files[0]' uploader>
+                </div> -->
+                <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{user.image_01}}" class="full-width full-height block"></uploader>
             </div>
             <div class="avatar-info text-center">更换头像</div>
         </div>
-        
     </div>
     <div class="edit-basic border-radius margin-bottom">
         <div class="edit-content">
@@ -25,7 +27,6 @@
             </div>
             <div class="edit-list">
                 最高学历: 本科
-                
             </div>
             <a class="edit-list">
                 出生年月: 2000/1/1
@@ -46,7 +47,6 @@
             </div>
             <div class="edit-list padding-sm-left">
                 <div class="text-field">工作性质:</div>全职
-                
             </div>
             <a class="edit-list">
                 母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语: 中文

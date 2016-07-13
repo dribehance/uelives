@@ -1,6 +1,6 @@
 angular.module("Uelives").constant("config", {
-	url: "http://",
-	imageUrl: "http://",
+	url: "http://uelives.com:9001",
+	imageUrl: "http://uelives.com:9001/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -8,7 +8,9 @@ angular.module("Uelives").constant("config", {
 	response: {
 		"SUCCESS": 1
 	},
-	common_params: {},
+	common_params: {
+		invoke: "h5"
+	},
 	interceptor: [
 		"index",
 		"booking_date",
