@@ -81,5 +81,24 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		query_industries: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/UserCenter/translateFieldList",
 		})),
+		// 新增教育经历
+		create_edu_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserEduExps/addUserEduExps",
+			token: localStorageService.get("token")
+		})),
+		query_edu_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserEduExps/userEduExperienceInfo",
+			token: localStorageService.get("token")
+		})),
+		// 编辑教育经历
+		update_edu_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserEduExps/editUserEduExps",
+			token: localStorageService.get("token")
+		})),
+		// 删除教育经历
+		remove_edu_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserEduExps/deleteUserEduExps",
+			token: localStorageService.get("token")
+		})),
 	}
 });
