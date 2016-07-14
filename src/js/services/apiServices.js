@@ -1,8 +1,11 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").factory("apiServices", function($http) {
+angular.module("Uelives").factory("apiServices", function($http, localStorageService) {
 	return {
 		_get: function(request) {
 			return function(input) {
+				if (request.token !== undefined) {
+					request.token = localStorageService.get("token")
+				}
 				return $http({
 					// by dribehance <dribehance.kksdapp.com>
 					url: request.url,
@@ -15,6 +18,9 @@ angular.module("Uelives").factory("apiServices", function($http) {
 		},
 		_post: function(request) {
 			return function(input) {
+				if (request.token !== undefined) {
+					request.token = localStorageService.get("token")
+				}
 				return $http({
 					// by dribehance <dribehance.kksdapp.com>
 					url: request.url,

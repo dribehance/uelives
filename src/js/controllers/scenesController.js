@@ -29,6 +29,10 @@ angular.module("Uelives").controller("scenesController", function($scope, $rootS
             errorServices.autoHide("请选择擅长领域");
             return;
         }
+        if (scenes.length > 2) {
+            errorServices.autoHide("最多只能选择两个");
+            return;
+        }
         // 缓存编辑信息
         var cache = localStorageService.get("cache");
         if (cache && $routeParams.cache_key) {

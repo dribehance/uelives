@@ -43,6 +43,9 @@ angular.module("Uelives").directive('uploader', function($timeout, localStorageS
 			});
 			// default image;
 			$scope.src = "../images/default.png";
+			if ($attrs.default) {
+				$scope.src = $attrs.default;
+			}
 			$attrs.$observe('src', function(value) {
 				if (value) {
 					$scope.src = config.imageUrl + value

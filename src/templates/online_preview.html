@@ -97,22 +97,17 @@
         <div class="basic-info">
             <div class="detail-header modify">
                 <span>语言能力及证书</span>
-                <label class="font-color">(官方认证)</label>
+                <!-- <label class="font-color">(官方认证)</label> -->
                 <div class="icon icon-basicdiploma pull-right"></div>
             </div>
             <div class="exprience-content">
                 <div class="exprience-content-wrap">
-                    <div class="diploma">
-                        最厉害的英语翻译 
-
-                        <span class="pull-right font-color">2012年10月获得</span>
-
-                        <div class="modify-color"><span>(审核通过)</span></div>
-                    </div>
-                    <div class="diploma">
-                        最厉害的英语翻译
-                        <span class="pull-right font-color">2012年10月获得</span>
-                        <div class=""><span>(审核中)</span></div>
+                    <div class="diploma" ng-repeat="experience in user.UserIdentitys">
+                        {{experience.title}}
+                        <a class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a>
+                        <div class="modify-color" ng-if="experience.status == '0'"><span>(待审核)</span></div>
+                        <div class="modify-color" ng-if="experience.status == '1'"><span>(审核通过)</span></div>
+                        <div class="modify-color" ng-if="experience.status == '2'"><span>(重新认证)</span></div>
                     </div>
                 </div>
             </div>
@@ -120,7 +115,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header" ng-href="#/choice_time?single=preview">
+            <a class="detail-header" ng-href="#/schedule_preview?id={{user.user_id}}">
                 <span>可预约日期</span>
                 <div class="icon icon-basicdate pull-right"></div>
             </a>

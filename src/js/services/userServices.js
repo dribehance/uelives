@@ -119,6 +119,25 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/UserWorkExps/deleteUserWorkExps",
 			token: localStorageService.get("token")
 		})),
+		// 新增证书
+		create_cert_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserIdentitys/addUserIdentity",
+			token: localStorageService.get("token")
+		})),
+		query_cert_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserIdentitys/userIdentityInfo",
+			token: localStorageService.get("token")
+		})),
+		// 编辑证书
+		update_cert_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserIdentitys/editUserIdentity",
+			token: localStorageService.get("token")
+		})),
+		// 删除证书
+		remove_cert_experience: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserIdentitys/deleteUserIdentity",
+			token: localStorageService.get("token")
+		})),
 		// 工作场景
 		query_scenes: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Home/translateSceneList",

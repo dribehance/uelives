@@ -28,6 +28,8 @@ angular.module("Uelives").constant("config", {
 		"interpreter_settled",
 		"online_booking",
 		"online_preview",
+		"schedule",
+		"schedule_preview",
 		"order_management_interpreter",
 		"order_management_user",
 		"order_cancel",

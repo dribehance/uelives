@@ -2,10 +2,9 @@
     <div class="section">
         <div class="avatar-wrap text-center justified">
             <div class="avatar">
-               <!--  <div data-rate="1" flow-init='{singleFile:true}'>
-                    <img src='../images/avatar.png' flow-btn flow-img='$flow.files[0]' uploader>
-                </div> -->
                 <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{user.image_01}}" class="full-width full-height block"></uploader>
+                <div class="icon icon-man" ng-if="user.sex=='男'"></div>
+                <div class="icon icon-nv" ng-if="user.sex=='女'"></div>
             </div>
             <div class="avatar-info text-center">更换头像</div>
         </div>
@@ -117,7 +116,7 @@
                     <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
                     <div class="line"></div>
                     <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}
-                    <a class="pull-right text-primary" ng-href="#/edit_work_exprience?id={{experience.user_work_experience_id}}">编辑</a></div>
+                        <a class="pull-right text-primary" ng-href="#/edit_work_exprience?id={{experience.user_work_experience_id}}">编辑</a></div>
                     <div class="exprience-company">
                         {{experience.position}}
                         <label>|</label>
@@ -130,9 +129,9 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header modify" ng-href="#/">
+            <a class="detail-header modify" ng-href="#/certificate">
                 <span>语言能力及证书</span>
-                <span class="pull-right">编辑</span>
+                <span class="pull-right">新增</span>
                 <!-- <label class="font-color">(官方认证)</label> -->
                 <div class="icon icon-basicdiploma pull-right"></div>
             </a>
@@ -140,7 +139,8 @@
                 <div class="exprience-content-wrap">
                     <div class="diploma" ng-repeat="experience in user.UserIdentitys">
                         {{experience.title}}
-                        <span class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</span>
+                        <a class="pull-right text-primary" ng-href="#/certificate?id={{experience.user_identity_id}}">编辑</a>
+                        <a class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a>
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header" ng-href="#/choice_time?mode=single">
+            <a class="detail-header" ng-href="#/schedule?id={{user.user_id}}">
                 <span>可预约日期</span>
                 <span class="pull-right">编辑</span>
                 <div class="icon icon-infobooking pull-right"></div>

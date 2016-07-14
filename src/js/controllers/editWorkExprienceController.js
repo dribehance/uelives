@@ -7,13 +7,6 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 	$scope.input.end_time_option = {
 		placeholder: "请选择离职时间"
 	}
-	$scope.year = parseFloat($filter("date")(new Date(), "yyyy"));
-	$scope.years = ["至今"];
-	for (i = 0; i < 50; i++) {
-		$scope.years.push($scope.year + "年");
-		$scope.year--;
-	}
-	$scope.degrees = ["专科", "本科", "硕士", "博士", "博士后"];
 	if (localStorageService.get("cache")) {
 		$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
 	}

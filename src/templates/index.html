@@ -6,20 +6,20 @@
         </div>
         <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_language','language')">
             <div class="icon icon-language"></div>
-            <div class="text-modify modify">{{input.language_from}} <span ng-class="{'color-gray':input.language_to != ''}"> - {{input.language_to||"请选择"}}</span></div>
+            <div class="text-modify modify">{{input.language.from}} <span ng-class="{'color-gray':input.language.to != ''}"> - {{input.language.to||"请选择"}}</span></div>
         </div>
         <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('scenes','scenes')">
             <div class="icon icon-star"></div>
-            <div class="text-modify modify "><span ng-class="{'color-gray':input.scene!= ''}">{{scene.name||"使用场景"}}</span></div>
+            <div class="text-modify modify "><span ng-class="{'color-gray':input.scenes!= ''}">{{input.scenes||"使用场景"}}</span></div>
         </div>
-        <div class="input-item padding-xs-left padding-right" ng-href="#/choice_time?mode=multi&cache_key=schedule">
+        <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_time','choice_time')">
             <div class="icon icon-date"></div>
             <div class="text-modify modify " ng-if="!input.schedule_from"><span>请选择</span></div>
-            <div class="text-modify modify" ng-if="input.schedule_from">{{input.schedule_from}}<small>开始</small> - {{input.schedule_to}}<small>结束</small> <small>(共{{input.schedule_total}}天)</small></div>
+            <div class="text-modify modify" ng-if="input.schedule_from">{{input.schedule_from}}<small> 开始 </small> - {{input.schedule_to}}<small> 结束 </small><small>(共{{input.schedule_total}}天)</small></div>
         </div>
         <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('related_industry','industry')">
             <div class="icon icon-industry"></div>
-            <div class="text-modify modify "><span>{{input.industry||"设计行业/领域"}}</span></div>
+            <div class="text-modify modify "><span ng-class="{'color-gray':input.industry!= ''}">{{input.industry||"设计行业/领域"}}</span></div>
         </div>
         <a class="input-item padding-xs-left padding-right">
             <div class="icon icon-gender"></div>
