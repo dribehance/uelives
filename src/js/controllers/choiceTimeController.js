@@ -16,7 +16,7 @@ angular.module("Uelives").controller("choiceTimeController", function($scope, $r
 	$scope.schedule_init = function() {
 		angular.forEach($scope.schedules, function(value, key) {
 			angular.forEach(value.scheduleBeans, function(v, k) {
-				if (cache[$routeParams.cache_key].includes(v.schedule_date)) {
+				if (cache[$routeParams.cache_key] && cache[$routeParams.cache_key].includes(v.schedule_date)) {
 					v.schedule_state = 4;
 				}
 			})

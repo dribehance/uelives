@@ -7,7 +7,10 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 		to: ""
 	}
 	$scope.input.scenes = "";
-	$scope.input.schedule_from = ""
+	$scope.input.schedule_from = "";
+	$scope.input.schedule_to = "";
+	$scope.input.schedule_total = "";
+	$scope.input.industry = "";
 	$scope.input.gender = "不限";
 	$scope.select_gender = function(n) {
 		$scope.input.gender = n;
@@ -22,8 +25,8 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 	var cache = localStorageService.get("cache");
 	if (cache) {
 		$scope.input = angular.extend({}, $scope.input, cache);
-		$scope.input.schedule_from = $scope.format_time($scope.input.choice_time[0], "MM-dd");
-		$scope.input.schedule_to = $scope.format_time($scope.input.choice_time[$scope.input.choice_time.length - 1], "MM-dd");
-		$scope.input.schedule_total = $scope.input.choice_time.length
+		$scope.input.choice_time && ($scope.input.schedule_from = $scope.format_time($scope.input.choice_time[0], "MM-dd"));
+		$scope.input.choice_time && ($scope.input.schedule_to = $scope.format_time($scope.input.choice_time[$scope.input.choice_time.length - 1], "MM-dd"));
+		$scope.input.choice_time && ($scope.input.schedule_total = $scope.input.choice_time.length)
 	}
 })
