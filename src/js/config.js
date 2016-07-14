@@ -1,6 +1,6 @@
 angular.module("Uelives").constant("config", {
-	url: "http://",
-	imageUrl: "http://",
+	url: "http://uelives.com",
+	imageUrl: "http://uelives.com/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -8,7 +8,10 @@ angular.module("Uelives").constant("config", {
 	response: {
 		"SUCCESS": 1
 	},
-	common_params: {},
+	common_params: {
+		invoke: "h5",
+		app_sign: "123456"
+	},
 	interceptor: [
 		"index",
 		"booking_date",
@@ -25,12 +28,15 @@ angular.module("Uelives").constant("config", {
 		"interpreter_settled",
 		"online_booking",
 		"online_preview",
+		"schedule",
+		"schedule_preview",
 		"order_management_interpreter",
 		"order_management_user",
 		"order_cancel",
 		"order_confirm",
 		"order_finish",
 		"order_wait",
+		"languages",
 		"related_industry",
 		"self_booking",
 		"information",

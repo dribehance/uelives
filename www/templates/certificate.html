@@ -1,27 +1,26 @@
-<div class="edit-certificate">
-    <div class="edit-group">
-        <div class="edit-item modify">
-            <div class="icon icon-edit"></div>
-        </div>
-        <div class="edit-item padding margin-left modify">
-            <input type="text" class="full-width" placeholder="证书名称" name="input.certificate" ng-model="input.certificate" required>
-        </div>
-        <div class="edit-item padding margin-left modify">
-            <input type="text" class="full-width" placeholder="证书获取时间" name="input.certificatetime" ng-model="input.certificatetime" required>
-        </div>
-    </div>
-    <div class="edit-container">
-        <div class="col-ms-3 pull-left">
-            <div class="img-wrap">
-                <imageview data-rate='1' center-only src="'../images/1.png'"></imageview>
+<form name="editForm" ng-submit="ajaxForm()">
+    <div class="edit-certificate">
+        <div class="edit-group">
+            <div class="edit-item modify">
+                <div class="icon icon-edit"></div>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <input type="text" class="full-width" placeholder="证书名称" name="title" ng-model="input.title" required>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <mobilepicker options="input.time_option"></mobilepicker>
             </div>
         </div>
-
+        <div class="edit-container">
+            <div class="col-ms-3 pull-left">
+                <div class="img-wrap">
+                    <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{input.image_01}}" default="../images/1.png" class="full-width full-height block"></uploader>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="wrap text-center">
-    <a class="section" ng-href="#/information">
-        <div class="btn btn-lg btn-primary">保存</div>
-    </a>
-</div>
-
+    <div class="wrap text-center">
+        <button type="button" class="btn btn-lg btn-danger" ng-click="remove()" ng-if="input.remove_id">删除</button>
+        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="editForm.$invalid">保存</button>
+    </div>
+</form>

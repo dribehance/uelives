@@ -1,25 +1,31 @@
-<div class="edit-edu">
-    <div class="edit-group">
-    	<div class="edit-item modify">
-    		<div class="icon icon-edit"></div>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="学校名称" name="input.schoolName" ng-model="input.schoolName" required>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="所学专业" name="input.specialty" ng-model="input.specialty" required>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="毕业年份" name="input.graduationTime" ng-model="input.graduationTime" required>
-    	</div>
-    	<div class="edit-item padding margin-left modify">
-    		<input type="text" class="full-width" placeholder="学历" name="input.edu" ng-model="input.edu" required>
-    	</div>
+<form name="editForm" ng-submit="ajaxForm()">
+    <div class="edit-edu">
+        <div class="edit-group">
+            <div class="edit-item modify">
+                <div class="icon icon-edit"></div>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <input type="text" class="full-width" placeholder="学校名称" name="school_name" ng-model="input.school_name" required>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <input type="text" class="full-width" placeholder="所学专业" name="major" ng-model="input.major" required>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <!-- <input type="text" class="full-width" placeholder="毕业年份" name="end_time" ng-model="input.end_time" required> -->
+                <select ng-options="year for year in years" ng-model="input.year" required>
+                    <option value="">请选择毕业年份</option>
+                </select>
+            </div>
+            <div class="edit-item padding margin-left modify">
+                <!-- <input type="text" class="full-width" placeholder="学历" name="education" ng-model="input.education" required> -->
+                <select ng-options="degree for degree in degrees" ng-model="input.degree" required>
+                    <option value="">请选择最高学历</option>
+                </select>
+            </div>
+        </div>
     </div>
-    
-</div>
-<div class="wrap text-center">
-    <a class="section" ng-href="#/information">
-        <div class="btn btn-lg btn-primary">保存</div>
-    </a>
-</div>
+    <div class="wrap text-center">
+        <button type="button" class="btn btn-lg btn-danger" ng-click="remove()" ng-if="input.remove_id">删除</button>
+        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="editForm.$invalid">保存</button>
+    </div>
+</form>

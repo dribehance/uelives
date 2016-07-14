@@ -1,0 +1,29 @@
+<div class="choice">
+    <div class="choice-header border-bottom">
+        <div class="choice-search">
+            <div class="search">
+                <input name="search" ng-model="input.search" required placeholder="搜索地点" class="full-width">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="choice-container">
+        <div class="choice-container-list" ng-repeat="language in languages">
+            <div class="hot hot-color" ng-class="{'hot-border':$index !='0'}" data-index="{{parse_key(language.k)}}" ng-if="!input.search">{{language.k}}</div>
+            <div class="industry" ng-if="$index =='0' && !input.search">
+                <div class="col-ms-4 pull-left" ng-repeat="c in language.n" ng-click="select_language(c.n)">
+                    <div class="tags">
+                        <div class="tag" ng-class="{'highlight':input.tag == c.n}">{{c.n}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="choice-container-item" ng-if="$index !='0'">
+                <div class="choice-list-item" ng-class="{'highlight':input.tag == c.n}" ng-repeat="c in language.n |filter:input.search" ng-click="select_language(c.n)">{{c.n}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="letter" ng-controller="letterIndexController" ng-if="!input.search">
+        <span ng-repeat="language in languages" on-repeat-done>{{parse_key(language.k)}}</span>
+        <span class="tip" ng-if="letter_index">{{letter_index}}</span>
+    </div>
+</div>

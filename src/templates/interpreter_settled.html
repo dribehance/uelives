@@ -1,5 +1,4 @@
 <div class="wrap">
-    <!-- ng-if="step == 1" -->
     <form name="signupForm" ng-submit="ajaxForm()">
         <div class="signup">
             <div class="input-group">
@@ -8,25 +7,26 @@
                         +86
                     </div>
                     <div class="text-modify border-left padding">
-                        <input name="input.telephone" ng-model="input.telephone" required placeholder="手机号" class="full-width">
+                        <input name="telephone" ng-model="input.telephone" required placeholder="手机号" class="full-width">
                     </div>
                 </div>
                 <div class="input-item border-radius padding-lg-right margin-lg-bottom">
                     <div class="text-modify padding">
-                        <input name="input.code" ng-model="input.code" required placeholder="验证码" class="full-width">
+                        <input name="code" ng-model="input.code" required placeholder="验证码" class="full-width">
                     </div>
-                    <div class="sms-code">点击发送验证码</div>
+                    <countdown class="sms-code" countdown="countdown" countdown-disabled="signupForm.telephone.$invalid">{{countdown.message}}</countdown>
+                    <!-- <div class="sms-code">点击发送验证码</div> -->
                 </div>
                 <div class="input-item border-radius margin-lg-bottom">
                     <div class="text-modify padding">
-                        <input name="input.wechat" ng-model="input.wechat" required placeholder="微信号" class="full-width">
+                        <input name="wechat" ng-model="input.wechat" required placeholder="微信号" class="full-width">
                     </div>
                 </div>
             </div>
             <div class="wrap text-center">
-                <a class="section" ng-href="#/information">
-                    <div class="btn btn-lg btn-primary">下一步</div>
-                </a>
+                <div class="section">
+                    <button class="btn btn-lg btn-primary" type="submit" ng-disabled="$signupForm.$valid">下一步</button>
+                </div>
             </div>
         </div>
     </form>
