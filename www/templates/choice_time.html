@@ -28,6 +28,7 @@
             <div class="basic-backgroup">
                 <div class="btn btn-block btn-primary" ng-if="input.day.schedule_state=='2'" ng-click="mark_schedule('2')">标记为空闲</div>
                 <div class="btn btn-block btn-primary" ng-if="input.day.schedule_state=='3'" ng-click="mark_schedule('1')">标记为忙</div>
+                <div class="btn btn-block btn-primary" ng-if="mode==multi" ng-click="confirm_time()">确定</div>
             </div>
         </div>
     </div>

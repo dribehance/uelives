@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("choiceTimeController", function($scope, $routeParams, $timeout, $route, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("choiceTimeController", function($scope, $rootScope, $routeParams, $timeout, $route, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.schedule_mode = $routeParams.mode;
 	$scope.select_gender = function(gender) {
@@ -58,5 +58,25 @@ angular.module("Uelives").controller("choiceTimeController", function($scope, $r
 				errorServices.autoHide(data.message);
 			}
 		})
+	}
+	$scope.confirm_time = function() {
+		var schedules = [];
+		angular.forEach($scope.schedules, function(value, key) {
+			schedules = schedules.concat(value.scheduleBeans)
+		})
+		schedules = schedules.filter(function(schedule) {
+			return schedule.schedule_state == 4;
+		})
+		if (schedules.length == 0) {
+			errorServices.autoHide("请选择时间");
+			return;
+		}
+		// 缓存时间信息
+		var cache = localStorageService.get("cache");
+		if (cache && $routeParams.cache_key) {
+			cache[$routeParams.cache_key] = schedules
+			localStorageService.set("cache", cache);
+		}
+		$rootScope.back();
 	}
 })
