@@ -4,68 +4,76 @@
         <a class="tab-item xs-width xs-padding tab-modify">价格排序<div class="icon icon-xiala"></div></a>
         <a class="tab-item xs-width xs-padding">评价排序<div class="icon icon-xiala"></div></a>
     </div>
-    <div class="interpreter-list">
+    <div class="interpreter-list" ng-if="qualified_count>0">
         <div class="list-center text-center">
-            有10个符合您的要求
+            有{{qualified_count}}个符合您的要求
         </div>
-        <div class="list-item" ng-click="go('interpreter_detail')">
+        <div class="list-item" ng-click="go(translator.user_id)" ng-repeat="translator in qualified_translators">
             <div class="list-header border-bottom-color">
                 <div class="title">
-                    耗子
-                    <span class="pull-right"><label>￥300</label> / 天</span>
+                    {{translator.nickname}}
+                    <span class="pull-right"><label>{{translator.pay_day|currency:"￥"}}</label> / 天</span>
                 </div>
-                <div class="title">2年翻译经验 &nbsp&nbsp男&nbsp&nbsp&nbsp26岁</div>
+                <div class="title">{{translator.translate_year}}年翻译经验 &nbsp&nbsp{{translator.sex}}&nbsp&nbsp&nbsp26岁</div>
             </div>
             <div class="list-content-wrap">
                 <div class="list-content">
                     <div class="avatar">
-                        <imageview data-rate='1' center-only src="'../images/avatar.png'"></imageview>
+                        <imageview data-rate='1' center-only src="staticImageUrl+translator.image_01"></imageview>
                     </div>
                     <div class="list-info">
                         <div class="list-info-header">
-                            <span>东京</span>
-                            <span class="modify">中文 - 日语</span>
-                            <span>专家级别</span>
+                            <span>{{translator.city}}</span>
+                            <span class="modify">{{input.language.from}} - {{input.language.to}}</span>
+                            <span>{{translator.translate_level}}</span>
                         </div>
                         <div class="list-info-content">
-                            <span>中文*母语</span>
-                            <span class="modify">英文*专业</span>
-                            <span>德语*专业</span>
+                            <span>{{translator.mother_language}}*母语</span>
+                            <span class="modify">{{translator.first_language}}*{{translator.first_language_level}}</span>
+                            <span>{{translator.second_language}}*{{translator.second_language_level}}</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="list-center text-center">
-            以下3个可能符合您的要求
+        <div class="btn btn-primary btn-lg full-width" ng-click="load_qualified()" ng-if="qualified_translators.length<qualified_count">
+            点击加载更多
         </div>
-        <div class="list-item" ng-click="go('interpreter_detail')">
+    </div>
+    <div class="interpreter-list" ng-if="unqualified_count>0">
+        <div class="list-center text-center">
+            以下{{unqualified_count}}个可能符合您的要求
+        </div>
+        <div class="list-item" ng-click="go(translator.user_id)" ng-repeat="translator in unqualified_translators">
             <div class="list-header border-bottom-color">
                 <div class="title">
-                    耗子
-                    <span class="pull-right"><label>￥300</label> / 天</span>
+                    {{translator.nickname}}
+                    <span class="pull-right"><label>{{translator.pay_day|currency:"￥"}}</label> / 天</span>
                 </div>
-                <div class="title">2年翻译经验 &nbsp&nbsp男&nbsp&nbsp&nbsp26岁</div>
+                <div class="title">{{translator.translate_year}}年翻译经验 &nbsp&nbsp{{translator.sex}}&nbsp&nbsp&nbsp26岁</div>
             </div>
             <div class="list-content-wrap">
                 <div class="list-content">
                     <div class="avatar">
-                       <imageview data-rate='1' center-only src="'../images/avatar.png'"></imageview>
+                        <imageview data-rate='1' center-only src="staticImageUrl+translator.image_01"></imageview>
                     </div>
                     <div class="list-info">
                         <div class="list-info-header">
-                            <span>东京</span>
-                            <span class="modify">中文 - 日语</span>
-                            <span>专家级别</span>
+                            <span>{{translator.city}}</span>
+                            <span class="modify">{{input.language.from}} - {{input.language.to}}</span>
+                            <span>{{translator.translate_level}}</span>
                         </div>
                         <div class="list-info-content">
-                            <span>中文*母语</span>
-                            <span class="modify">英文*专业</span>
-                            <span>德语*专业</span>
+                            <span>{{translator.mother_language}}*母语</span>
+                            <span class="modify">{{translator.first_language}}*{{translator.first_language_level}}</span>
+                            <span>{{translator.second_language}}*{{translator.second_language_level}}</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="btn btn-primary btn-lg full-width" ng-click="load_unqualified()" ng-if="unqualified_translators.length<qualified_count">
+            点击加载更多
         </div>
     </div>
 </div>

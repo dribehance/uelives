@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("interpreterListController", function($scope, $filter, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("interpreterListController", function($scope, $filter, $location, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.qualified_translators = [];
 	$scope.format_time = function(time, format) {
@@ -87,6 +87,12 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 				// $scope.unqualified_page.message = "没有了";
 			}
 			$scope.unqualified_page.pn++;
+		})
+	}
+	$scope.go = function(id) {
+		$location.path("interpreter_detail").search({
+			"id": id,
+			"order_id": $routeParams.order_id
 		})
 	}
 })
