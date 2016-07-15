@@ -52,8 +52,8 @@
                     <div class="contact-item padding modify">
                         <div class="name">姓名:</div>
                         <input type="text" class="full-width" name="nickname" ng-model="input.nickname" placeholder="请输入姓名" required>
-                        <div class="woman" ng-class="{'highlight':input.gender == '0'}" ng-click="select_gender('0')">女士</div>
-                        <div class="man" ng-class="{'highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
+                        <div class="woman" ng-class="{'highlight':input.sex == '0'}" ng-click="select_gender('0')">女士</div>
+                        <div class="man" ng-class="{'highlight':input.sex == '1'}" ng-click="select_gender('1')">先生</div>
                     </div>
                     <div class="contact-item padding-lg-left modify">
                         <div class="name">公司名(如有):</div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="contact-item padding-sm-left">
                         <div class="name">预算范围:</div>
-                        <input class="full-width" name="money" ng-model="input.money" placeholder="请输入最高预算">
+                        <input class="full-width" name="money" ng-model="input.money" required placeholder="请输入最高预算">
                     </div>
                 </div>
             </div>

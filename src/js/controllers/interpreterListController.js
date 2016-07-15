@@ -26,7 +26,7 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 		order_time: $scope.input.choice_time.join("#"),
 		translate_day: $scope.input.schedule_total,
 		translate_field: $scope.input.industry,
-		sex: $scope.input.gender,
+		sex: $scope.input.sex,
 		pay_day: $scope.input.price,
 		total_score: $scope.input.comment,
 		multiple_order: $scope.input.all
@@ -68,7 +68,7 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 		order_time: $scope.input.choice_time.join("#"),
 		translate_day: $scope.input.schedule_total,
 		translate_field: $scope.input.industry,
-		sex: $scope.input.gender,
+		sex: $scope.input.sex,
 		pay_day: $scope.input.price,
 		total_score: $scope.input.comment,
 		multiple_order: $scope.input.all
@@ -126,7 +126,7 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 			order_time: $scope.input.choice_time.join("#"),
 			translate_day: $scope.input.schedule_total,
 			translate_field: $scope.input.industry,
-			sex: $scope.input.gender,
+			sex: $scope.input.sex,
 			pay_day: $scope.input.price,
 			total_score: $scope.input.comment,
 			multiple_order: $scope.input.all
@@ -142,7 +142,7 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 			order_time: $scope.input.choice_time.join("#"),
 			translate_day: $scope.input.schedule_total,
 			translate_field: $scope.input.industry,
-			sex: $scope.input.gender,
+			sex: $scope.input.sex,
 			pay_day: $scope.input.price,
 			total_score: $scope.input.comment,
 			multiple_order: $scope.input.all
