@@ -51,26 +51,26 @@
                 <div class="contact-group">
                     <div class="contact-item padding modify">
                         <div class="name">姓名:</div>
-                        <input type="text" class="full-width" name="nickname" ng-model="input.nickname" required>
+                        <input type="text" class="full-width" name="nickname" ng-model="input.nickname" placeholder="请输入姓名" required>
                         <div class="woman" ng-class="{'highlight':input.gender == '0'}" ng-click="select_gender('0')">女士</div>
                         <div class="man" ng-class="{'highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
                     </div>
                     <div class="contact-item padding-lg-left modify">
                         <div class="name">公司名(如有):</div>
-                        <input type="text" name="company" ng-model="input.company" class="full-width">
+                        <input type="text" name="company" ng-model="input.company" placeholder="请输入公司名称" class="full-width">
                     </div>
                     <div class="contact-item padding-left modify">
                         <div class="name">手机:</div>
-                        <input type="tel" class="full-width" name="telephone" ng-model="input.telephone" required>
+                        <input type="tel" class="full-width" name="telephone" ng-model="input.telephone" placeholder="请输入手机号" required>
                     </div>
                     <div class="contact-item padding-both modify">
                         <div class="name">验证码:</div>
-                        <input type="text" class="full-width" name="smscode" ng-model="input.smscode" required>
+                        <input type="text" class="full-width" name="smscode" ng-model="input.smscode" placeholder="请输入验证码" required>
                         <countdown class="sms-code" countdown="countdown" countdown-disabled="bookingForm.telephone.$invalid">{{countdown.message}}</countdown>
                     </div>
                     <div class="contact-item padding-xs-left modify">
                         <div class="name">微信号:</div>
-                        <input class="full-width" name="wechat" ng-model="input.wechat">
+                        <input class="full-width" name="wechat" ng-model="input.wechat" placeholder="请输入微信号">
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-title">如果译员不能接单</div>
