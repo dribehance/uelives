@@ -33,8 +33,8 @@
             <a class="edit-list">
                 所在城市: <span ng-class="{'color-gray':user.city==''}">{{user.city||"暂无填写"}}</span>
             </a>
-            <div class="edit-list padding-sm-left">
-                <div class="text-field">联系电话:</div>
+            <div class="edit-list">
+                联系电话:
                 <span ng-class="{'color-gray':user.telephone==''}">{{user.telephone || "暂无填写"}}</span>
             </div>
             <div class="edit-list padding-sm-left">
@@ -49,30 +49,29 @@
                 <div class="text-field">工作意向:</div><span ng-class="{'color-gray':user.job_property==''}">{{user.job_property || "暂无填写"}}</span>
             </div>
             <a class="edit-list">
-                母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语: {{user.mother_language || "暂无填写"}}
+                母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语: <span ng-class="{'color-gray':user.mother_language==''}">{{user.mother_language || "暂无填写"}}</span>
             </a>
             <div class="edit-list">
                 第一外语:
-                <span>{{user.first_language || "暂无填写"}}</span>
+                <span ng-class="{'color-gray':user.first_language==''}">{{user.first_language || "暂无填写"}}</span>
                 <span>|</span>
-                <span>{{user.first_language_level || "暂无填写"}}</span>
+                <span ng-class="{'color-gray':user.first_language_level==''}">{{user.first_language_level || "暂无填写"}}</span>
             </div>
             <div class="edit-list">
                 第二外语:
-                <span>{{user.second_language || "暂无填写"}}</span>
+                <span ng-class="{'color-gray':user.second_language==''}">{{user.second_language || "暂无填写"}}</span>
                 <span>|</span>
-                <span>{{user.second_language_level || "暂无填写"}}</span>
+                <span ng-class="{'color-gray':user.second_language_level==''}">{{user.second_language_level || "暂无填写"}}</span>
             </div>
             <a class="edit-list">
-                擅长行业/领域: {{user.good_field || "暂无填写"}}
+                擅长行业/领域: <span ng-class="{'color-gray':user.good_field==''}">{{user.good_field || "暂无填写"}}</span>
             </a>
             <div class="edit-list">
                 翻译经验年限: {{user.translate_year || "0"}}年
-                <!-- <div class="text-field"></div> -->
-                <!-- <input type="text" class="full-width" placeholder="" name="translation_year" ng-model="input.translation_year" required> -->
+                
             </div>
             <a class="edit-list">
-                翻译级别: {{user.translate_level || "暂无填写"}}
+                翻译级别: <span ng-class="{'color-gray':user.translate_level==''}">{{user.translate_level || "暂无填写"}}</span>
             </a>
             <div class="edit-list">
                 日&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp薪: {{user.pay_day || "0" |currency:"￥"}}
@@ -97,7 +96,7 @@
                     <div class="exprience-school">
                         {{experience.school_name}}
                         <div>
-                            <span class="border-right">{{experience.education}}</span>
+                            <span class="border-right padding-right">{{experience.education}}</span>
                             <span>{{experience.profession}}</span>
                         </div>
                     </div>

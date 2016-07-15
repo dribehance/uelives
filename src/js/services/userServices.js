@@ -152,5 +152,14 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/ScheduleManage/setTranslateTime",
 			token: localStorageService.get("token")
 		})),
+		booking: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/OrdersManage/makeOrder",
+		})),
+		query_qualified_translator: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/Home/fullCompletelyUserList",
+		})),
+		query_unqualified_translator: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/Home/maybeUserList",
+		})),
 	}
 });

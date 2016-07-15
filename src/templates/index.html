@@ -1,53 +1,63 @@
-<div class="wrap">
-    <div class="input-group">
-        <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_city','city')">
-            <div class="icon icon-location"></div>
-            <div class="text-modify modify">{{input.city}}</div>
-        </div>
-        <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_language','language')">
-            <div class="icon icon-language"></div>
-            <div class="text-modify modify">{{input.language.from}} <span ng-class="{'color-gray':input.language.to != ''}"> - {{input.language.to||"请选择"}}</span></div>
-        </div>
-        <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('scenes','scenes')">
-            <div class="icon icon-star"></div>
-            <div class="text-modify modify "><span ng-class="{'color-gray':input.scenes!= ''}">{{input.scenes||"使用场景"}}</span></div>
-        </div>
-        <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_time','choice_time')">
-            <div class="icon icon-date"></div>
-            <div class="text-modify modify " ng-if="!input.schedule_from"><span>请选择</span></div>
-            <div class="text-modify modify" ng-if="input.schedule_from">{{input.schedule_from}}<small> 开始 </small> - {{input.schedule_to}}<small> 结束 </small><small>(共{{input.schedule_total}}天)</small></div>
-        </div>
-        <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('related_industry','industry')">
-            <div class="icon icon-industry"></div>
-            <div class="text-modify modify "><span ng-class="{'color-gray':input.industry!= ''}">{{input.industry||"设计行业/领域"}}</span></div>
-        </div>
-        <a class="input-item padding-xs-left padding-right">
-            <div class="icon icon-gender"></div>
-            <div class="text-modify"><span ng-class="{'highlight':input.gender=='不限'}" ng-click="select_gender('不限')">不限</span> &nbsp&nbsp<span ng-class="{'highlight':input.gender=='男'}" ng-click="select_gender('男')">男</span>&nbsp&nbsp <span ng-class="{'highlight':input.gender=='女'}" ng-click="select_gender('女')">女</span></div>
-        </a>
-    </div>
-</div>
-<div class="wrap">
-    <div class="mind">
-        <div class="mind-title">
-            注意:
-        </div>
-        <div class="mind-content">
-            <small>1.工作时间最多为8小时/天，超出工作时间的，按原1小时的150%计算;</small>
-        </div>
-        <div class="mind-content">
-            <small>2.工作时间为9:00-18:00;非以上时间进行翻译服务，译员可线下选择价格上浮10%-50%;</small>
-        </div>
-        <div class="mind-content">
-            <small>3.翻译人员在服务期间的交通，食宿等费用客户负责；为保证口译质量。请客户事先尽可能多的提供背景材料;</small>
+<form name="searchForm" ng-submit="ajaxForm()">
+    <div class="wrap">
+        <div class="input-group">
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_city','city')">
+                <div class="icon icon-location"></div>
+                <div class="text-modify modify">{{input.city}}</div>
+                <input type="hidden" ng-model="input.city" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_language','language')">
+                <div class="icon icon-language"></div>
+                <div class="text-modify modify">{{input.language.from}} <span ng-class="{'color-gray':input.language.to != ''}"> - {{input.language.to||"请选择"}}</span></div>
+                <input type="hidden" ng-model="input.language.from" required>
+                <input type="hidden" ng-model="input.language.to" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('scenes','scenes')">
+                <div class="icon icon-star"></div>
+                <div class="text-modify modify ">
+                    <span ng-class="{'color-gray':input.scenes!= ''}">{{input.scenes||"使用场景"}}</span>
+                </div>
+                <input type="hidden" ng-model="input.scenes" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_time','choice_time')">
+                <div class="icon icon-date"></div>
+                <div class="text-modify modify " ng-if="!input.schedule_from"><span>请选择</span></div>
+                <div class="text-modify modify" ng-if="input.schedule_from">{{input.schedule_from}}<small> 开始 </small> - {{input.schedule_to}}<small> 结束 </small><small>(共{{input.schedule_total}}天)</small></div>
+                <input type="hidden" ng-model="input.schedule_from" required>
+                <input type="hidden" ng-model="input.schedule_to" required>
+                <input type="hidden" ng-model="input.schedule_total" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('related_industry','industry')">
+                <div class="icon icon-industry"></div>
+                <div class="text-modify modify "><span ng-class="{'color-gray':input.industry!= ''}">{{input.industry||"涉及行业/领域"}}</span></div>
+                <input type="hidden" ng-model="input.industry" required>
+            </div>
+            <div class="input-item padding-xs-left padding-right">
+                <div class="icon icon-gender"></div>
+                <div class="text-modify"><span ng-class="{'highlight':input.gender=='不限'}" ng-click="select_gender('不限')">不限</span> &nbsp&nbsp<span ng-class="{'highlight':input.gender=='男'}" ng-click="select_gender('男')">男</span>&nbsp&nbsp <span ng-class="{'highlight':input.gender=='女'}" ng-click="select_gender('女')">女</span></div>
+            </div>
         </div>
     </div>
-</div>
-<div class="wrap text-center">
-    <a class="section" ng-href="#/interpreter_list">
-        <div class="btn btn-lg btn-primary">开始预约</div>
-    </a>
-</div>
+    <div class="wrap">
+        <div class="mind">
+            <div class="mind-title">
+                注意:
+            </div>
+            <div class="mind-content">
+                <small>1.工作时间最多为8小时/天，超出工作时间的，按原1小时的150%计算;</small>
+            </div>
+            <div class="mind-content">
+                <small>2.工作时间为9:00-18:00;非以上时间进行翻译服务，译员可线下选择价格上浮10%-50%;</small>
+            </div>
+            <div class="mind-content">
+                <small>3.翻译人员在服务期间的交通，食宿等费用客户负责；为保证口译质量。请客户事先尽可能多的提供背景材料;</small>
+            </div>
+        </div>
+    </div>
+    <div class="wrap text-center">
+        <button class="btn btn-lg btn-primary" ng-disabled="searchForm.$invalid">开始预约</button>
+    </div>
+</form>
 <div class="wrap">
     <div class="other">
         <div class="other-title text-primary">
