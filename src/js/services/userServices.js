@@ -161,5 +161,11 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		query_unqualified_translator: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Home/maybeUserList",
 		})),
+		query_comments: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/Comments/myCommentList",
+		})),
+		online_booking: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/OrdersManage/submitOrder",
+		})),
 	}
 });

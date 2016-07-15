@@ -43,9 +43,9 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS && data.have_translate_user == '1') {
-				$location.path("interpreter_list")
+				$location.path("interpreter_list").search("order_id", data.orders_id)
 			} else {
-				$location.path("self_booking");
+				$location.path("self_booking").search("order_id", data.orders_id);
 			}
 		})
 	}

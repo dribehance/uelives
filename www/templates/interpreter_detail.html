@@ -8,41 +8,42 @@
             <div class="basic-content">
                 <div class="avatar-wrap text-center">
                     <div class="avatar">
-                        <div class="icon icon-man"></div>
-                        <imageview data-rate='1' center-only src="'../images/avatar.png'"></imageview>
+                        <imageview data-rate="1" center-only src="staticImageUrl+user.image_01"></imageview>
+                        <div class="icon icon-man" ng-if="user.sex=='男'"></div>
+                        <div class="icon icon-nv" ng-if="user.sex=='女'"></div>
                     </div>
                 </div>
                 <div class="basic-content-item modify text-center">
-                    <span class="font-size">曹禹</span>
+                    <span class="font-size">{{user.nickname}}</span>
                 </div>
                 <div class="basic-content-item text-center">
-                    <span>专家级别 <label>.</label> 10年翻译经验</span>
+                    <span>{{user.translate_level}} <label>.</label> {{user.translate_year}}年翻译经验</span>
                 </div>
                 <div class="basic-content-skill modify text-center">
                     <div class="skill text-center">
-                        <span>中文 <label>.</label> 母语</span>
+                        <span>{{user.mother_language}} <label>.</label> 母语</span>
                         <b>|</b>
-                        <span>英文 <label>.</label> 专业</span>
+                        <span>{{user.first_language}} <label>.</label> {{user.first_language_level}}</span>
                         <b>|</b>
-                        <span>法语 <label>.</label> 专业</span>
+                        <span>{{user.second_language}} <label>.</label> {{user.second_language_level}}</span>
                     </div>
                     <div class="skill text-center">
                         <div class="icon icon-person"></div>
-                        上海
-                        <label>.</label> 男
-                        <label>.</label> 24岁
-                        <label>.</label> 本科
+                        {{user.city}}
+                        <label>.</label> {{user.sex}}
+                        <label>.</label> {{user.age}}岁
+                        <label>.</label> {{user.edu}}
                     </div>
                     <div class="skill text-center">
                         <div class="icon icon-industry-basic"></div>
-                        擅长领域 / 行业: 建筑、旅游、美容等
+                        擅长领域 / 行业: {{user.good_field}}
                     </div>
                 </div>
                 <div class="basic-content-item text-center">
-                    <span>工作意向: 兼职任务</span>
+                    <span>工作意向: {{user.job_property}}</span>
                 </div>
                 <div class="basic-content-item text-center">
-                    日薪: ￥400
+                    日薪: {{user.pay_day|currency:"￥"}}
                 </div>
             </div>
         </div>
@@ -54,14 +55,18 @@
                 <div class="icon icon-basicedu pull-right"></div>
             </div>
             <div class="exprience-content">
-                <div class="exprience-content-wrap margin-top">
+                <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserEduExperiences">
                     <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
                     <div class="line"></div>
-                    <div class="exprience-time">2015.07-至今</div>
+                    <div class="exprience-time">
+                        {{experience.end_time}}毕业
+                    </div>
                     <div class="exprience-school">
-                        香港理工大学
-                        <span class="pull-right">销售管理</span>
-                        <span class="pull-right border-right">本科</span>
+                        {{experience.school_name}}
+                        <div>
+                            <span class="border-right">{{experience.education}}</span>
+                            <span>{{experience.profession}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,16 +79,16 @@
                 <div class="icon icon-basicwork pull-right"></div>
             </div>
             <div class="exprience-content">
-                <div class="exprience-content-wrap margin-top">
+                <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserWorkExperiences">
                     <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
                     <div class="line"></div>
-                    <div class="exprience-time">2015.07-至今</div>
+                    <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}</div>
                     <div class="exprience-company">
-                        悠译创办人
+                        {{experience.position}}
                         <label>|</label>
-                        悠译(深圳)科技有限公司
+                        {{experience.work_name}}
                     </div>
-                    <div class="duty">表现良好，项目按时完成</div>
+                    <div class="duty">{{experience.duty}}</div>
                 </div>
             </div>
         </div>
@@ -92,18 +97,17 @@
         <div class="basic-info">
             <div class="detail-header modify">
                 <span>语言能力及证书</span>
-                <label class="font-color">(官方认证)</label>
+                <!-- <label class="font-color">(官方认证)</label> -->
                 <div class="icon icon-basicdiploma pull-right"></div>
             </div>
             <div class="exprience-content">
                 <div class="exprience-content-wrap">
-                    <div class="diploma">
-                        最厉害的英语翻译
-                        <span class="pull-right">2012年10月获得</span>
-                    </div>
-                    <div class="diploma">
-                        最厉害的英语翻译
-                        <span class="pull-right">2012年10月获得</span>
+                    <div class="diploma" ng-repeat="experience in user.UserIdentitys">
+                        {{experience.title}}
+                        <a class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a>
+                        <div class="modify-color" ng-if="experience.status == '0'"><span>(待审核)</span></div>
+                        <div class="modify-color" ng-if="experience.status == '1'"><span>(审核通过)</span></div>
+                        <div class="modify-color" ng-if="experience.status == '2'"><span>(重新认证)</span></div>
                     </div>
                 </div>
             </div>
@@ -111,65 +115,43 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <div class="detail-header">
+            <a class="detail-header" ng-href="#/schedule_preview?id={{user.user_id}}">
                 <span>可预约日期</span>
                 <div class="icon icon-basicdate pull-right"></div>
-            </div>
+            </a>
         </div>
     </div>
-    <div class="detail">
+    <div class="detail" ng-if="comments.length>0">
         <div class="basic-info">
             <div class="detail-header modify">
                 <span>客户评价</span>
-                <label><b>4.8</b> / 5</label>
+                <label><b>{{total_score}}</b> / 5</label>
                 <div class="icon icon-basicevaluate pull-right"></div>
             </div>
             <div class="exprience-content">
                 <div class="exprience-content-wrap">
-                    <div class="evaluate">
+                    <div class="evaluate" ng-repeat="comment in comments">
                         <div class="evaluate-item">
-                            <b class="font-size font-color">郑先生</b>
-                            <b class="pull-right font-size font-color">2012年10月获得</b>
+                            <b class="font-size font-color">{{comment.comment_name}}</b>
+                            <b class="pull-right font-size font-color">{{comment.post_date}}</b>
                         </div>
                         <div class="evaluate-item">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>0" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>1" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>2" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>3" aria-hidden="true"></i>
+                            <i class="fa fa-star" ng-if="comment.comment_star>4" aria-hidden="true"></i>
                         </div>
                         <div class="evaluate-item">
-                            最厉害的英语翻译，特别好，声音特别好听，棒棒哒！
+                            {{comment.note}}
                         </div>
                         <div class="evaluate-item">
-                            <div class="icon icon-basiczan"></div>
-                            <span>语言能力</span>
-                            <div class="icon icon-basiczan"></div>
-                            <span>服务态度</span>
-                            <div class="icon icon-basiczan"></div>
-                            <span>专业水平</span>
-                        </div>
-                    </div>
-                    <div class="evaluate">
-                        <div class="evaluate-item">
-                            <b class="font-size font-color">郑先生</b>
-                            <b class="pull-right font-size font-color">2012年10月获得</b>
-                        </div>
-                        <div class="evaluate-item">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star color" aria-hidden="true"></i>
-                        </div>
-                        <div class="evaluate-item">
-                            最厉害的英语翻译，特别好，声音特别好听，棒棒哒！
-                        </div>
-                        <div class="evaluate-item">
-                            <div class="icon icon-basiczan"></div>
-                            <span>语言能力</span>
-                            <div class="icon icon-basiczan"></div>
-                            <span>服务态度</span>
+                            <div class="icon icon-basiczan" ng-if="comment.tongue == 1"></div>
+                            <span ng-if="comment.tongue == 1">语言能力</span>
+                            <div class="icon icon-basiczan" ng-if="comment.service == 1"></div>
+                            <span ng-if="comment.service == 1">服务态度</span>
+                            <div class="icon icon-basiczan" ng-if="comment.profession == 1"></div>
+                            <span ng-if="comment.profession == 1">专业水平</span>
                         </div>
                     </div>
                 </div>
@@ -178,7 +160,7 @@
     </div>
 </div>
 <div class="detail">
-    <a class="basic-backgroup" ng-href="#/online_booking">
+    <a class="basic-backgroup" ng-click="go()">
         <div class="btn btn-block btn-primary">在线预约</div>
     </a>
 </div>
