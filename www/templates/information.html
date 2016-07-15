@@ -16,12 +16,11 @@
                 <span class="pull-right">编辑</span>
                 <div class="icon icon-infohead pull-right"></div>
             </a>
-            <div class="edit-list padding-sm-left">
-                <div class="text-field">姓 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名: <span ng-class="{'color-gray':user.nickname ==''}">{{user.nickname || "暂无填写"}}</span></div>
-                <input type="text" class="full-width" placeholder="" name="name" ng-model="input.name" required>
+            <div class="edit-list">
+                姓 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名: <span ng-class="{'color-gray':user.nickname ==''}">{{user.nickname || "暂无填写"}}</span>
             </div>
-            <div class="edit-list padding-sm-left">
-                <div class="text-field">性 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别:</div>
+            <div class="edit-list">
+                性 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp别:
                 <span ng-class="{'color-gray':user.sex==''}">{{user.sex|| "暂无填写"}}</span>
             </div>
             <div class="edit-list">
@@ -37,16 +36,16 @@
                 联系电话:
                 <span ng-class="{'color-gray':user.telephone==''}">{{user.telephone || "暂无填写"}}</span>
             </div>
-            <div class="edit-list padding-sm-left">
-                <div class="text-field">联系邮箱:</div>
+            <div class="edit-list">
+                联系邮箱:
                 <span ng-class="{'color-gray':user.email==''}">{{user.email || "暂无填写"}}</span>
                 
             </div>
             <div class="edit-list">
                 工作类型: <span ng-class="{'color-gray':user.job_type==''}">{{user.job_type || "暂无填写"}}</span>
             </div>
-            <div class="edit-list padding-sm-left">
-                <div class="text-field">工作意向:</div><span ng-class="{'color-gray':user.job_property==''}">{{user.job_property || "暂无填写"}}</span>
+            <div class="edit-list">
+                工作意向:<span ng-class="{'color-gray':user.job_property==''}">{{user.job_property || "暂无填写"}}</span>
             </div>
             <a class="edit-list">
                 母&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp语: <span ng-class="{'color-gray':user.mother_language==''}">{{user.mother_language || "暂无填写"}}</span>

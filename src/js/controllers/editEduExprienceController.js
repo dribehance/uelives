@@ -1,5 +1,9 @@
 angular.module("Uelives").controller("editEduExprienceController", function($scope, $routeParams, $filter, $rootScope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
-	$scope.input = {};
+	$scope.input = {
+		year:'',
+		degree:''
+
+	};
 	$scope.input.remove_id = $routeParams.id;
 	$scope.year = parseFloat($filter("date")(new Date(), "yyyy"));
 	$scope.years = ["至今"];

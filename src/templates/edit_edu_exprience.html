@@ -12,13 +12,12 @@
             </div>
             <div class="edit-item padding margin-left modify">
                 <!-- <input type="text" class="full-width" placeholder="毕业年份" name="end_time" ng-model="input.end_time" required> -->
-                <select ng-options="year for year in years" ng-model="input.year" ng-class="{'color-black':input.year != ''}" required>
-                    <option  value="" >请选择毕业年份</option>
+                <select ng-options="year for year in years" class="color-gray full-width" ng-model="input.year" ng-class="{'color-black':input.year != ''}" required>
+                    <option  value="">请选择毕业年份</option>
                 </select>
             </div>
             <div class="edit-item padding margin-left modify">
-                <!-- <input type="text" class="full-width" placeholder="学历" name="education" ng-model="input.education" required> -->
-                <select ng-options="degree for degree in degrees" ng-model="input.degree" ng-class="{'edit-black':input.degree != '0'}" required >
+                <select ng-options="degree for degree in degrees" class="color-gray full-width" ng-model="input.degree" ng-class="{'color-black':input.degree != ''}" required >
                     <option value="">请选择最高学历</option>
                 </select>
             </div>
