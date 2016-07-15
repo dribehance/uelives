@@ -17,18 +17,17 @@ input::-webkit-input-placeholder {
     color: #ACACAC !important;
 }
 
-
-/* WebKit browsers /
-　　}
-　　input:-moz-placeholder {
-　　color: #D6D0CA !important; / Mozilla Firefox 4 to 18 /
-　　}
-　　input::-moz-placeholder {
-　　color: #D6D0CA !important; / Mozilla Firefox 19+ /
-　　}
-　　input:-ms-input-placeholder {
-　　color: #D6D0CA !important; / Internet Explorer 10+ */
-
+// input:-moz-placeholder {
+//     color: #D6D0CA !important;
+//     // Mozilla Firefox 4 to 18 
+// }
+// input::-moz-placeholder {
+//     color: #D6D0CA !important;
+//     // / Mozilla Firefox 19+ /
+// }
+// input:-ms-input-placeholder {
+//     color: #D6D0CA !important;
+// }
 select {
     border: none;
     background-color: transparent;
@@ -1139,7 +1138,7 @@ textarea {
             margin-left: 57.14287%;
         }
         .margin-left-5 {
-            margin-left: 71.52857%;
+            margin-left: 71.42857%;
         }
         .margin-left-6 {
             margin-left: 85.71428%;
@@ -1152,7 +1151,7 @@ textarea {
             background-color: #EBEBEB;
         }
         .busy {
-            color:white;
+            color: white;
             border: 1px solid #95d7e9;
             background-color: #95d7e9;
         }
@@ -1205,11 +1204,19 @@ textarea {
             .search {
                 position: relative;
                 display: block;
-                padding: 10px 10px 10px 30px;
                 border: 1px solid #37B3D5;
+                display: block;
+                padding: 10px 10px 10px 30px;
                 border-radius: 4px;
+                
+                .box-sizing(border-box);
                 input::-webkit-input-placeholder {
                     text-align: center;
+                }
+                input {
+                    .box-sizing(border-box);
+                    height: 16px;
+                    line-height: 16px;
                 }
                 .fa {
                     position: absolute;
