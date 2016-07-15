@@ -15,21 +15,22 @@
 
 textarea,
 input::-webkit-input-placeholder {
-    color: #BDBDBD !important;
+    color: gray !important;
     line-height: 16px;
 }
 
-// input:-moz-placeholder {
-//     color: #D6D0CA !important;
-//     // Mozilla Firefox 4 to 18 
-// }
-// input::-moz-placeholder {
-//     color: #D6D0CA !important;
-//     // / Mozilla Firefox 19+ /
-// }
-// input:-ms-input-placeholder {
-//     color: #D6D0CA !important;
-// }
+input:-moz-placeholder {
+    color: #D6D0CA !important;
+    // Mozilla Firefox 4 to 18 
+}
+input::-moz-placeholder {
+    color: #D6D0CA !important;
+    // / Mozilla Firefox 19+ /
+}
+input:-ms-input-placeholder {
+    color: #D6D0CA !important;
+}
+
 select {
     border: none;
     background-color: transparent;
@@ -216,7 +217,7 @@ textarea {
             display: block;
             padding: 6px 5px;
             text-align: center;
-            border: 1px solid #BDBDBD;
+            border: 1px solid #EBEBEB;
             .text-overflow();
         }
         .highlight {
@@ -461,7 +462,7 @@ textarea {
                     padding-left: 90px;
                 }
                 &.modify {
-                    border-bottom: 1px solid #BDBDBD;
+                    border-bottom: 1px solid #EBEBEB;
                 }
                 .name {
                     position: absolute;
@@ -487,7 +488,7 @@ textarea {
                     right: 0;
                     display: block;
                     padding: 10px;
-                    border: 1px solid #BDBDBD;
+                    border: 1px solid #EBEBEB;
                     font-size: 12px;
                     color: #B3B3B3;
                 }
@@ -602,6 +603,7 @@ textarea {
             &.margin-left {
                 margin-left: 30px;
             }
+
         }
         .edit-black {
             color: #000;
@@ -613,7 +615,7 @@ textarea {
             color: #000;
         }
         .modify {
-            border-bottom: 1px solid #BDBDBD;
+            border-bottom: 1px solid #EBEBEB;
         }
     }
     .edit-content {
@@ -623,7 +625,7 @@ textarea {
             display: block;
             padding: 15px 0;
             color: #00B5DA;
-            border-bottom: 1px solid #BDBDBD;
+            border-bottom: 1px solid #EBEBEB;
         }
         .edit-list {
             position: relative;
@@ -698,7 +700,7 @@ textarea {
         display: block;
         padding: 10px 0;
         &.modify {
-            border-bottom: 1px solid #BDBDBD;
+            border-bottom: 1px solid #EBEBEB;
         }
         span {
             color: #62C3DE;
@@ -748,7 +750,7 @@ textarea {
                     top: -3px;
                 }
                 &.modify {
-                    border-bottom: 2px solid #BDBDBD;
+                    border-bottom: 2px solid #EBEBEB;
                 }
             }
             .font-size {
@@ -929,7 +931,7 @@ textarea {
     background-color: white;
     .box-sizing(border-box);
     .modify {
-        border-bottom: 2px solid #BDBDBD;
+        border-bottom: 2px solid #EBEBEB;
     }
     .order-title {
         padding: 10px;
@@ -1001,7 +1003,7 @@ textarea {
             display: block;
             padding: 20px 5px;
             &.border-right {
-                border-right: 2px solid #BDBDBD;
+                border-right: 2px solid #EBEBEB;
             }
         }
     }
@@ -1109,7 +1111,7 @@ textarea {
         padding-bottom: 15px;
         width: 100%;
         background-color: white;
-        border-bottom: 2px solid #BDBDBD;
+        border-bottom: 2px solid #EBEBEB;
         .time-title {
             display: block;
             padding: 15px 0;
@@ -1167,8 +1169,8 @@ textarea {
             border: 1px solid white;
         }
         .background-color {
-            border: 1px solid #BDBDBD;
-            background-color: #BDBDBD;
+            border: 1px solid #EBEBEB;
+            background-color: #EBEBEB;
         }
         .busy {
             color: white;
@@ -1190,7 +1192,7 @@ textarea {
             height: 20px;
             border-radius: 4px;
             margin: 10px;
-            background-color: #BDBDBD;
+            background-color: #EBEBEB;
             float: left;
         }
         span {
@@ -1220,7 +1222,7 @@ textarea {
         display: block;
         overflow: hidden;
         &.border-bottom {
-            border-bottom: 1px solid #BDBDBD;
+            border-bottom: 1px solid #EBEBEB;
         }
         .choice-search {
             display: block;
@@ -1263,7 +1265,7 @@ textarea {
                 color: #ACACAC;
             }
             &.hot-border {
-                border-bottom: 1px solid #BDBDBD;
+                border-bottom: 1px solid #EBEBEB;
                 color: #000;
             }
             &.hot-padding {
@@ -1281,10 +1283,8 @@ textarea {
                 display: block;
                 padding: 15px 0;
                 margin-left: 30px;
-                border-bottom: 1px solid #BDBDBD;
-                // &:last-child {
-                //     border-bottom: none;
-                // }
+                border-bottom: 1px solid #EBEBEB;
+               
             }
             .highlight {
                 color: #37B3D5;

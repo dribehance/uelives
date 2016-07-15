@@ -1,97 +1,94 @@
-<div class="wrap">
-    <div class="booking">
-        <div class="booking-person">
-            <div class="booking-header text-center">
-                <span>东京专家译员翻译</span>
-            </div>
-            <div class="booking-content text-center">
-                中文 - 日语 <span>.</span>&nbsp男
-            </div>
-            <div class="booking-content text-center">
-                互联网 &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
-            </div>
-            <a class="booking-content text-center" ng-href="#/choice_time">
-                6月15日
-                <label>今天</label> - 6月16日
-                <label>明天</label>&nbsp
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-        </div>
-    </div>
-    <div class="booking">
-        <div class="booking-work">
-            <div class="input-group">
-                <div class="input-item padding-xs-left" ng-href="#/choice_language">
-                    <div class="icon icon-content"></div>
-                    <div class="text-modify modify"><span class="font-color">具体工作内容</span></div>
+<form name="bookingForm" ng-submit="ajaxForm()">
+    <div class="wrap">
+        <div class="booking">
+            <div class="booking-person">
+                <div class="booking-header text-center">
+                    <span>{{input.city}}</span>
                 </div>
-            </div>
-            <div class="booking-content">
-                最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译
-            </div>
-        </div>
-    </div>
-    <div class="booking">
-        <div class="booking-work">
-            <div class="input-group">
-                <div class="input-item padding-xs-left" ng-href="#/choice_language">
-                    <div class="icon icon-content"></div>
-                    <div class="text-modify modify"><span class="font-color">对翻译者的其他要求</span></div>
+                <div class="booking-content text-center">
+                    {{input.language.from}} - {{input.language.to}} <span>.</span>&nbsp{{input.sex}}
                 </div>
-            </div>
-            <div class="booking-content">
-                最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译最厉害的英语翻译
-            </div>
-        </div>
-    </div>
-    <div class="booking">
-        <div class="booking-contact">
-            <div class="title text-center">请留下您的信息，以便联系您</div>
-            <div class="contact-group">
-                <div class="contact-item padding modify">
-                    <div class="name">姓名:</div>
-                    <input class="full-width">
-                    <div class="woman" ng-class="{'highlight':input.gender == '0'}" ng-click="select_gender('0')">女士</div>
-                    <div class="man" ng-class="{'highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
+                <div class="booking-content text-center" ng-click="cache_and_go('related_industry','industry')">
+                    {{input.industry}} &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
                 </div>
-                <div class="contact-item padding-lg-left modify">
-                    <div class="name">公司名(如有):</div>
-                    <input class="full-width">
-                </div>
-                <div class="contact-item padding-left modify">
-                    <div class="name">手机:</div>
-                    <input class="full-width">
-                </div>
-                <div class="contact-item padding-both modify">
-                    <div class="name">验证码:</div>
-                    <input class="full-width">
-                    <div class="sms-code">点击发送验证码</div>
-                </div>
-                <div class="contact-item padding-xs-left modify">
-                    <div class="name">微信号:</div>
-                    <input class="full-width">
-                </div>
-                <div class="contact-item padding-sm-left">
-                    <div class="name">预算范围:</div>
-                    <input class="full-width">
+                <div class="booking-content text-center" ng-click="cache_and_go('choice_time','choice_time')">
+                    {{input.schedule_from}}
+                    <label>开始</label> - {{input.schedule_to}}
+                    <label>结束</label>&nbsp
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="section text-center">
-        <span class="btn btn-lg btn-primary" ng-click="go()">提交需求</span>
-    </div>
-</div>
-
-<div class="model" ng-if="model.status == '1'">
-    <div class="model-container">
-        <div class="model-header">
-            您的需求已发送，客服会尽快联系你并为您先下匹配译员
+        <div class="booking">
+            <div class="booking-work">
+                <div class="input-group">
+                    <div class="input-item padding-xs-left" ng-href="#/choice_language">
+                        <div class="icon icon-content"></div>
+                        <div class="text-modify modify"><span class="font-color">具体工作内容</span></div>
+                    </div>
+                </div>
+                <div class="booking-content">
+                    <textarea class="full-width" name="work_content" ng-model="input.work_content" placeholder="请简单描述工作内容" required cols="30" rows="10"></textarea>
+                </div>
+            </div>
         </div>
-        <div class="model-btn" ng-click="cancel()">我知道了</div>
+        <div class="booking">
+            <div class="booking-work">
+                <div class="input-group">
+                    <div class="input-item padding-xs-left" ng-href="#/choice_language">
+                        <div class="icon icon-content"></div>
+                        <div class="text-modify modify"><span class="font-color">对翻译者的其他要求</span></div>
+                    </div>
+                </div>
+                <div class="booking-content">
+                    <textarea class="full-width" name="other_require" ng-model="input.other_require" placeholder="请简单描述其他要求" required cols="30" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="booking">
+            <div class="booking-contact">
+                <div class="title text-center">请留下您的信息，以便联系您</div>
+                <div class="contact-group">
+                    <div class="contact-item padding modify">
+                        <div class="name">姓名:</div>
+                        <input type="text" class="full-width" name="nickname" ng-model="input.nickname" placeholder="请输入姓名" required>
+                        <div class="woman" ng-class="{'highlight':input.gender == '0'}" ng-click="select_gender('0')">女士</div>
+                        <div class="man" ng-class="{'highlight':input.gender == '1'}" ng-click="select_gender('1')">先生</div>
+                    </div>
+                    <div class="contact-item padding-lg-left modify">
+                        <div class="name">公司名(如有):</div>
+                        <input type="text" name="company" ng-model="input.company" placeholder="请输入公司名称" class="full-width">
+                    </div>
+                    <div class="contact-item padding-left modify">
+                        <div class="name">手机:</div>
+                        <input type="tel" class="full-width" name="telephone" ng-model="input.telephone" placeholder="请输入手机号" required>
+                    </div>
+                    <div class="contact-item padding-both modify">
+                        <div class="name">验证码:</div>
+                        <input type="text" class="full-width" name="smscode" ng-model="input.smscode" placeholder="请输入验证码" required>
+                        <countdown class="sms-code" countdown="countdown" countdown-disabled="bookingForm.telephone.$invalid">{{countdown.message}}</countdown>
+                    </div>
+                    <div class="contact-item padding-xs-left modify">
+                        <div class="name">微信号:</div>
+                        <input class="full-width" name="wechat" ng-model="input.wechat" placeholder="请输入微信号">
+                    </div>
+                    <div class="contact-item padding-sm-left">
+                        <div class="name">预算范围:</div>
+                        <input class="full-width" name="money" ng-model="input.money" placeholder="请输入最高预算">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section text-center">
+            <button type="submit" class="btn btn-lg btn-primary" ng-disabled="bookingForm.$invalid">提交需求</button>
+        </div>
     </div>
-</div>
-
-
-
-
+    <!-- <div class="model" ng-if="model.status == '1'">
+        <div class="model-container">
+            <div class="model-header">
+                您的需求已发送，客服会尽快联系你并为您先下匹配译员
+            </div>
+            <div class="model-btn" ng-click="cancel()">我知道了</div>
+        </div>
+    </div> -->
+</form>

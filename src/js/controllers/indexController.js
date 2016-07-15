@@ -11,6 +11,7 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 	$scope.input.schedule_to = "";
 	$scope.input.schedule_total = "";
 	$scope.input.industry = "";
+	
 	$scope.input.gender = "不限";
 	$scope.select_gender = function(n) {
 		$scope.input.gender = n;

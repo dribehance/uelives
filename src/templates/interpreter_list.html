@@ -1,8 +1,8 @@
 <div class="wrap">
     <div class="tab justified">
-        <a class="tab-item xs-width xs-padding">综合排序<div class="icon icon-xiala"></div></a>
-        <a class="tab-item xs-width xs-padding tab-modify">价格排序<div class="icon icon-xiala"></div></a>
-        <a class="tab-item xs-width xs-padding">评价排序<div class="icon icon-xiala"></div></a>
+        <a class="tab-item xs-width xs-padding" ng-click="sort_by_all()" ng-class="{'text-primary':input.all == '1'}">综合排序 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+        <a class="tab-item xs-width xs-padding tab-modify" ng-click="sort_by_price()" ng-class="{'text-primary':input.price == '1'}">价格排序 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+        <a class="tab-item xs-width xs-padding" ng-click="sort_by_comment()" ng-class="{'text-primary':input.comment == '1'}">评价排序 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
     </div>
     <div class="interpreter-list" ng-if="qualified_count>0">
         <div class="list-center text-center">

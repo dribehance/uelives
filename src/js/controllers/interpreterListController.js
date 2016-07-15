@@ -1,5 +1,9 @@
 angular.module("Uelives").controller("interpreterListController", function($scope, $filter, $location, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
-	$scope.input = {};
+	$scope.input = {
+		all: "0",
+		price: "0",
+		comment: "0"
+	};
 	$scope.qualified_translators = [];
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
@@ -23,9 +27,9 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 		translate_day: $scope.input.schedule_total,
 		translate_field: $scope.input.industry,
 		sex: $scope.input.gender,
-		pay_day: "0",
-		total_score: "0",
-		multiple_order: "0"
+		pay_day: $scope.input.price,
+		total_score: $scope.input.comment,
+		multiple_order: $scope.input.all
 	}
 	$scope.load_qualified = function() {
 		if ($scope.no_qualified) {
@@ -65,9 +69,9 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 		translate_day: $scope.input.schedule_total,
 		translate_field: $scope.input.industry,
 		sex: $scope.input.gender,
-		pay_day: "0",
-		total_score: "0",
-		multiple_order: "0"
+		pay_day: $scope.input.price,
+		total_score: $scope.input.comment,
+		multiple_order: $scope.input.all
 	}
 	$scope.unqualified_translators = [];
 	$scope.load_unqualified = function() {
@@ -94,5 +98,56 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 			"id": id,
 			"order_id": $routeParams.order_id
 		})
+	}
+	$scope.sort_by_all = function() {
+		$scope.input.all = $scope.input.all == "0" ? "1" : "0";
+		$scope.reset();
+		$scope.load_qualified();
+	}
+	$scope.sort_by_price = function() {
+		$scope.input.price = $scope.input.price == "0" ? "1" : "0";
+		$scope.reset();
+		$scope.load_qualified();
+	}
+	$scope.sort_by_comment = function() {
+		$scope.input.comment = $scope.input.comment == "0" ? "1" : "0";
+		$scope.reset();
+		$scope.load_qualified();
+	}
+	$scope.reset = function() {
+		$scope.qualified_page = {
+			pn: 1,
+			page_size: 10,
+			message: "点击加载更多",
+			city: $scope.input.city,
+			from_language: $scope.input.language.from,
+			to_language: $scope.input.language.to,
+			translate_scene: $scope.input.scenes,
+			order_time: $scope.input.choice_time.join("#"),
+			translate_day: $scope.input.schedule_total,
+			translate_field: $scope.input.industry,
+			sex: $scope.input.gender,
+			pay_day: $scope.input.price,
+			total_score: $scope.input.comment,
+			multiple_order: $scope.input.all
+		}
+		$scope.unqualified_page = {
+			pn: 1,
+			page_size: 10,
+			message: "点击加载更多",
+			city: $scope.input.city,
+			from_language: $scope.input.language.from,
+			to_language: $scope.input.language.to,
+			translate_scene: $scope.input.scenes,
+			order_time: $scope.input.choice_time.join("#"),
+			translate_day: $scope.input.schedule_total,
+			translate_field: $scope.input.industry,
+			sex: $scope.input.gender,
+			pay_day: $scope.input.price,
+			total_score: $scope.input.comment,
+			multiple_order: $scope.input.all
+		}
+		$scope.no_qualified = false
+		$scope.no_unqualified = false;
 	}
 })
