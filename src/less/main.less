@@ -12,9 +12,11 @@
     user-select: none;
 }
 
+
 textarea,
 input::-webkit-input-placeholder {
-    color: #ACACAC !important;
+    color: #EBEBEB !important;
+    line-height: 16px;
 }
 
 // input:-moz-placeholder {
@@ -109,7 +111,7 @@ textarea {
             position: absolute;
             display: block;
             top: 2px;
-            left: 10px;
+            left: 5px;
             padding: 15px 5px;
         }
         .text-modify {
@@ -268,7 +270,7 @@ textarea {
         display: inline-block;
         .box-sizing(border-box);
         &.tab-modify {
-            border: 2px solid #D8D9D9;
+            border: 2px solid #EBEBEB;
             border-top: none;
             border-bottom: none;
         }
@@ -307,7 +309,9 @@ textarea {
         border-radius: 6px;
         .list-header {
             display: block;
-            border-bottom: 1px solid #EBEBEB;
+            &.border-bottom-color {
+                border-bottom: 1px solid #EBEBEB;
+            }
             .title {
                 display: block;
                 padding: 5px 0;
@@ -322,8 +326,8 @@ textarea {
             padding-top: 10px;
             .list-content {
                 position: relative;
-                padding-left: 65px;
-                height: 65px;
+                padding-left: 55px;
+                height: 55px;
                 display: block;
                 overflow: hidden;
                 cursor: pointer;
@@ -332,8 +336,8 @@ textarea {
                     display: block;
                     top: 0;
                     left: 0;
-                    height: 65px;
-                    width: 65px;
+                    height: 55px;
+                    width: 55px;
                     border-radius: 6px;
                     overflow: hidden;
                     .box-sizing(border-box);
@@ -348,7 +352,7 @@ textarea {
                     .list-info-header {
                         display: block;
                         padding-top: 5px;
-                        margin-bottom: 30px;
+                        margin-bottom: 19px;
                         span {
                             display: inline-block;
                             padding: 0 5px;
@@ -360,7 +364,7 @@ textarea {
                             display: inline-block;
                             padding: 0 5px;
                             &.modify {
-                                border: 2px solid #D8D9D9;
+                                border: 2px solid #EBEBEB;
                                 border-top: none;
                                 border-bottom: none;
                             }
@@ -390,7 +394,7 @@ textarea {
                 display: block;
                 padding: 10px 20px;
                 color: #62C3DE;
-                border-bottom: 1px solid #000;
+                border-bottom: 1px solid #EBEBEB;
             }
         }
         .booking-content {
@@ -426,7 +430,7 @@ textarea {
         .title {
             display: block;
             padding: 15px;
-            color: #D8D9D9;
+            color: #EBEBEB;
         }
         .contact-group {
             display: block;
@@ -485,7 +489,7 @@ textarea {
                     right: 0;
                     display: block;
                     padding: 10px;
-                    border: 1px solid #B3B3B3;
+                    border: 1px solid #EBEBEB;
                     font-size: 12px;
                     color: #B3B3B3;
                 }
@@ -547,7 +551,7 @@ textarea {
         overflow: hidden;
         .box-sizing(border-box);
         &.border-right {
-            border-right: 2px solid #D8D9D9;
+            border-right: 2px solid #EBEBEB;
         }
         span {
             display: block;
@@ -601,6 +605,9 @@ textarea {
                 margin-left: 30px;
             }
         }
+        .edit-black {
+            color: #000;
+        }
         .modify {
             border-bottom: 1px solid #EBEBEB;
         }
@@ -612,7 +619,7 @@ textarea {
             display: block;
             padding: 15px 0;
             color: #00B5DA;
-            border-bottom: 1px solid #D8D9D9;
+            border-bottom: 1px solid #EBEBEB;
         }
         .edit-list {
             position: relative;
@@ -631,6 +638,9 @@ textarea {
                 top: 0;
                 left: 0;
             }
+        }
+        .color-gray{
+            color: #EBEBEB;
         }
     }
     .edit-container {
@@ -808,7 +818,7 @@ textarea {
                     padding: 15px 0;
                     span {
                         display: inline-block;
-                        padding-right: 5px;
+                        padding: 0 5px;
                         margin-top: 5px;
                         font-size: 12px;
                         color: #B3B3B3;
@@ -1161,12 +1171,9 @@ textarea {
             background-color: white;
         }
     }
-    .time-footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: white;
+    .no-booking {
+        display: block;
+        overflow: hidden;
         .time-icon {
             display: inline-block;
             width: 20px;
@@ -1181,6 +1188,13 @@ textarea {
             padding: 13px 5px 5px 5px;
             float: left;
         }
+    }
+    .time-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
     }
 }
 
@@ -1208,7 +1222,6 @@ textarea {
                 display: block;
                 padding: 10px 10px 10px 30px;
                 border-radius: 4px;
-                
                 .box-sizing(border-box);
                 input::-webkit-input-placeholder {
                     text-align: center;
@@ -1216,7 +1229,6 @@ textarea {
                 input {
                     .box-sizing(border-box);
                     height: 16px;
-                    line-height: 16px;
                 }
                 .fa {
                     position: absolute;

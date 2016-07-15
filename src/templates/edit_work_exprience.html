@@ -21,7 +21,7 @@
             <div class="edit-item padding margin-left modify">
                 <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" required>
             </div>
-            <div class="edit-item padding margin-left modify" ng-click="cache_and_go('scenes','working_scene')">
+            <div class="edit-item padding margin-left modify" ng-class="{'edit-black':input.working_scene}" ng-click="cache_and_go('scenes','working_scene')">
                 {{input.working_scene||"请选择工作场景"}}
             </div>
         </div>

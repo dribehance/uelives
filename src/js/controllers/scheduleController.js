@@ -15,6 +15,13 @@ angular.module("Uelives").controller("scheduleController", function($scope, $roo
 	$scope.parse_time = function(day) {
 		return day.schedule_date.split("-")[2];
 	}
+	//margin-left动态变化
+    $scope.append_class = function(day, index) {
+        if (index == 0) {
+            return "margin-left-" + day.week;
+        }
+    }
+    
 	$scope.active = function(day) {
 		$scope.input.day = day;
 	}

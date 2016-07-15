@@ -18,7 +18,7 @@
             </div>
             <div class="edit-item padding margin-left modify">
                 <!-- <input type="text" class="full-width" placeholder="学历" name="education" ng-model="input.education" required> -->
-                <select ng-options="degree for degree in degrees" ng-model="input.degree" required>
+                <select ng-options="degree for degree in degrees" ng-model="input.degree" ng-class="{'edit-black':input.degree != '0'}" required >
                     <option value="">请选择最高学历</option>
                 </select>
             </div>
