@@ -27,7 +27,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -39,7 +39,7 @@
                     {{order.translate_scene}}
                 </div>
             </a>
-            <div class="order-wait">
+            <a class="order-wait" ng-href="#/online_preview?id={{order.translate_user_id}}">
                 <div class="order-wait-content">
                     <div class="avatar">
                         <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
@@ -50,14 +50,14 @@
                         <span class="pull-right">等待译员接单</span>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- 2 -->
         <div class="order" ng-if="input.type=='2' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -83,7 +83,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -95,7 +95,7 @@
                     {{order.translate_scene}}
                 </div>
             </a>
-            <div class="order-wait">
+            <a class="order-wait" ng-href="#/online_preview?id={{order.translate_user_id}}">
                 <div class="order-wait-content">
                     <div class="avatar">
                         <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
@@ -103,21 +103,21 @@
                     <div class="order-wait-info">
                         {{order.translate_user_name}}
                         <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
-                        <span class="pull-right">等待译员接单</span>
+                        <!-- <span class="pull-right">等待译员接单</span> -->
                     </div>
-                    <div class="order-wait-contact text-left">
-                        <i class="fa fa-mobile" aria-hidden="true"></i> <span>{{order.translate_telephone}}</span> &nbsp
-                        <i class="fa fa-weixin" aria-hidden="true"></i> <span>{{order.translate_wechat}}</span>
+                    <div class="order-wait-contact clearfix text-left">
+                        <span class="pull-left"><i class="fa fa-mobile" aria-hidden="true"></i> {{order.translate_telephone}}</span> &nbsp
+                        <span class="pull-left"><i class="fa fa-weixin" aria-hidden="true"></i>{{order.translate_wechat}}</span>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         <!-- 4 -->
         <div class="order" ng-if="input.type=='3' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -149,7 +149,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -161,7 +161,7 @@
                     {{order.translate_scene}}
                 </div>
             </a>
-            <div class="order-wait modify">
+            <a class="order-wait modify" ng-href="#/online_preview?id={{order.translate_user_id}}">
                 <div class="order-wait-content">
                     <div class="avatar">
                         <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
@@ -169,20 +169,21 @@
                     <div class="order-wait-info">
                         {{order.translate_user_name}}
                         <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
-                        <span class="pull-right">等待译员接单</span>
+                        <!-- <span class="pull-right">等待译员接单</span> -->
                     </div>
                 </div>
-            </div>
-            <a class="order-to-evaluate text-center text-primary" ng-href="#/interpreter_evaluate?id={{order.translate_user_id}}&order_id={{order.orders_id}}">
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==0" ng-href="#/interpreter_evaluate?id={{order.translate_user_id}}&order_id={{order.orders_id}}">
             去评价
-        </a>
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==1">已评价</a>
         </div>
         <!-- 6 -->
         <div class="order" ng-if="input.type=='4' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -195,7 +196,7 @@
                 </div>
             </a>
             <div class="order-btn">
-                <a class="col-ms-2 pull-left" ng-href="#/interpreter_evaluate">
+                <a class="col-ms-2 pull-left" ng-href="#/preview_comment?id={{order.orders_id}}">
                     <div class="button text-center border-right">查看评价</div>
                 </a>
                 <div class="col-ms-2 pull-left" ng-click="mark('3',order)">
@@ -209,7 +210,7 @@
                 口译
                 <span class="pull-right">已取消</span>
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -227,7 +228,7 @@
                 口译
                 <span class="pull-right">已取消</span>
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>

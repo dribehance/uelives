@@ -1,6 +1,6 @@
 angular.module("Uelives").constant("config", {
-	url: "http://uelives.com",
-	imageUrl: "http://uelives.com/files/image?name=",
+	url: "http://192.168.1.143:8080",
+	imageUrl: "http://192.168.1.143:8080/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
@@ -32,6 +32,7 @@ angular.module("Uelives").constant("config", {
 		"schedule_preview",
 		"order_management_interpreter",
 		"order_management_user",
+		"order",
 		"order_cancel",
 		"order_confirm",
 		"order_finish",
@@ -42,5 +43,6 @@ angular.module("Uelives").constant("config", {
 		"information",
 		"scenes",
 		"certificate",
+		"preview_comment",
 	]
 });
