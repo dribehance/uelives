@@ -32,6 +32,7 @@ angular.module("Uelives").constant("config", {
 		"schedule_preview",
 		"order_management_interpreter",
 		"order_management_user",
+		"order",
 		"order_cancel",
 		"order_confirm",
 		"order_finish",
@@ -42,5 +43,6 @@ angular.module("Uelives").constant("config", {
 		"information",
 		"scenes",
 		"certificate",
+		"preview_comment",
 	]
 });

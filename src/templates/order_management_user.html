@@ -27,7 +27,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -57,7 +57,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -83,7 +83,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -117,7 +117,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -149,7 +149,7 @@
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -173,16 +173,17 @@
                     </div>
                 </div>
             </div>
-            <a class="order-to-evaluate text-center text-primary" ng-href="#/interpreter_evaluate?id={{order.translate_user_id}}&order_id={{order.orders_id}}">
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==0" ng-href="#/interpreter_evaluate?id={{order.translate_user_id}}&order_id={{order.orders_id}}">
             去评价
-        </a>
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==1">已评价</a>
         </div>
         <!-- 6 -->
         <div class="order" ng-if="input.type=='4' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -195,7 +196,7 @@
                 </div>
             </a>
             <div class="order-btn">
-                <a class="col-ms-2 pull-left" ng-href="#/interpreter_evaluate">
+                <a class="col-ms-2 pull-left" ng-href="#/preview_comment?id={{order.orders_id}}">
                     <div class="button text-center border-right">查看评价</div>
                 </a>
                 <div class="col-ms-2 pull-left" ng-click="mark('3',order)">
@@ -209,7 +210,7 @@
                 口译
                 <span class="pull-right">已取消</span>
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>
@@ -227,7 +228,7 @@
                 口译
                 <span class="pull-right">已取消</span>
             </div>
-            <a class="order-content modify">
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
                 <div class="order-content-item">
                     {{order.city+order.from_language+"-"+order.to_language}}翻译
                 </div>

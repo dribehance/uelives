@@ -1,0 +1,60 @@
+<form name="commentForm" ng-submit="ajaxForm()" class="review">
+    <div class="review-item">
+        <div class="review-header modify">
+            <div class="review-avatar">
+                <imageview data-rate="1" center-only src="staticImageUrl + comment.translate_image_01"></imageview>
+            </div>
+            <div class="review-info">{{comment.comment_name}}</div>
+        </div>
+    </div>
+    <div class="review-item text-center">
+        TA给的打分({{comment.comment_star}}分)
+    </div>
+    <div class="review-item text-center">
+        <div class="icon icon-reviewstar" ng-class="{'active':comment.comment_star>0}" ng-click="active('1')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':comment.comment_star>1}" ng-click="active('2')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':comment.comment_star>2}" ng-click="active('3')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':comment.comment_star>3}" ng-click="active('4')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':comment.comment_star>4}" ng-click="active('5')"></div>
+    </div>
+    <div class="review-item">
+        <div class="textarea">
+            <textarea placeholder="请写出您对译员的评价吧~" name="note" ng-model="comment.note" readonly></textarea>
+        </div>
+    </div>
+    <div class="review-item">
+        <div class="review-skill margin-bottom">
+            语言能力
+            <span class="pull-right" ng-click="single_check('tongue','0')" ng-class="{'text-primary':comment.tongue=='0'}">
+                <div class="icon icon-reviewbuzan" ng-class="{'active':comment.tongue=='0'}"></div>
+                  踩
+            </span>
+            <span class="pull-right margin-right"  ng-click="single_check('tongue','1')" ng-class="{'text-primary':comment.tongue=='1'}">
+                <div class="icon icon-reviewzan" ng-class="{'active':comment.tongue=='1'}"></div>
+                 赞
+            </span>
+        </div>
+        <div class="review-skill margin-bottom">
+            专业水平
+            <span class="pull-right"  ng-click="single_check('profession','0')" ng-class="{'text-primary':comment.profession=='0'}">
+                <div class="icon icon-reviewbuzan" ng-class="{'active':comment.profession=='0'}"></div>
+                 踩
+            </span>
+            <span class="pull-right margin-right" ng-click="single_check('profession','1')" ng-class="{'text-primary':comment.profession=='1'}">
+                <div class="icon icon-reviewzan" ng-class="{'active':comment.profession=='1'}"></div>
+                 赞
+            </span>
+        </div>
+        <div class="review-skill">
+            服务态度
+            <span class="pull-right" ng-click="single_check('service','0')" ng-class="{'text-primary':comment.service=='0'}">
+                <div class="icon icon-reviewbuzan" ng-class="{'active':comment.service=='0'}"></div>
+                 踩
+            </span>
+            <span class="pull-right margin-right" ng-click="single_check('service','1')" ng-class="{'text-primary':comment.service=='1'}">
+                <div class="icon icon-reviewzan" ng-class="{'active':comment.service=='1'}"></div>
+                 赞
+            </span>
+        </div>
+    </div>
+</form>
