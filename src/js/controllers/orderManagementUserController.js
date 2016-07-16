@@ -1,117 +1,84 @@
-angular.module("Uelives").controller("orderManagementUserController", function($scope, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("orderManagementUserController", function($scope, $route, $timeout, $filter, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {
-        type: 'wait',
+        type: '2',
         status: 'wait'
     }
-
-
-    // $scope.orders = [{
-    //     type: "wait",
-    //     status: "1",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }, {
-    //     type: "wait",
-    //     status: "2",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }, {
-    //     type: "confirm",
-    //     status: "3",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }, {
-    //     type: "confirm",
-    //     status: "4",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }, {
-    //     type: "finish",
-    //     status: "5",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }, {
-    //     type: "finish",
-    //     status: "6",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }, {
-    //     type: "cancel",
-    //     status: "7",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }, {
-    //     type: "cancel",
-    //     status: "8",
-    //     status_message: "",
-    //     title: "",
-    //     from_date: "",
-    //     end_date: "",
-    //     summary: "",
-    //     user: {
-    //         avatar: "",
-    //         name: "",
-    //     }
-    // }];
-    $scope.active_tab = function(tab_index) {
-        if (tab_index == $scope.input.type && tab_index == $scope.input.status) {
+    $scope.orders = [];
+    $scope.page = {
+        pn: 1,
+        page_size: 10,
+        message: "点击加载更多",
+        // uid: "oqEj-vsfYWEE4l4rWAR7lxyJgO55",
+        uid: "oqEj-vsfYWEE4l4rWAR7lxyJgOLI",
+        order_type: $scope.input.type
+    }
+    $scope.loadMore = function() {
+        if ($scope.no_more) {
             return;
         }
+        toastServices.show();
+        $scope.page.message = "正在加载...";
+        userServices.query_orders($scope.page).then(function(data) {
+            toastServices.hide();
+            $scope.page.message = "点击加载更多";
+            if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+                $scope.orders = $scope.orders.concat(data.Result.OrderList.list);
+                $scope.no_more = $scope.orders.length == data.Result.OrderList.totalRow ? true : false;
+            } else {
+                errorServices.autoHide("服务器错误");
+            }
+            if ($scope.no_more) {
+                $scope.page.message = "加载完成，共加载" + $scope.orders.length + "条数据";
+            }
+            $scope.page.pn++;
+        })
+
+    }
+    $scope.loadMore();
+    $scope.active_tab = function(tab_index) {
         $scope.input.type = tab_index;
-        $scope.input.status = tab_index;
-
-
-
+        $scope.page = {
+            pn: 1,
+            page_size: 10,
+            message: "点击加载更多",
+            // uid: "oqEj-vsfYWEE4l4rWAR7lxyJgO55",
+            uid: "oqEj-vsfYWEE4l4rWAR7lxyJgOLI",
+            order_type: $scope.input.type
+        }
+        $scope.orders = [];
+        $scope.no_more = false;
+        $scope.loadMore();
     };
-
-
+    $scope.format_time = function(time, format) {
+        return $filter("date")(time, format)
+    }
+    $scope.parse_time = function(time) {
+        return time.split("#").map(function(t) {
+            return $scope.format_time(t, "yyyy.MM.dd");
+        }).join("-")
+    }
+    $scope.mark = function(type, order) {
+        var confirm_title = ["", "接受", "拒绝", "收款"];
+        $scope.confirm.content = confirm_title[type];
+        $scope.confirm.open();
+        $scope.confirm.cancle_callback = function() {}
+        $scope.confirm.ok_callback = function() {
+            toastServices.show();
+            userServices.mark({
+                orders_id: order.orders_id,
+                transaction_id: order.transaction_id,
+                type: type,
+            }).then(function(data) {
+                toastServices.hide()
+                if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+                    errorServices.autoHide(data.message);
+                    $timeout(function() {
+                        $route.reload();
+                    }, 2000)
+                } else {
+                    errorServices.autoHide(data.message);
+                }
+            })
+        }
+    }
 })

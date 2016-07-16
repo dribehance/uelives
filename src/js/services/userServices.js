@@ -172,13 +172,20 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		query_comments: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Comments/myCommentList",
 		})),
+		comment: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/Comments/comment",
+		})),
 		// 在线预订
 		online_booking: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/submitOrder",
 		})),
 		// 订单列表，根据微信uid获取
-		online_booking: apiServices._get(angular.extend({}, config.common_params, {
+		query_orders: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/myOrderList",
+		})),
+		// 订单评价，拒绝，同意
+		mark: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/OrdersManage/setOrderType",
 		})),
 	}
 });

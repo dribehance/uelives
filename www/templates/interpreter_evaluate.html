@@ -1,43 +1,62 @@
-<div class="review">
+<form name="commentForm" ng-submit="ajaxForm()" class="review">
     <div class="review-item">
         <div class="review-header modify">
             <div class="review-avatar">
-                <img src="../images/avatar.png" class="full-width full-height">
+                <imageview data-rate="1" center-only src="staticImageUrl + user.image_01"></imageview>
             </div>
-            <div class="review-info">曹禹</div>
+            <div class="review-info">{{user.nickname}}</div>
         </div>
     </div>
     <div class="review-item text-center">
         请为译员打分
     </div>
     <div class="review-item text-center">
-        <div class="icon icon-reviewstar"></div>
-        <div class="icon icon-reviewstar"></div>
-        <div class="icon icon-reviewstar"></div>
-        <div class="icon icon-reviewstar"></div>
-        <div class="icon icon-reviewstar"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':input.star>0}" ng-click="active('1')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':input.star>1}" ng-click="active('2')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':input.star>2}" ng-click="active('3')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':input.star>3}" ng-click="active('4')"></div>
+        <div class="icon icon-reviewstar" ng-class="{'active':input.star>4}" ng-click="active('5')"></div>
     </div>
     <div class="review-item">
         <div class="textarea">
-            <textarea placeholder="请写出您对译员的评价吧~"></textarea>
-            <div class="tip">至少输入8个字</div>
+            <textarea placeholder="请写出您对译员的评价吧~" name="note" ng-model="input.note" required ng-minlength="8"></textarea>
+            <div class="tip text-danger" ng-if="commentForm.note.$invalid">至少输入8个字</div>
         </div>
     </div>
     <div class="review-item">
         <div class="review-skill margin-bottom">
             语言能力
-            <span class="pull-right"><div class="icon icon-reviewbuzan"></div> 踩</span>
-            <span class="pull-right margin-right"><div class="icon icon-reviewzan"></div> 赞</span>
+            <span class="pull-right" ng-click="single_check('tongue','0')" ng-class="{'text-primary':input.tongue=='0'}">
+                <div class="icon icon-reviewbuzan" ng-class="{'active':input.tongue=='0'}"></div>
+                  踩
+            </span>
+            <span class="pull-right margin-right"  ng-click="single_check('tongue','1')" ng-class="{'text-primary':input.tongue=='1'}">
+                <div class="icon icon-reviewzan" ng-class="{'active':input.tongue=='1'}"></div>
+                 赞
+            </span>
         </div>
         <div class="review-skill margin-bottom">
             专业水平
-            <span class="pull-right"><div class="icon icon-reviewbuzan"></div> 踩</span>
-            <span class="pull-right margin-right"><div class="icon icon-reviewzan"></div> 赞</span>
+            <span class="pull-right"  ng-click="single_check('profession','0')" ng-class="{'text-primary':input.profession=='0'}">
+                <div class="icon icon-reviewbuzan" ng-class="{'active':input.profession=='0'}"></div>
+                 踩
+            </span>
+            <span class="pull-right margin-right" ng-click="single_check('profession','1')" ng-class="{'text-primary':input.profession=='1'}">
+                <div class="icon icon-reviewzan" ng-class="{'active':input.profession=='1'}"></div>
+                 赞
+            </span>
         </div>
         <div class="review-skill">
             服务态度
-            <span class="pull-right"><div class="icon icon-reviewbuzan"></div> 踩</span>
-            <span class="pull-right margin-right"><div class="icon icon-reviewzan"></div> 赞</span>
+            <span class="pull-right" ng-click="single_check('service','0')" ng-class="{'text-primary':input.service=='0'}">
+                <div class="icon icon-reviewbuzan" ng-class="{'active':input.service=='0'}"></div>
+                 踩
+            </span>
+            <span class="pull-right margin-right" ng-click="single_check('service','1')" ng-class="{'text-primary':input.service=='1'}">
+                <div class="icon icon-reviewzan" ng-class="{'active':input.service=='1'}"></div>
+                 赞
+            </span>
         </div>
     </div>
-</div>
+    <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="commentForm.$invalid">提交评价</button>
+</form>
