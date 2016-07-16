@@ -24,38 +24,40 @@
         </div>
     </div>
     <div class="review-item">
+        
         <div class="review-skill margin-bottom">
             语言能力
-            <span class="pull-right" ng-click="single_check('tongue','0')" ng-class="{'text-primary':input.tongue=='0'}">
+
+            <div class="pull-right" ng-click="single_check('tongue','0')" ng-class="{'text-primary':input.tongue=='0'}">
                 <div class="icon icon-reviewbuzan" ng-class="{'active':input.tongue=='0'}"></div>
                   踩
-            </span>
-            <span class="pull-right margin-right"  ng-click="single_check('tongue','1')" ng-class="{'text-primary':input.tongue=='1'}">
+            </div>
+            <div class="pull-right margin-right"  ng-click="single_check('tongue','1')" ng-class="{'text-primary':input.tongue=='1'}">
                 <div class="icon icon-reviewzan" ng-class="{'active':input.tongue=='1'}"></div>
                  赞
-            </span>
+            </div>
         </div>
         <div class="review-skill margin-bottom">
             专业水平
-            <span class="pull-right"  ng-click="single_check('profession','0')" ng-class="{'text-primary':input.profession=='0'}">
+            <div class="pull-right"  ng-click="single_check('profession','0')" ng-class="{'text-primary':input.profession=='0'}">
                 <div class="icon icon-reviewbuzan" ng-class="{'active':input.profession=='0'}"></div>
                  踩
-            </span>
-            <span class="pull-right margin-right" ng-click="single_check('profession','1')" ng-class="{'text-primary':input.profession=='1'}">
+            </div>
+            <div class="pull-right margin-right" ng-click="single_check('profession','1')" ng-class="{'text-primary':input.profession=='1'}">
                 <div class="icon icon-reviewzan" ng-class="{'active':input.profession=='1'}"></div>
                  赞
-            </span>
+            </div>
         </div>
         <div class="review-skill">
             服务态度
-            <span class="pull-right" ng-click="single_check('service','0')" ng-class="{'text-primary':input.service=='0'}">
+            <div class="pull-right" ng-click="single_check('service','0')" ng-class="{'text-primary':input.service=='0'}">
                 <div class="icon icon-reviewbuzan" ng-class="{'active':input.service=='0'}"></div>
                  踩
-            </span>
-            <span class="pull-right margin-right" ng-click="single_check('service','1')" ng-class="{'text-primary':input.service=='1'}">
+            </div>
+            <div class="pull-right margin-right" ng-click="single_check('service','1')" ng-class="{'text-primary':input.service=='1'}">
                 <div class="icon icon-reviewzan" ng-class="{'active':input.service=='1'}"></div>
                  赞
-            </span>
+            </div>
         </div>
     </div>
     <button type="submit" class="btn btn-primary btn-lg full-width" ng-disabled="commentForm.$invalid">提交评价</button>
