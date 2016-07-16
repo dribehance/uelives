@@ -8,7 +8,7 @@
         <div class="list-center text-center">
             有{{qualified_count}}个符合您的要求
         </div>
-        <div class="list-item" ng-click="go(translator.user_id)" ng-repeat="translator in qualified_translators">
+        <div class="list-item" ng-click="go(translator.user_id)" ng-repeat="translator in qualified_translators" on-repeat-done>
             <div class="list-header border-bottom-color">
                 <div class="title">
                     {{translator.nickname}}
@@ -44,7 +44,7 @@
         <div class="list-center text-center">
             以下{{unqualified_count}}个可能符合您的要求
         </div>
-        <div class="list-item" ng-click="go(translator.user_id)" ng-repeat="translator in unqualified_translators">
+        <div class="list-item" ng-click="go(translator.user_id)" ng-repeat="translator in unqualified_translators" on-repeat-done>
             <div class="list-header border-bottom-color">
                 <div class="title">
                     {{translator.nickname}}

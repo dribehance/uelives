@@ -160,6 +160,8 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 		}
 		$scope.qualified_translators = [];
 		$scope.unqualified_translators = [];
+		$scope.qualified_count = 0;
+		$scope.unqualified_count = 0;
 		$scope.no_qualified = false
 		$scope.no_unqualified = false;
 	}

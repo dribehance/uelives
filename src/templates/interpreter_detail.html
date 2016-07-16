@@ -115,7 +115,11 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header" ng-href="#/schedule_preview?id={{user.user_id}}">
+            <!-- <a class="detail-header" ng-href="#/schedule_preview?id={{user.user_id}}">
+                <span>可预约日期</span>
+                <div class="icon icon-basicdate pull-right"></div>
+            </a> -->
+            <a class="detail-header" ng-click="cache_and_go('choice_time','choice_time')">
                 <span>可预约日期</span>
                 <div class="icon icon-basicdate pull-right"></div>
             </a>
