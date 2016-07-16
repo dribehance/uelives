@@ -1,8 +1,9 @@
-angular.module("Uelives").controller("onlinePreviewController", function($scope, $filter, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("onlinePreviewController", function($scope, $routeParams, $filter, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	toastServices.show();
 	userServices.query_basicinfo({
-		type: "1",
+		type: "2",
+		ta_user_id: $routeParams.id
 	}).then(function(data) {
 		toastServices.hide()
 		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
