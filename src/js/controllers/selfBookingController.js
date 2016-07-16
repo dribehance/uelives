@@ -1,8 +1,8 @@
 angular.module("Uelives").controller("selfBookingController", function($scope, $filter, $location, $routeParams, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {};
-    $scope.input.gender = 1;
+    $scope.input.sex = 1;
     $scope.select_gender = function(gender) {
-        $scope.input.gender = gender;
+        $scope.input.sex = gender;
     };
     $scope.agree = false;
     $scope.is_agree = function() {
@@ -55,7 +55,7 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
             order_company: $scope.input.company,
             order_telephone: $scope.input.telephone,
             order_wechat: $scope.input.wechat,
-            money: $scope.get_total_money(),
+            money: $scope.input.money,
             msg_code: $scope.input.smscode,
         }).then(function(data) {
             toastServices.hide()
@@ -73,17 +73,4 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
             }
         })
     }
-    $scope.get_total_money = function() {
-        return parseFloat($scope.input.schedule_total) * parseFloat($routeParams.money);
-    }
-    // $scope.model = {
-    //     status: 0
-    // };
-    // $scope.go = function() {
-
-    //     $scope.model.status = 1;
-    // }
-    // $scope.cancel = function() {
-    //     $scope.model.status = 0;
-    // }
 })

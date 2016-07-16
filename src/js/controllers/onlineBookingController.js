@@ -1,8 +1,8 @@
 angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
-	$scope.input.gender = 1;
+	$scope.input.sex = 1;
 	$scope.select_gender = function(gender) {
-		$scope.input.gender = gender;
+		$scope.input.sex = gender;
 	};
 	$scope.check = function(n) {
 		$scope.input.check = n
@@ -31,6 +31,19 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			}
 		})
 	};
+	// 个人信息
+	toastServices.show();
+	userServices.query_basicinfo({
+		type: "2",
+		ta_user_id: $routeParams.id
+	}).then(function(data) {
+		toastServices.hide()
+		if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+			$scope.user = data.Result.UserInfo;
+		} else {
+			errorServices.autoHide(data.message);
+		}
+	});
 	// get information from cache
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
@@ -62,7 +75,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			order_company: $scope.input.company,
 			order_telephone: $scope.input.telephone,
 			order_wechat: $scope.input.wechat,
-			money: $scope.get_total_money(),
+			money: $scope.get_total_money($scope.user.pay_day),
 			msg_code: $scope.input.smscode,
 		}).then(function(data) {
 			toastServices.hide()
@@ -80,7 +93,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			}
 		})
 	}
-	$scope.get_total_money = function() {
-		return parseFloat($scope.input.schedule_total) * parseFloat($routeParams.money);
+	$scope.get_total_money = function(price) {
+		return parseFloat($scope.input.schedule_total) * parseFloat(price);
 	}
 })

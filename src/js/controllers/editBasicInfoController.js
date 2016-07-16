@@ -8,7 +8,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
             $scope.user = data.Result.UserInfo;
             $scope.input.nickname = $scope.user.nickname;
-            $scope.input.gender = $scope.user.sex;
+            $scope.input.sex = $scope.user.sex;
             $scope.input.degree = $scope.user.edu;
             $scope.input.birthday = $scope.user.birthday;
             $scope.input.city = $scope.user.city;
@@ -63,7 +63,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         userServices.update_userinfo({
             fileName: $scope.user.image_01,
             nickname: $scope.input.nickname,
-            sex: $scope.input.gender,
+            sex: $scope.input.sex,
             edu: $scope.input.degree,
             birthday: $scope.input.options.value,
             city: $scope.input.city,

@@ -1,8 +1,8 @@
 <div class="wrap">
     <div class="tab justified">
-        <a class="tab-item xs-width xs-padding" ng-click="sort_by_all()" ng-class="{'text-primary':input.all == '1'}">综合排序 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-        <a class="tab-item xs-width xs-padding tab-modify" ng-click="sort_by_price()" ng-class="{'text-primary':input.price == '1'}">价格排序 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
-        <a class="tab-item xs-width xs-padding" ng-click="sort_by_comment()" ng-class="{'text-primary':input.comment == '1'}">评价排序 <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+        <a class="tab-item xs-width xs-padding" ng-click="sort_by_all()" ng-class="{'text-primary':input.all != '0'}">综合排序 <i class="fa" ng-class="{'fa-caret-down':input.all=='1','fa-caret-up':input.all=='2'}" aria-hidden="true"></i></a>
+        <a class="tab-item xs-width xs-padding tab-modify" ng-click="sort_by_price()" ng-class="{'text-primary':input.price != '0'}">价格排序 <i class="fa" ng-class="{'fa-caret-down':input.price=='1','fa-caret-up':input.price=='2'}" aria-hidden="true"></i></a>
+        <a class="tab-item xs-width xs-padding" ng-click="sort_by_comment()" ng-class="{'text-primary':input.comment != '0'}">评价排序 <i class="fa" ng-class="{'fa-caret-down':input.comment=='1','fa-caret-up':input.comment=='2'}" aria-hidden="true"></i></a>
     </div>
     <div class="interpreter-list" ng-if="qualified_count>0">
         <div class="list-center text-center">
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="btn btn-primary btn-lg full-width" ng-click="load_qualified()" ng-if="qualified_translators.length<qualified_count">
+        <div class="btn btn-primary btn-lg full-width" ng-cloak ng-click="load_qualified()" ng-if="qualified_translators.length<qualified_count">
             点击加载更多
         </div>
     </div>
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="btn btn-primary btn-lg full-width" ng-click="load_unqualified()" ng-if="unqualified_translators.length<qualified_count">
+        <div class="btn btn-primary btn-lg full-width" ng-cloak ng-click="load_unqualified()" ng-if="unqualified_translators.length<qualified_count">
             点击加载更多
         </div>
     </div>

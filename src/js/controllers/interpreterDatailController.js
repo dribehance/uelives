@@ -49,8 +49,7 @@ angular.module("Uelives").controller("interpreterDetailController", function($sc
 	$scope.go = function(id) {
 		$location.path("online_booking").search({
 			"id": $routeParams.id,
-			"order_id": $routeParams.order_id,
-			"money": $scope.user.pay_day
+			"order_id": $routeParams.order_id
 		})
 	}
 })

@@ -1,6 +1,6 @@
 angular.module("Uelives").controller("interpreterListController", function($scope, $filter, $location, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
-		all: "0",
+		all: "1",
 		price: "0",
 		comment: "0"
 	};
@@ -26,7 +26,7 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 		order_time: $scope.input.choice_time.join("#"),
 		translate_day: $scope.input.schedule_total,
 		translate_field: $scope.input.industry,
-		sex: $scope.input.gender,
+		sex: $scope.input.sex,
 		pay_day: $scope.input.price,
 		total_score: $scope.input.comment,
 		multiple_order: $scope.input.all
@@ -68,7 +68,7 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 		order_time: $scope.input.choice_time.join("#"),
 		translate_day: $scope.input.schedule_total,
 		translate_field: $scope.input.industry,
-		sex: $scope.input.gender,
+		sex: $scope.input.sex,
 		pay_day: $scope.input.price,
 		total_score: $scope.input.comment,
 		multiple_order: $scope.input.all
@@ -99,18 +99,29 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 			"order_id": $routeParams.order_id
 		})
 	}
+	var sort_1 = $scope.input.all,
+		sort_2 = sort_3 = 0;
 	$scope.sort_by_all = function() {
-		$scope.input.all = $scope.input.all == "0" ? "1" : "0";
+		$scope.input.price = sort_2 = sort_3 = 0;
+		$scope.input.comment = sort_2 = sort_3 = 0;
+		sort_1++;
+		$scope.input.all = sort_1 % 3;
 		$scope.reset();
 		$scope.load_qualified();
 	}
 	$scope.sort_by_price = function() {
-		$scope.input.price = $scope.input.price == "0" ? "1" : "0";
+		$scope.input.all = sort_1 = sort_3 = 0;
+		$scope.input.comment = sort_1 = sort_3 = 0;
+		sort_2++;
+		$scope.input.price = sort_2 % 3;
 		$scope.reset();
 		$scope.load_qualified();
 	}
 	$scope.sort_by_comment = function() {
-		$scope.input.comment = $scope.input.comment == "0" ? "1" : "0";
+		$scope.input.all = sort_1 = sort_2 = 0;
+		$scope.input.price = sort_1 = sort_2 = 0;
+		sort_3++;
+		$scope.input.comment = sort_3 % 3;
 		$scope.reset();
 		$scope.load_qualified();
 	}
@@ -126,7 +137,7 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 			order_time: $scope.input.choice_time.join("#"),
 			translate_day: $scope.input.schedule_total,
 			translate_field: $scope.input.industry,
-			sex: $scope.input.gender,
+			sex: $scope.input.sex,
 			pay_day: $scope.input.price,
 			total_score: $scope.input.comment,
 			multiple_order: $scope.input.all
@@ -142,11 +153,13 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 			order_time: $scope.input.choice_time.join("#"),
 			translate_day: $scope.input.schedule_total,
 			translate_field: $scope.input.industry,
-			sex: $scope.input.gender,
+			sex: $scope.input.sex,
 			pay_day: $scope.input.price,
 			total_score: $scope.input.comment,
 			multiple_order: $scope.input.all
 		}
+		$scope.qualified_translators = [];
+		$scope.unqualified_translators = [];
 		$scope.no_qualified = false
 		$scope.no_unqualified = false;
 	}

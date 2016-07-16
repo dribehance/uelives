@@ -11,10 +11,9 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 	$scope.input.schedule_to = "";
 	$scope.input.schedule_total = "";
 	$scope.input.industry = "";
-	
-	$scope.input.gender = "不限";
+	$scope.input.sex = "不限";
 	$scope.select_gender = function(n) {
-		$scope.input.gender = n;
+		$scope.input.sex = n;
 	};
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
@@ -31,6 +30,7 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 		$scope.input.choice_time && ($scope.input.schedule_total = $scope.input.choice_time.length)
 	}
 	$scope.ajaxForm = function() {
+		localStorageService.set("cache", $scope.input);
 		toastServices.show();
 		userServices.booking({
 			city: $scope.input.city,
@@ -40,7 +40,7 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 			order_time: $scope.input.choice_time.join("#"),
 			translate_day: $scope.input.schedule_total,
 			translate_field: $scope.input.industry,
-			sex: $scope.input.gender,
+			sex: $scope.input.sex,
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS && data.have_translate_user == '1') {
