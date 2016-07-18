@@ -1,8 +1,8 @@
  [{
        "key": "热门",
        "array": [{
-             "country": "中国大陆",
-             "code": "+86"
+             "country": "香港",
+             "code": "+852"
        }, {
              "country": "日本",
              "code": "+81"
@@ -13,29 +13,38 @@
              "country": "韩国",
              "code": "+82"
        }, {
-             "country": "澳大利亚",
-             "code": "+61"
-       }, {
              "country": "新加坡",
              "code": "+65"
-       }, {
-             "country": "加拿大",
-             "code": "+1"
        }, {
              "country": "法国",
              "code": "+33"
        }, {
-             "country": "马来西亚",
-             "code": "+60"
+             "country": "英国",
+             "code": "+44"
        }, {
              "country": "俄罗斯",
              "code": "+7"
        }, {
-             "country": "德国 ",
+             "country": "德国",
              "code": "+49"
        }, {
-             "country": "泰国",
-             "code": "+66"
+             "country": "南非",
+             "code": "+27"
+       }, {
+             "country": "印度",
+             "code": "+91"
+       }, {
+             "country": "意大利",
+             "code": "+39"
+       }, {
+             "country": "阿拉伯联合酋长国",
+             "code": "+971"
+       }, {
+             "country": "巴西",
+             "code": "+55"
+       }, {
+             "country": "土耳其",
+             "code": "+90"
        }]
  }, {
        "key": "A",
