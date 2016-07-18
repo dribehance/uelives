@@ -25,6 +25,12 @@ angular.module("Uelives").factory("errorServices", function($rootScope, $timeout
 				case 0:
 					this.autoHide("连接超时");
 					break;
+				case 404:
+					this.autoHide("加载出错，请稍后再试");
+					$timeout(function() {
+						$rootScope.back();
+					}, 2000)
+					break;
 				case 500:
 				case 501:
 				case 502:
