@@ -10,6 +10,7 @@ angular.module("Uelives").controller("countryCodeController", function($scope, $
 	if (cache && cache[$routeParams.cache_key]) {
 		$scope.input.country_code = cache[$routeParams.cache_key];
 	}
+
 	$scope.select_country_code = function(t) {
 		$scope.input.country_code = t;
 		localStorageService.set("cache", angular.extend({}, cache, $scope.input))
