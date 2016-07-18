@@ -3,12 +3,7 @@
         <div class="signup">
             <div class="input-group">
                 <div class="input-item padding-sm-left margin-lg-bottom border-radius">
-                    <div class="addon text-center">
-                        <select>
-                            <option>+86</option>
-                            <option>+86655</option>
-                        </select>
-                    </div>
+                    <div class="addon text-center" ng-click="cache_and_go('country_code','country_code')">{{input.country_code.code}}</div>
                     <div class="text-modify border-left padding">
                         <input name="telephone" ng-model="input.telephone" required placeholder="手机号" class="full-width">
                     </div>

@@ -1,5 +1,5 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").controller("letterIndexController", function($scope, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("letterIndexController", function($scope, $timeout, errorServices, toastServices, localStorageService, config) {
 	$scope.$on("onRepeatDone", function() {
 		var letters = $(".letter"),
 			letter = letters.find("span"),
@@ -16,20 +16,28 @@ angular.module("Uelives").controller("letterIndexController", function($scope, e
 
 		mc.on("panleft panright panup pandown tap press", function(e) {
 			var offset = Math.round(e.deltaY / letter_height);
-			$scope.navgation_to($(e.target), offset)
+			$scope.navgation_to($(e.target), offset);
+			if (e.type == 'tap') {
+				$timeout(function() {
+					$scope.remove_tip();
+				}, 1000)
+			}
 		})
 		mc.on("panend", function(e) {
-			$scope.$apply(function() {
-				$scope.letter_index = "";
-			})
-		})
+			$scope.remove_tip();
+		});
 		//navgation distance
 		$scope.navgation_to = function(elem, offset) {
 			var dest = letter.index(elem) + offset;
 			dest = Math.min(dest, letter.length - 1);
 			dest = Math.max(0, dest);
 			$scope.$emit("letterIndexChange", letter.eq(dest).text())
-		}
+		};
+		$scope.remove_tip = function() {
+			$scope.letter_index = "";
+			// must call scope apply
+			$scope.$apply(function() {})
+		};
 		//letter compare letter
 		$scope.$on("letterIndexChange", function(e, args) {
 			$scope.$apply(function() {

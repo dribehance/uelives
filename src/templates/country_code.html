@@ -1,0 +1,31 @@
+<div class="choice">
+    <div class="choice-header border-bottom">
+        <div class="choice-search">
+            <div class="search">
+                <input name="search" ng-model="input.search" required placeholder="搜索城市" class="full-width">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="choice-container">
+        <div class="choice-container-list" ng-repeat="country_code in country_codes">
+            <div class="hot hot-color hot-border" data-index="{{country_code.key}}" ng-if="!input.search">{{country_code.key}}</div>
+            <div class="choice-container-item" ng-if="$index =='0' && !input.search">
+                <div class="choice-list-item" ng-class="{'highlight':input.country_code == c.code}" ng-repeat="c in country_code.array | filter:input.search" ng-click="select_country_code(c)">
+                    {{c.country}}
+                    <span class="pull-right" style="margin-right:10px">{{c.code}}</span>
+                </div>
+            </div>
+            <div class="choice-container-item"  ng-if="$index !='0'">
+                <div class="choice-list-item" ng-class="{'highlight':input.country_code == c.code}" ng-repeat="c in country_code.array | filter:input.search" ng-click="select_country_code(c)">
+                    {{c.country}}
+                    <span class="pull-right" style="margin-right:10px">{{c.code}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="letter" ng-controller="letterIndexController" ng-if="!input.search">
+        <span ng-repeat="country_code in country_codes" on-repeat-done>{{country_code.key}}</span>
+        <span class="tip" ng-if="letter_index">{{letter_index}}</span>
+    </div>
+</div>

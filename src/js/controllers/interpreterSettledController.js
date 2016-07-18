@@ -35,7 +35,7 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 				errorServices.autoHide(data.message);
 				localStorageService.set("token",data.token)
 				$timeout(function() {
-					// $location.path("information").replace();
+					$location.path("information").replace();
 				}, 2000)
 			} else {
 				errorServices.autoHide(data.message);
