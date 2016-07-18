@@ -15,22 +15,23 @@
          $rootScope.back();
      };
      //获取城市
-     userServices.query_city().then(function(data) {
-         $scope.cities = data;
-     })
      $scope.query_city = function(n) {
+         toastServices.show();
          userServices.query_city().then(function(data) {
+             toastServices.hide();
              $scope.cities = data;
          })
          $scope.input.choice = n;
      }
      $scope.query_inter_city = function(n) {
+         toastServices.show();
          userServices.query_inter_city().then(function(data) {
+             toastServices.hide();
              $scope.cities = data;
          })
          $scope.input.choice = n;
      }
-
+     $scope.query_city(1);
      //显示两个字
      $scope.parse_key = function(k) {
          return k.substring(0, 2)
