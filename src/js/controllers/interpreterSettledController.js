@@ -1,7 +1,7 @@
 angular.module("Uelives").controller("interpreterSettledController", function($scope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
-	if (localStorageService.get("token")) {
-		$location.path("information").replace();
-	}
+	// if (localStorageService.get("token")) {
+	// 	$location.path("information").replace();
+	// }
 	$scope.input = {};
 	// 验证码
 	$scope.countdown = {
@@ -33,9 +33,9 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
-				localStorageService.set("token", data.token)
+				localStorageService.set("token",data.token)
 				$timeout(function() {
-					$location.path("information").replace();
+					// $location.path("information").replace();
 				}, 2000)
 			} else {
 				errorServices.autoHide(data.message);
