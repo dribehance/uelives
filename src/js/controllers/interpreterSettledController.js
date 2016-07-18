@@ -1,7 +1,7 @@
 angular.module("Uelives").controller("interpreterSettledController", function($scope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
-	if (localStorageService.get("token")) {
-		$location.path("information").replace();
-	}
+	// if (localStorageService.get("token")) {
+	// 	$location.path("information").replace();
+	// }
 	$scope.input = {};
 	// 验证码
 	$scope.countdown = {
