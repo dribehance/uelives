@@ -19,18 +19,18 @@ angular.module("Uelives").controller("letterIndexController", function($scope, e
 			$scope.navgation_to($(e.target), offset)
 		})
 		mc.on("panend", function(e) {
-			$scope.$apply(function() {
-				$scope.letter_index = "";
+				$scope.$apply(function() {
+					$scope.letter_index = "";
+				})
 			})
-		})
-		//navgation distance
+			//navgation distance
 		$scope.navgation_to = function(elem, offset) {
-			var dest = letter.index(elem) + offset;
-			dest = Math.min(dest, letter.length - 1);
-			dest = Math.max(0, dest);
-			$scope.$emit("letterIndexChange", letter.eq(dest).text())
-		}
-		//letter compare letter
+				var dest = letter.index(elem) + offset;
+				dest = Math.min(dest, letter.length - 1);
+				dest = Math.max(0, dest);
+				$scope.$emit("letterIndexChange", letter.eq(dest).text())
+			}
+			//letter compare letter
 		$scope.$on("letterIndexChange", function(e, args) {
 			$scope.$apply(function() {
 				$scope.letter_index = args;

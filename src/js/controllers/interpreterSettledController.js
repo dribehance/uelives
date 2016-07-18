@@ -42,4 +42,16 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 			}
 		})
 	}
+	$scope.input.country_code = {
+		name: "中国",
+		code: "+86"
+	}
+	$scope.cache_and_go = function(path, key) {
+		localStorageService.set("cache", $scope.input);
+		$location.path(path).search("cache_key", key);
+	}
+	var cache = localStorageService.get("cache");
+	if (cache) {
+		$scope.input = angular.extend({}, $scope.input, cache);
+	}
 })

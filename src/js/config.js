@@ -44,5 +44,6 @@ angular.module("Uelives").constant("config", {
 		"scenes",
 		"certificate",
 		"preview_comment",
+		"country_code",
 	]
 });

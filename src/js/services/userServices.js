@@ -77,6 +77,9 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: "city/language.json",
 			token: localStorageService.get("token")
 		})),
+		query_country_code: apiServices._get(angular.extend({}, config.common_params, {
+			url: "city/country_code.json",
+		})),
 		// 涉及行业列表
 		query_industries: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/UserCenter/translateFieldList",

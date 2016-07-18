@@ -977,7 +977,6 @@ textarea {
                 border-radius: 4px;
                 overflow: hidden;
                 .box-sizing(border-box);
-                
             }
             .order-wait-info {
                 position: relative;
@@ -998,7 +997,7 @@ textarea {
             display: block;
             margin-top: 10px;
             font-size: 14px;
-            span{
+            span {
                 margin: 5px 5px 0 0;
             }
         }
@@ -1269,7 +1268,10 @@ textarea {
         .box-sizing(border-box);
         .hot {
             display: block;
-            padding: 15px 0 10px 5px;
+            padding: 15px 0 10px 15px;
+            margin-left: -10px;
+            margin-right: -25px;
+            background-color: #eaeaea;
             &.hot-color {
                 color: #ACACAC;
             }
@@ -1291,7 +1293,7 @@ textarea {
             .choice-list-item {
                 display: block;
                 padding: 15px 0;
-                margin-left: 30px;
+                margin-left: 6px;
                 border-bottom: 1px solid #EBEBEB;
             }
             .highlight {
@@ -1307,6 +1309,8 @@ textarea {
             display: block;
             padding: 5px 3px 0 3px;
             text-align: center;
+            font-size: 13px;
+            color:@brand-primary;
         }
         .tip {
             position: fixed;
