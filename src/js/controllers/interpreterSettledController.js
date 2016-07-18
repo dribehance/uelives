@@ -26,6 +26,7 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 	$scope.ajaxForm = function() {
 		toastServices.show();
 		userServices.signup({
+			country_code: $scope.input.country_code.code,
 			telephone: $scope.input.telephone,
 			tel_code: $scope.input.code,
 			weChat: $scope.input.wechat,
