@@ -5,10 +5,10 @@
                 <div class="icon icon-edit"></div>
             </div>
             <div class="edit-item padding margin-left modify">
-                <input type="text" class="full-width" placeholder="公司名称" name="work_name" ng-model="input.work_name" required>
+                <input type="text" class="full-width" placeholder="公司名称/项目名称" name="work_name" ng-model="input.work_name" required>
             </div>
             <div class="edit-item padding margin-left modify">
-                <input type="text" class="full-width" placeholder="你的职位" name="position" ng-model="input.position" required>
+                <input type="text" class="full-width" placeholder="你的职位/你的职责" name="position" ng-model="input.position" required>
             </div>
             <div class="edit-item padding margin-left modify">
                 <!-- <input type="text" class="full-width" placeholder="入职时间" name="start_time" ng-model="input.start_time" required> -->
@@ -21,8 +21,8 @@
             <div class="edit-item padding margin-left modify">
                 <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" required>
             </div>
-            <div class="edit-item padding margin-left modify" ng-class="{'edit-black':input.working_scene}" ng-click="cache_and_go('scenes','working_scene')">
-                <span ng-class="{'color-black':input.working_scene !=''}">{{input.working_scene||"请选择工作场景"}}</span>
+            <div class="edit-item padding margin-left modify" ng-click="cache_and_go('scenes','working_scene')">
+                <span ng-class="{'color-gray':input.working_scene !=''}">{{input.working_scene||"请选择工作场景"}}</span>
             </div>
         </div>
     </div>

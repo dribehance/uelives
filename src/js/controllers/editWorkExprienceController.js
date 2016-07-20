@@ -2,10 +2,10 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 	$scope.input = {};
 	$scope.input.remove_id = $routeParams.id;
 	$scope.input.start_time_option = {
-		placeholder: "请选择入职时间"
+		placeholder: "入职年月/项目开始年月"
 	}
 	$scope.input.end_time_option = {
-		placeholder: "请选择离职时间"
+		placeholder: "离职年月/项目结束年月"
 	}
 	if (localStorageService.get("cache")) {
 		$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));

@@ -1,7 +1,10 @@
  [{
        "key": "热门",
        "array": [{
-             "country": "香港",
+             "country": "中国大陆",
+             "code": "+86"
+       }, {
+             "country": "中国香港",
              "code": "+852"
        }, {
              "country": "日本",
@@ -103,7 +106,7 @@
              "country": "澳大利亚",
              "code": "+61"
        }, {
-             "country": "澳门",
+             "country": "中国澳门",
              "code": "+853"
        }]
  }, {

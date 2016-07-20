@@ -39,7 +39,6 @@
             <div class="edit-list">
                 联系邮箱:
                 <span ng-class="{'color-gray':user.email==''}">{{user.email || "暂无填写"}}</span>
-                
             </div>
             <div class="edit-list">
                 工作类型: <span ng-class="{'color-gray':user.job_type==''}">{{user.job_type || "暂无填写"}}</span>
@@ -67,7 +66,6 @@
             </a>
             <div class="edit-list">
                 翻译经验年限: {{user.translate_year || "0"}}年
-                
             </div>
             <a class="edit-list">
                 翻译级别: <span ng-class="{'color-gray':user.translate_level==''}">{{user.translate_level || "暂无填写"}}</span>
@@ -79,9 +77,9 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header modify" ng-href="#/edit_edu_exprience">
+            <a class="detail-header modify">
                 <span>教育经历</span>
-                <span class="pull-right">新增</span>
+                <!-- <span class="pull-right">新增</span> -->
                 <div class="icon icon-basicedu pull-right"></div>
             </a>
             <div class="exprience-content">
@@ -90,7 +88,8 @@
                     <div class="line"></div>
                     <div class="exprience-time">
                         {{experience.end_time}}毕业
-                        <a class="pull-right text-primary" ng-href="#/edit_edu_exprience?id={{experience.user_edu_experience_id}}">编辑</a>
+                        <a class="pull-right text-primary" ng-href="#/edit_edu_exprience?id={{experience.user_edu_experience_id}}">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a></a>
                     </div>
                     <div class="exprience-school">
                         {{experience.school_name}}
@@ -102,12 +101,21 @@
                 </div>
             </div>
         </div>
+        <a class="newadd" ng-href="#/edit_edu_exprience">
+            <div class="add text-center">
+                <span> 
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    添加教育经历
+                </span>
+                <small>请从最近毕业说起</small>
+            </div>
+        </a>
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header modify" ng-href="#/edit_work_exprience">
+            <a class="detail-header modify">
                 <span>工作经历</span>
-                <span class="pull-right">新增</span>
+                <!-- <span class="pull-right">新增</span> -->
                 <div class="icon icon-basicwork pull-right"></div>
             </a>
             <div class="exprience-content">
@@ -115,7 +123,10 @@
                     <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
                     <div class="line"></div>
                     <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}
-                        <a class="pull-right text-primary" ng-href="#/edit_work_exprience?id={{experience.user_work_experience_id}}">编辑</a></div>
+                        <a class="pull-right text-primary" ng-href="#/edit_work_exprience?id={{experience.user_work_experience_id}}">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>
+                        </a>
+                    </div>
                     <div class="exprience-company">
                         {{experience.position}}
                         <label>|</label>
@@ -125,6 +136,15 @@
                 </div>
             </div>
         </div>
+        <a class="newadd" ng-href="#/edit_work_exprience">
+            <div class="add text-center">
+                <span> 
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    添加工作经历
+                </span>
+                <small>请从最近一份工作说起</small>
+            </div>
+        </a>
     </div>
     <div class="detail">
         <div class="basic-info">
@@ -138,8 +158,9 @@
                 <div class="exprience-content-wrap">
                     <div class="diploma" ng-repeat="experience in user.UserIdentitys">
                         {{experience.title}}
-                        <a class="pull-right text-primary" ng-href="#/certificate?id={{experience.user_identity_id}}">编辑</a>
-                        <a class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a>
+                        <a class="pull-right text-primary" ng-href="#/certificate?id={{experience.user_identity_id}}">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>
+                        <div class="get"> <a class="font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a></div>
                     </div>
                 </div>
             </div>
@@ -157,6 +178,6 @@
 </div>
 <div class="detail">
     <a class="basic-backgroup" ng-href="#/online_preview?id={{user.user_id}}">
-        <div class="btn btn-block btn-primary">在线预览</div>
+        <div class="btn btn-block btn-primary">完成并预览</div>
     </a>
 </div>

@@ -112,9 +112,10 @@ textarea {
         .addon {
             position: absolute;
             display: block;
-            top: 2px;
+            top: -1px;
             left: 5px;
             padding: 15px 5px;
+            padding-right: 2px;
         }
         .text-modify {
             display: block;
@@ -122,7 +123,7 @@ textarea {
             padding-bottom: 15px;
             .box-sizing(border-box);
             &.border-left {
-                border-left: 2px solid #BDBDBD;
+                border-left: 1px solid #BDBDBD;
             }
             &.modify {
                 border-bottom: 1px solid #EBEBEB;
@@ -161,6 +162,10 @@ textarea {
             font-size: 12px;
             color: #BDBDBD;
         }
+    }
+    .item-title {
+        display: block;
+        margin-bottom: 15px;
     }
 }
 
@@ -219,6 +224,7 @@ textarea {
             padding: 6px 5px;
             text-align: center;
             border: 1px solid #EBEBEB;
+            font-size: 13px;
             .text-overflow();
         }
         .highlight {
@@ -272,7 +278,7 @@ textarea {
         display: inline-block;
         .box-sizing(border-box);
         &.tab-modify {
-            border: 2px solid #BDBDBD;
+            border: 1px solid #BDBDBD;
             border-top: none;
             border-bottom: none;
         }
@@ -291,7 +297,7 @@ textarea {
     }
     .highlight {
         color: #00B4D6;
-        border-bottom: 2px solid #00B4D6;
+        border-bottom: 1px solid #00B4D6;
     }
 }
 
@@ -363,7 +369,7 @@ textarea {
                             display: inline-block;
                             padding: 0 5px;
                             &.modify {
-                                border: 2px solid #EBEBEB;
+                                border: 1px solid #EBEBEB;
                                 border-top: none;
                                 border-bottom: none;
                             }
@@ -400,7 +406,7 @@ textarea {
             position: relative;
             display: block;
             padding-top: 15px;
-            font-size: 12px;
+            font-size: 14px;
             overflow: hidden;
             span {
                 position: relative;
@@ -414,7 +420,7 @@ textarea {
             position: relative;
             display: block;
             padding-top: 15px;
-            font-size: 12px;
+            font-size: 14px;
             overflow: hidden;
             span {
                 color: #BDBDBD;
@@ -560,7 +566,7 @@ textarea {
         overflow: hidden;
         .box-sizing(border-box);
         &.border-right {
-            border-right: 2px solid #BDBDBD;
+            border-right: 1px solid #BDBDBD;
         }
         span {
             display: block;
@@ -645,13 +651,21 @@ textarea {
                 padding-left: 65px;
             }
             &.padding-lg-left {
-                padding-left: 90px;
+                padding-left: 95px;
+            }
+            span {
+                &.color {
+                    color: #BDBDBD;
+                }
             }
             .text-field {
                 position: absolute;
                 display: block;
                 top: 0;
                 left: 0;
+                span {
+                    color: white;
+                }
             }
         }
         .color-gray {
@@ -671,6 +685,11 @@ textarea {
             height: 82px;
             width: 82px;
         }
+    }
+    .edit-money {
+        display: block;
+        padding: 15px 5px;
+        overflow: hidden;
     }
 }
 
@@ -705,6 +724,7 @@ textarea {
     display: block;
     overflow: hidden;
     margin-bottom: 15px;
+    .box-sizing(border-box);
     .detail-header {
         display: block;
         padding: 10px 0;
@@ -743,7 +763,7 @@ textarea {
         .basic-content {
             position: relative;
             display: block;
-            font-size: 12px;
+            font-size: 14px;
             .basic-content-item {
                 position: relative;
                 display: block;
@@ -759,7 +779,7 @@ textarea {
                     top: -3px;
                 }
                 &.modify {
-                    border-bottom: 2px solid #EBEBEB;
+                    border-bottom: 1px solid #EBEBEB;
                 }
             }
             .font-size {
@@ -781,7 +801,7 @@ textarea {
                     margin-top: 5px;
                     span {
                         display: inline-block;
-                        padding: 0 5px;
+                        
                     }
                     label {
                         position: relative;
@@ -791,7 +811,7 @@ textarea {
                         color: #B3B3B3;
                     }
                     .border {
-                        border: 2px solid #BDBDBD;
+                        border: 1px solid #BDBDBD;
                         border-top: none;
                         border-bottom: none;
                     }
@@ -816,6 +836,10 @@ textarea {
                         color: #37B3D5;
                     }
                 }
+                .get {
+                    display: block;
+                    margin-top: 10px;
+                }
                 .line {
                     position: absolute;
                     left: 5.5px;
@@ -826,15 +850,16 @@ textarea {
                 }
                 .exprience-time {
                     color: #B3B3B3;
-                    font-size: 12px;
+                    font-size: 14px;
                 }
                 .exprience-school {
                     display: block;
-                    padding: 15px 0;
+                    padding-top: 10px;
+                    font-size: 14px;
                     span {
                         display: inline-block;
                         margin-top: 5px;
-                        font-size: 12px;
+                        font-size: 13px;
                         color: #B3B3B3;
                     }
                     .padding-left {
@@ -849,7 +874,8 @@ textarea {
                 }
                 .exprience-company {
                     display: block;
-                    padding: 15px 0;
+                    padding-top: 10px;
+                    font-size: 14px;
                     span {
                         display: inline-block;
                         padding: 0 5px;
@@ -860,12 +886,13 @@ textarea {
                 }
                 .duty {
                     color: #B3B3B3;
-                    font-size: 12px;
+                    font-size: 13px;
                 }
                 .diploma {
                     display: block;
                     padding: 15px 0;
-                    border-bottom: 1px solid #BDBDBD;
+                    border-bottom: 1px solid #EBEBEB;
+                    font-size: 14px;
                     span {
                         font-size: 12px;
                     }
@@ -907,6 +934,34 @@ textarea {
                 .font-color {
                     color: #B3B3B3;
                 }
+            }
+        }
+    }
+    .newadd {
+        position: relative;
+        display: block;
+        margin-top: 15px;
+        padding-right: 2px;
+        .box-sizing(border-box);
+        .add {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 70px;
+            border: 1px dashed #62C3DE;
+            background-color: rgba(221, 241, 247, 0.69);
+            span {
+                display: block;
+                margin-top: 15px;
+                color: #62C3DE;
+            }
+            .fa {
+                color: #62C3DE;
+            }
+            small {
+                display: block;
+                margin-top: 10px;
+                color: #A9A9A9;
             }
         }
     }
@@ -1011,7 +1066,7 @@ textarea {
             display: block;
             padding: 20px 5px;
             &.border-right {
-                border-right: 2px solid #EBEBEB;
+                border-right: 1px solid #EBEBEB;
             }
         }
     }
@@ -1119,7 +1174,8 @@ textarea {
         padding-bottom: 15px;
         width: 100%;
         background-color: white;
-        border-bottom: 2px solid #EBEBEB;
+        border-bottom: 1px solid #EBEBEB;
+        z-index: 100;
         .time-title {
             display: block;
             padding: 15px 0;
@@ -1148,6 +1204,7 @@ textarea {
                 padding: 4px 5px;
                 .box-sizing(border-box);
                 .day-item {
+                    position: relative;
                     display: block;
                     padding: 10px 5px;
                     border-radius: 2px;
@@ -1173,12 +1230,16 @@ textarea {
         .margin-left-6 {
             margin-left: 85.71428%;
         }
+        .default-border {
+            border: 1px solid #000;
+        }
         .border-color {
             border: 1px solid white;
         }
         .background-color {
             border: 1px solid #EBEBEB;
             background-color: #EBEBEB;
+            color: #BDBDBD;
         }
         .busy {
             color: white;
@@ -1186,9 +1247,25 @@ textarea {
             background-color: #95d7e9;
         }
         .highlight {
-            color: #00B5DA;
-            border: 1px solid #00B5DA;
+            color: #62C3DE;
+            border: 1px solid #62C3DE;
             background-color: white;
+        }
+        .triangle {
+            color: white;
+            border: 1px solid #62C3DE;
+            background-color: #62C3DE;
+            &:before {
+                content: "";
+                border-left: 5px solid transparent;
+                border-right: 5px solid #37B3D5;
+                border-bottom: 5px solid transparent;
+                border-top: 5px solid #37B3D5;
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
         }
     }
     .no-booking {
@@ -1268,7 +1345,7 @@ textarea {
         .box-sizing(border-box);
         .hot {
             display: block;
-            padding: 15px 0 10px 15px;
+            padding: 8px 0 8px 15px;
             margin-left: -10px;
             margin-right: -25px;
             background-color: #eaeaea;
@@ -1296,6 +1373,9 @@ textarea {
                 margin-left: 6px;
                 border-bottom: 1px solid #EBEBEB;
             }
+            .choice-list-item:last-child {
+                border-bottom: none;
+            }
             .highlight {
                 color: #37B3D5;
             }
@@ -1310,7 +1390,7 @@ textarea {
             padding: 5px 3px 0 3px;
             text-align: center;
             font-size: 13px;
-            color:@brand-primary;
+            color: @brand-primary;
         }
         .tip {
             position: fixed;
@@ -1352,7 +1432,7 @@ textarea {
         display: block;
         padding: 25px 10px;
         text-align: center;
-        border-bottom: 2px solid #BDBDBD;
+        border-bottom: 1px solid #BDBDBD;
     }
     .model-btn {
         display: block;

@@ -7,6 +7,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 	$scope.check = function(n) {
 		$scope.input.check = n
 	};
+	
 	$scope.agree = false;
 	$scope.is_agree = function() {
 		$scope.agree = !$scope.agree;
@@ -59,6 +60,8 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		$scope.input.choice_time && ($scope.input.schedule_to = $scope.format_time($scope.input.choice_time[$scope.input.choice_time.length - 1], "MM-dd"));
 		$scope.input.choice_time && ($scope.input.schedule_total = $scope.input.choice_time.length)
 	}
+	var server = localStorageService.get("server");
+	$scope.input.wechat = (server && server.wechat) || "";
 	$scope.ajaxForm = function() {
 		if (!$scope.agree) {
 			errorServices.autoHide("请同意使用条款");

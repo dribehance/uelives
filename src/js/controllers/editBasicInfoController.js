@@ -1,5 +1,7 @@
-angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
-    $scope.input = {};
+angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, $filter, userServices, errorServices, toastServices, localStorageService, config) {
+    $scope.input = {
+
+    };
     toastServices.show();
     userServices.query_basicinfo({
         type: "1",
@@ -25,6 +27,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             $scope.input.translate_year = $scope.user.translate_year || "";
             $scope.input.translate_level = $scope.user.translate_level;
             $scope.input.pay_day = $scope.user.pay_day || "";
+            $scope.input.pay_day_example = $filter("currency")(data.average_pay_day || "0", "￥");
             // mobile picker
             $scope.input.options = {
                 value: $scope.user.birthday
@@ -37,9 +40,18 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         }
     });
     $scope.degrees = ["大专", "本科", "硕士", "博士"];
+    $scope.translate_years = ["1-10年", "10年以上"]
+    $scope.agree = false;
+    $scope.is_agree = function() {
+        $scope.agree = !$scope.agree;
+    };
+
+    
     $scope.single_check = function(name, value) {
         $scope.input[name] = value;
+        
     }
+
     $scope.cache_and_go = function(path, key) {
         localStorageService.set("cache", $scope.input);
         $location.path(path).search("cache_key", key);
