@@ -6,7 +6,7 @@ angular.module("Uelives").controller("scenesController", function($scope, $rootS
         }).map(function(scene) {
             return scene.name
         });
-        if (scenes.length > 1) {
+        if (scenes.length > 1 && !scene.select) {
             errorServices.autoHide("最多只能选择两个");
             return;
         }
