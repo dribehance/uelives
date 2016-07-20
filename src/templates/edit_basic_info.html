@@ -2,6 +2,8 @@
     <div class="avatar-wrap text-center">
         <div class="avatar">
             <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{user.image_01}}" class="full-width full-height block"></uploader>
+            <div class="icon icon-man" ng-if="user.sex=='男'"></div>
+            <div class="icon icon-nv" ng-if="user.sex=='女'"></div>
         </div>
     </div>
 </div>
@@ -90,6 +92,10 @@
                         <option value="商务级别">商务级别</option>
                         <option value="专家级别">专家级别</option>
                     </select>
+                </div>
+                <div class="edit-list padding-sm-left">
+                    <div class="text-field">参考日薪:</div>
+                    <input type="text" class="full-width" name="pay_day_example" placeholder="0" ng-model="input.pay_day_example" readonly>
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">日&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp薪:</div>

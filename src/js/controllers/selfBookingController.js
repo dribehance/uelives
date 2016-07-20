@@ -43,6 +43,8 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
         $scope.input.choice_time && ($scope.input.schedule_to = $scope.format_time($scope.input.choice_time[$scope.input.choice_time.length - 1], "MM-dd"));
         $scope.input.choice_time && ($scope.input.schedule_total = $scope.input.choice_time.length)
     }
+    var server = localStorageService.get("server");
+    $scope.input.wechat = (server && server.wechat) || "";
     $scope.ajaxForm = function() {
         toastServices.show();
         userServices.online_booking({

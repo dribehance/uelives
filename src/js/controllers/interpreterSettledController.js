@@ -55,4 +55,6 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 	if (cache) {
 		$scope.input = angular.extend({}, $scope.input, cache);
 	}
+	var server = localStorageService.get("server");
+	$scope.input.wechat = (server && server.wechat) || "";
 })

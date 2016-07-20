@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, $filter, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {};
     toastServices.show();
     userServices.query_basicinfo({
@@ -25,6 +25,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             $scope.input.translate_year = $scope.user.translate_year || "";
             $scope.input.translate_level = $scope.user.translate_level;
             $scope.input.pay_day = $scope.user.pay_day || "";
+            $scope.input.pay_day_example = $filter("currency")(data.average_pay_day || "0", "￥");
             // mobile picker
             $scope.input.options = {
                 value: $scope.user.birthday
