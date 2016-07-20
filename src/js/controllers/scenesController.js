@@ -1,6 +1,15 @@
 angular.module("Uelives").controller("scenesController", function($scope, $rootScope, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
     $scope.select_scene = function(scene) {
+        var scenes = $scope.scenes.filter(function(scene) {
+            return scene.select;
+        }).map(function(scene) {
+            return scene.name
+        });
+        if (scenes.length > 1) {
+            errorServices.autoHide("最多只能选择两个");
+            return;
+        }
         scene.select = !scene.select;
     }
     toastServices.show();
@@ -27,10 +36,6 @@ angular.module("Uelives").controller("scenesController", function($scope, $rootS
         });
         if (scenes.length == 0) {
             errorServices.autoHide("请选择擅长领域");
-            return;
-        }
-        if (scenes.length > 2) {
-            errorServices.autoHide("最多只能选择两个");
             return;
         }
         // 缓存编辑信息
