@@ -2,10 +2,12 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 	$scope.input = {};
 	$scope.input.remove_id = $routeParams.id;
 	$scope.input.start_time_option = {
-		placeholder: "请选择入职时间"
+		placeholder: "请选择入职时间",
+		theme: "month"
 	}
 	$scope.input.end_time_option = {
-		placeholder: "请选择离职时间"
+		placeholder: "请选择离职时间",
+		theme: "month"
 	}
 	if (localStorageService.get("cache")) {
 		$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
@@ -26,12 +28,8 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 				if (localStorageService.get("cache")) {
 					$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
 				}
-				$scope.input.start_time_option = {
-					value: $scope.input.start_time
-				};
-				$scope.input.end_time_option = {
-					value: $scope.input.end_time
-				};
+				$scope.input.start_time_option.value = $scope.input.start_time
+				$scope.input.end_time_option.value = $scope.input.end_time
 			} else {
 				errorServices.autoHide(data.message);
 			}

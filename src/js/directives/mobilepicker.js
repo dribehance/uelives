@@ -36,7 +36,9 @@ angular.module("Uelives").directive('mobilepicker', function($timeout) {
 				// scrollOpt: {},
 				// 回调函数，按确认后执行的函数，默认function(){}
 				callBack: function(date) {
-					scope.options.value = date.y + "-" + date.M + "-" + date.d
+					if (scope.options.theme == 'month') {
+						scope.options.value = date.y + "-" + date.M;
+					}
 				}
 			};
 			// function body
