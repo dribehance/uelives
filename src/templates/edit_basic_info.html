@@ -87,17 +87,16 @@
                         <option value="">请选择</option>
                     </select>
                 </div>
-                <div class="edit-list padding-sm-left" ng-click="cache_and_go('interpreter_level','translate_level')">
-                    <div class="text-field">翻译级别:</div>
+                <div class="edit-list" ng-click="cache_and_go('interpreter_level','translate_level')">
+                    <div class="text-area">翻译级别:</div>
                     <span ng-class="{'color-gray':input.translate_level == ''}">{{input.translate_level||"请选择"}}</span>
-                   
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">参考日薪:</div>
                     <input type="text" class="full-width" name="pay_day_example" placeholder="0" ng-model="input.pay_day_example" readonly>
                 </div>
-                <div class="edit-list padding-sm-left" ng-click="cache_and_go('money','pay_day')">
-                    <div class="text-field">日<span>空格</span>薪:</div>
+                <div class="edit-list" ng-click="cache_and_go('money','pay_day')">
+                    <div class="text-area">日<span>空格</span>薪:</div>
                     <span ng-class="{'color-gray':input.pay_day == ''}">{{input.pay_day||"请输入"}}</span>
                 </div>
             </div>
