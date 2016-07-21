@@ -1,5 +1,5 @@
 angular.module("Uelives").constant("config", {
-	url: "http://192.168.1.143:8080",
+	url: "http://uelives.com:9001",
 	imageUrl: "http://192.168.1.143:8080/files/image?name=",
 	request: {
 		"SUCCESS": "200",

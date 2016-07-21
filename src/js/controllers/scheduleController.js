@@ -22,10 +22,21 @@ angular.module("Uelives").controller("scheduleController", function($scope, $roo
         }
     }
     
+	// $scope.active = function(day) {
+	// 	console.log(day);
+	// 	$scope.input.day = day;
+	// }
+
 	$scope.active = function(day) {
-		$scope.input.day = day;
-	}
+		
+        if (day.schedule_state < 3) {
+            return;
+        }
+        $scope.input.day = day;
+    }
+
 	$scope.mark_schedule = function(type) {
+
 		toastServices.show();
 		userServices.mark_schedule({
 			type: type,

@@ -26,7 +26,7 @@
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">最高学历:</div>
                     <select class="full-width" name="degree" ng-model="input.degree" ng-class="{'color-gray':input.degree == ''}" ng-options="degree for degree in degrees">
-                        <option value="">请选择</option>
+                        <option value="">请选择学历</option>
                     </select>
                 </div>
                 <div class="edit-list padding-sm-left pickadate">
@@ -87,7 +87,7 @@
                         <option value="">请选择</option>
                     </select>
                 </div>
-                <div class="edit-list padding-sm-left" ng-click="cache_and_go('interpreter_level','interpreter_level')">
+                <div class="edit-list padding-sm-left" ng-click="cache_and_go('interpreter_level','translate_level')">
                     <div class="text-field">翻译级别:</div>
                     <span ng-class="{'color-gray':input.translate_level == ''}">{{input.translate_level||"请选择"}}</span>
                    

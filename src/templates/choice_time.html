@@ -16,17 +16,29 @@
         <div class="day-wrap">
             <div class="col-ms-7 pull-left" ng-class="append_class(day,$index)" ng-repeat="day in schedule.scheduleBeans">
                 <div class="day" ng-click="active(day)">
-                    <div class="day-item text-center" ng-class="{'default-border':day.schedule_state == '1','busy':day.schedule_state == '2','background-color':day.schedule_state == '3','highlight':day.schedule_state == '4'|| day==input.day}">{{parse_time(day)}}</div>
+                    <div class="day-item text-center" ng-class="{'unselect':day.schedule_state == '1','busy':day.schedule_state == '2','default':day.schedule_state == '3','highlight':day.schedule_state == '4'|| day==input.day}">{{parse_time(day)}}</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="no-booking">
-        <div class="time-icon"></div>
-        <span>可预约日期</span>
+        <div class="time-icon uncan"></div>
+        <span>不可预约</span>
+    </div>
+    <div class="no-booking">
+        <div class="time-icon can"></div>
+        <span>可预约</span>
+    </div>
+    <div class="no-booking">
+        <div class="time-icon caned"></div>
+        <span>译员忙碌</span>
+    </div>
+    <div class="no-booking">
+        <div class="time-icon selected"></div>
+        <span>译员已被预约</span>
     </div>
     <div class="time-footer">
-        <div class="detail">
+        <div class="wrap">
             <div class="basic-backgroup">
                 <div class="btn btn-block btn-primary" ng-click="confirm_time()">确定</div>
             </div>
