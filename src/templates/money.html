@@ -1,0 +1,37 @@
+<form name="editForm" ng-submit="ajaxForm()">
+    <div class="wrap">
+        <div class="edit-basic border-radius">
+            <div class="edit-money">
+                <input type="number" class="full-width" placeholder="请输入日薪" name="pay_day" ng-model="input.pay_day" required>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="mind">
+            <div class="mind-title">
+                注意:
+            </div>
+            <div class="mind-content">
+                <small>1. 工作时长每日最多为8小时，超出的每小时按原1小时150%另算，不足1小时按1小时计算；</small>
+            </div>
+            <div class="mind-content">
+                <small>2. 正常工作时间在9:00-18:00之间，非以上时段工作，译员可线下要求价格上浮10%－50%；</small>
+            </div>
+            <div class="mind-content">
+                <small>3. 译员服务期间产生的交通、食宿等费用由客户负责；</small>
+            </div>
+            <div class="mind-content">
+                <small>4. 为保证服务质量，请客户提供背景材料以便准备；专业程度高而需要大量时间进行事前准备的，译员可与客户协商线下加收准备时段费用，参考日薪计算。</small>
+            </div>
+            <div class="mind-content">
+                <small>5. 会议同传按小时收费，需客服为您安排。</small>
+            </div>
+            <div class="mind-content">
+                <small>为保障双方利益，客户需预付任务全款，悠译作为第三方担保，在服务结束后客户无投诉，任务款项会转至译员微信钱包。悠译平台收取总额的10%作为服务费。</small>
+            </div>
+        </div>
+    </div>
+    <div class="wrap text-center">
+        <button class="btn btn-lg btn-primary" type="submit" ng-disabled="editForm.$invalid">保存</button>
+    </div>
+</form>

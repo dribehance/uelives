@@ -1,5 +1,7 @@
 angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, $filter, userServices, errorServices, toastServices, localStorageService, config) {
-    $scope.input = {};
+    $scope.input = {
+
+    };
     toastServices.show();
     userServices.query_basicinfo({
         type: "1",
@@ -38,9 +40,24 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         }
     });
     $scope.degrees = ["大专", "本科", "硕士", "博士"];
+    
+   
+    $scope.translate_years = ["1年","2年","3年","4年","5年","6年","7年","8年","9年","10年","10年以上"];
+    
+
+
+
+    $scope.agree = false;
+    $scope.is_agree = function() {
+        $scope.agree = !$scope.agree;
+    };
+
+    
     $scope.single_check = function(name, value) {
         $scope.input[name] = value;
+        
     }
+
     $scope.cache_and_go = function(path, key) {
         localStorageService.set("cache", $scope.input);
         $location.path(path).search("cache_key", key);

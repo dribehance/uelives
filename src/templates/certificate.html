@@ -8,7 +8,10 @@
                 <input type="text" class="full-width" placeholder="证书名称" name="title" ng-model="input.title" required>
             </div>
             <div class="edit-item padding margin-left modify">
-                <mobilepicker options="input.time_option"></mobilepicker>
+                <select ng-options="time_option for time_option in time_options" class="color-gray full-width" name="time_option" ng-model="input.time_option" ng-class="{'color-gray':input.time_option != ''}" required>
+                    <option value="">请选择获得年份</option>
+                </select>
+                
             </div>
         </div>
         <div class="edit-container">

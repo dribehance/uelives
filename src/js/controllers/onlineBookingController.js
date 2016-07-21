@@ -1,16 +1,21 @@
 angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.input.sex = 1;
+
+
 	$scope.select_gender = function(gender) {
 		$scope.input.sex = gender;
 	};
+
+
 	$scope.check = function(n) {
 		$scope.input.check = n
-	};
+	}
 	$scope.agree = false;
 	$scope.is_agree = function() {
 		$scope.agree = !$scope.agree;
 	};
+
 	// 验证码
 	$scope.countdown = {
 		// count: "5",

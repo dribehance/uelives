@@ -39,7 +39,16 @@
                         擅长领域 / 行业: {{user.good_field}}
                     </div>
                 </div>
-                <div class="basic-content-item text-center">
+                <div class="skill-tag">
+                    <div class="industry">
+                        <div class="col-cx-3 pull-left" ng-repeat="skill in skills">
+                            <div class="tags">
+                                <div class="tag highlight">{{skill}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-intention text-center">
                     <span>工作意向: {{user.job_property}}</span>
                 </div>
                 <div class="basic-content-item text-center">
@@ -121,5 +130,4 @@
             </a>
         </div>
     </div>
-    
 </div>

@@ -15,4 +15,8 @@ angular.module("Uelives").controller("onlinePreviewController", function($scope,
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
 	}
+
+	$scope.skills = ["互联网x1","商务x1","商务合作x1"]
 })
+
+// x10

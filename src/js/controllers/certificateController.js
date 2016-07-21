@@ -1,9 +1,18 @@
 angular.module("Uelives").controller("certificateController", function($scope, $routeParams, $filter, $rootScope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
-	$scope.input = {};
-	$scope.input.remove_id = $routeParams.id;
-	$scope.input.time_option = {
-		placeholder: "请选择入职时间",
+	$scope.input = {
+		time_option:''
 	};
+	$scope.input.remove_id = $routeParams.id;
+	$scope.time_option = parseFloat($filter("date")(new Date(), "yyyy"));
+	$scope.time_options = [];
+	for (i = 0; i < 50; i++) {
+		$scope.time_options.push($scope.time_option + "年");
+		$scope.time_option--;
+	}
+
+	// $scope.input.time_option = {
+	// 	placeholder: "请选择入职时间",
+	// };
 	$scope.query_cert_experience = function() {
 		toastServices.show();
 		userServices.query_cert_experience({
