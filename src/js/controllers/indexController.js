@@ -18,6 +18,9 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
 	}
+	$scope.replace_hash = function(hashs) {
+		return hashs && hashs.replace(/#/g, "、");
+	}
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", $scope.input);
 		$location.path(path).search("cache_key", key);

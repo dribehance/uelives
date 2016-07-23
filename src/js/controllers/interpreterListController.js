@@ -104,24 +104,21 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 	$scope.sort_by_all = function() {
 		$scope.input.price = sort_2 = sort_3 = 0;
 		$scope.input.comment = sort_2 = sort_3 = 0;
-		sort_1++;
-		$scope.input.all = sort_1 % 3;
+		$scope.input.all = sort_1++ % 2 + 1;
 		$scope.reset();
 		$scope.load_qualified();
 	}
 	$scope.sort_by_price = function() {
 		$scope.input.all = sort_1 = sort_3 = 0;
 		$scope.input.comment = sort_1 = sort_3 = 0;
-		sort_2++;
-		$scope.input.price = sort_2 % 3;
+		$scope.input.price = ++sort_2 % 2 + 1;
 		$scope.reset();
 		$scope.load_qualified();
 	}
 	$scope.sort_by_comment = function() {
 		$scope.input.all = sort_1 = sort_2 = 0;
 		$scope.input.price = sort_1 = sort_2 = 0;
-		sort_3++;
-		$scope.input.comment = sort_3 % 3;
+		$scope.input.comment = ++sort_3 % 2 + 1;
 		$scope.reset();
 		$scope.load_qualified();
 	}

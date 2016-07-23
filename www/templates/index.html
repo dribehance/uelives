@@ -15,7 +15,7 @@
             <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('scenes','scenes')">
                 <div class="icon icon-star"></div>
                 <div class="text-modify modify ">
-                    <span ng-class="{'color-gray':input.scenes!= ''}">{{input.scenes||"使用场景"}}</span>
+                    <span ng-class="{'color-gray':input.scenes!= ''}">{{replace_hash(input.scenes)||"使用场景"}}</span>
                 </div>
                 <input type="hidden" ng-model="input.scenes" required>
             </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('related_industry','industry')">
                 <div class="icon icon-industry"></div>
-                <div class="text-modify modify "><span ng-class="{'color-gray':input.industry!= ''}">{{input.industry||"涉及行业/领域"}}</span></div>
+                <div class="text-modify modify "><span ng-class="{'color-gray':input.industry!= ''}">{{replace_hash(input.industry)||"涉及行业/领域"}}</span></div>
                 <input type="hidden" ng-model="input.industry" required>
             </div>
             <div class="input-item padding-xs-left padding-right">

@@ -105,7 +105,10 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 	}
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", $scope.input);
-		$location.path(path).search("cache_key", key);
+		$location.path(path).search({
+			cache_key: key,
+			from: "edit"
+		});
 	}
 	if ($routeParams.id) {
 		$scope.query_work_experience();

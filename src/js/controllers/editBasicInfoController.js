@@ -1,7 +1,5 @@
 angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, $filter, userServices, errorServices, toastServices, localStorageService, config) {
-    $scope.input = {
-
-    };
+    $scope.input = {};
     toastServices.show();
     userServices.query_basicinfo({
         type: "1",
@@ -10,6 +8,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
             $scope.user = data.Result.UserInfo;
             $scope.input.nickname = $scope.user.nickname;
+            $scope.input.wechat = $scope.user.weChat;
             $scope.input.sex = $scope.user.sex;
             $scope.input.degree = $scope.user.edu;
             $scope.input.birthday = $scope.user.birthday;
@@ -32,6 +31,20 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             $scope.input.options = {
                 value: $scope.user.birthday
             };
+            var job_type = $scope.input.job_type.split("#"),
+                job_property = $scope.input.job_property.split("#");
+            $scope.job_type.map(function(job) {
+                if (job_type.includes(job.name)) {
+                    job.selected = true;
+                }
+                return job;
+            })
+            $scope.job_property.map(function(job) {
+                if (job_property.includes(job.name)) {
+                    job.selected = true;
+                }
+                return job;
+            })
             if (localStorageService.get("cache")) {
                 $scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
             }
@@ -39,25 +52,41 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             errorServices.autoHide(data.message);
         }
     });
+    $scope.job_type = [{
+        name: "口译",
+        selected: false
+    }, {
+        name: "笔译",
+        selected: false
+    }, {
+        name: "口笔译",
+        selected: false
+    }];
+    $scope.job_property = [{
+        name: "全职",
+        selected: false
+    }, {
+        name: "兼职",
+        selected: false
+    }, {
+        name: "实习",
+        selected: false
+    }];
     $scope.degrees = ["大专", "本科", "硕士", "博士"];
-    
-   
-    $scope.translate_years = ["1年","2年","3年","4年","5年","6年","7年","8年","9年","10年","10年以上"];
-    
-
-
-
+    $scope.translate_years = ["1年", "2年", "3年", "4年", "5年", "6年", "7年", "8年", "9年", "10年", "10年以上"];
     $scope.agree = false;
     $scope.is_agree = function() {
         $scope.agree = !$scope.agree;
     };
-
-    
     $scope.single_check = function(name, value) {
         $scope.input[name] = value;
-        
     }
-
+    $scope.multi_check = function(job) {
+        return job.selected = !job.selected;
+    }
+    $scope.replace_hash = function(hashs) {
+        return hashs && hashs.replace(/#/g, "、");
+    }
     $scope.cache_and_go = function(path, key) {
         localStorageService.set("cache", $scope.input);
         $location.path(path).search("cache_key", key);
@@ -81,13 +110,22 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         userServices.update_userinfo({
             fileName: $scope.user.image_01,
             nickname: $scope.input.nickname,
+            weChat: $scope.input.wechat,
             sex: $scope.input.sex,
             edu: $scope.input.degree,
             birthday: $scope.input.options.value,
             city: $scope.input.city,
             email: $scope.input.email,
-            job_type: $scope.input.job_type,
-            job_property: $scope.input.job_property,
+            job_type: $scope.job_type.filter(function(job) {
+                return job.selected
+            }).map(function(j) {
+                return j.name
+            }).join("#"),
+            job_property: $scope.job_property.filter(function(job) {
+                return job.selected
+            }).map(function(j) {
+                return j.name
+            }).join("#"),
             mother_language: $scope.input.mother_language,
             first_language: $scope.input.first_language,
             first_language_level: $scope.input.first_language_level,

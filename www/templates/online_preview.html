@@ -41,9 +41,9 @@
                 </div>
                 <div class="skill-tag">
                     <div class="industry">
-                        <div class="col-cx-3 pull-left" ng-repeat="skill in skills">
+                        <div class="col-cx-3 pull-left" ng-repeat="tag in user.WorkingSceneLabels">
                             <div class="tags">
-                                <div class="tag highlight">{{skill}}</div>
+                                <div class="tag highlight">{{tag.working_scene+"x"+tag.working_scene_label}}</div>
                             </div>
                         </div>
                     </div>

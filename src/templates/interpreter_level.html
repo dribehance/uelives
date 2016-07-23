@@ -15,9 +15,9 @@
             <div class="icon icon-correct"></div>
             翻译经验:外语流利，1-2年翻译经验，基本交流;
         </div>
-        <div class="level-content">
+        <div class="level-content" ng-if="price.average_pay_day>0">
             <div class="icon icon-correct"></div>
-            500 元 / 天起
+            {{price.average_pay_day}} 元 / 天起
         </div>
     </div>
     <div class="level-group">
@@ -36,9 +36,9 @@
             <div class="icon icon-correct"></div>
             翻译经验:外语流利，1-2年翻译经验，基本交流;
         </div>
-        <div class="level-content">
+        <div class="level-content" ng-if="price.average_pay_day_02>0">
             <div class="icon icon-correct"></div>
-            800 元 / 天起
+            {{price.average_pay_day_02}} 元 / 天起
         </div>
     </div>
     <div class="level-group addon">
@@ -57,9 +57,9 @@
             <div class="icon icon-correct"></div>
             翻译经验:外语流利，1-2年翻译经验，基本交流;
         </div>
-        <div class="level-content">
+        <div class="level-content" ng-if="price.average_pay_day_03>0">
             <div class="icon icon-correct"></div>
-            1000 元 / 天起
+            {{price.average_pay_day_03}} 元 / 天起
         </div>
     </div>
 </div>

@@ -27,5 +27,7 @@ angular.module("Uelives").controller("informationController", function($scope, $
 	}
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
-	}
+	};
+	// remove cache
+	localStorageService.remove("cache");
 })

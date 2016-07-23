@@ -20,6 +20,9 @@
                 <div class="text-area">姓<span>空格</span>名:</div> <span ng-class="{'color-gray':user.nickname ==''}">{{user.nickname || "暂无填写"}}</span>
             </div>
             <div class="edit-list">
+                <div class="text-area">微<span>空格</span>信:</div> <span ng-class="{'color-gray':user.weChat ==''}">{{user.weChat || "暂无填写"}}</span>
+            </div>
+            <div class="edit-list">
                 <div class="text-area">性<span>空格</span>别:</div>
                 
                 <span ng-class="{'color-gray':user.sex==''}">{{user.sex|| "暂无填写"}}</span>
@@ -66,7 +69,7 @@
                 擅长行业/领域: <span ng-class="{'color-gray':user.good_field==''}">{{user.good_field || "暂无填写"}}</span>
             </a>
             <div class="edit-list">
-                翻译经验年限: <span ng-class="{'color-gray':user.translate_year==''}">{{user.translate_year || "0"}}年</span>
+                翻译经验年限: <span ng-class="{'color-gray':user.translate_year==''}">{{user.translate_year || "暂无填写"}}</span>
             </div>
             <a class="edit-list">
                 翻译级别: <span ng-class="{'color-gray':user.translate_level==''}">{{user.translate_level || "暂无填写"}}</span>

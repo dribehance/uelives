@@ -21,9 +21,17 @@ angular.module("Uelives").controller("scenesController", function($scope, $rootS
             errorServices.autoHide("最多只能选择两个");
             return;
         };
+        if ($routeParams.from) {
+            var cache = localStorageService.get("cache");
+            if (cache && $routeParams.cache_key) {
+                cache[$routeParams.cache_key] = scene.name
+                localStorageService.set("cache", cache);
+            }
+            $rootScope.back();
+        }
 
     }
-    
+
     toastServices.show();
     userServices.query_scenes().then(function(data) {
         var cache = localStorageService.get("cache");
