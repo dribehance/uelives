@@ -50,11 +50,11 @@
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">工作类型:</div>
-                    <span ng-class="{'text-primary':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in job_type">{{job.name}}</span>
+                    <span ng-class="{'text-primary':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in input.job_types">{{job.name}}</span>
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">工作意向:</div>
-                    <span ng-class="{'text-primary':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in job_property">{{job.name}}</span>
+                    <span ng-class="{'text-primary':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in input.job_propertys">{{job.name}}</span>
                 </div>
                 <div class="edit-list padding-sm-left" ng-click="cache_and_go('languages','mother_language')">
                     <div class="text-field">母<span>空格</span>语:</div>

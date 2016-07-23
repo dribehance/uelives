@@ -1,13 +1,9 @@
-angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.input.sex = 1;
-
-
 	$scope.select_gender = function(gender) {
 		$scope.input.sex = gender;
 	};
-
-
 	$scope.check = function(n) {
 		$scope.input.check = n
 	}
@@ -15,7 +11,6 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 	$scope.is_agree = function() {
 		$scope.agree = !$scope.agree;
 	};
-
 	// 验证码
 	$scope.countdown = {
 		// count: "5",
@@ -52,11 +47,16 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 	// get information from cache
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
-	}
+	};
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", $scope.input);
 		$location.path(path).search("cache_key", key);
-	}
+	};
+	$scope.get_total_money = function(price) {
+		return parseFloat($scope.input.schedule_total) * parseFloat(price);
+	};
+	// config weixin
+	weixinServices.config();
 	var cache = localStorageService.get("cache");
 	if (cache) {
 		$scope.input = angular.extend({}, $scope.input, cache);
@@ -88,19 +88,17 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
-				$timeout(function() {
-					$location.path("order_management_user").search({
-						id: null,
-						order_id: null,
-						money: null
-					}).replace();
-				}, 2000)
+				weixinServices.pay(data.weixinTemp);
+				// $timeout(function() {
+				// 	$location.path("order_management_user").search({
+				// 		id: null,
+				// 		order_id: null,
+				// 		money: null
+				// 	}).replace();
+				// }, 2000)
 			} else {
 				errorServices.autoHide(data.message);
 			}
 		})
-	}
-	$scope.get_total_money = function(price) {
-		return parseFloat($scope.input.schedule_total) * parseFloat(price);
 	}
 })

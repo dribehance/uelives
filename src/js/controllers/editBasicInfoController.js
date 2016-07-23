@@ -33,13 +33,13 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             };
             var job_type = $scope.input.job_type.split("#"),
                 job_property = $scope.input.job_property.split("#");
-            $scope.job_type.map(function(job) {
+            $scope.input.job_types.map(function(job) {
                 if (job_type.includes(job.name)) {
                     job.selected = true;
                 }
                 return job;
             })
-            $scope.job_property.map(function(job) {
+            $scope.input.job_propertys.map(function(job) {
                 if (job_property.includes(job.name)) {
                     job.selected = true;
                 }
@@ -52,7 +52,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             errorServices.autoHide(data.message);
         }
     });
-    $scope.job_type = [{
+    $scope.input.job_types = [{
         name: "口译",
         selected: false
     }, {
@@ -62,7 +62,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         name: "口笔译",
         selected: false
     }];
-    $scope.job_property = [{
+    $scope.input.job_propertys = [{
         name: "全职",
         selected: false
     }, {
@@ -116,12 +116,12 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             birthday: $scope.input.options.value,
             city: $scope.input.city,
             email: $scope.input.email,
-            job_type: $scope.job_type.filter(function(job) {
+            job_type: $scope.input.job_types.filter(function(job) {
                 return job.selected
             }).map(function(j) {
                 return j.name
             }).join("#"),
-            job_property: $scope.job_property.filter(function(job) {
+            job_property: $scope.input.job_propertys.filter(function(job) {
                 return job.selected
             }).map(function(j) {
                 return j.name
