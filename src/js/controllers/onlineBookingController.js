@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, $window, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.input.sex = 1;
 	$scope.select_gender = function(gender) {
@@ -55,8 +55,6 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 	$scope.get_total_money = function(price) {
 		return parseFloat($scope.input.schedule_total) * parseFloat(price);
 	};
-	// config weixin
-	weixinServices.config();
 	var cache = localStorageService.get("cache");
 	if (cache) {
 		$scope.input = angular.extend({}, $scope.input, cache);
@@ -88,14 +86,9 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
-				weixinServices.pay(data.weixinTemp);
-				// $timeout(function() {
-				// 	$location.path("order_management_user").search({
-				// 		id: null,
-				// 		order_id: null,
-				// 		money: null
-				// 	}).replace();
-				// }, 2000)
+				weixinServices.prepare_pay({
+					id: $routeParams.order_id
+				});
 			} else {
 				errorServices.autoHide(data.message);
 			}

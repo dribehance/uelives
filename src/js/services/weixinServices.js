@@ -1,5 +1,19 @@
 // by dribehance <dribehance.kksdapp.com>
-angular.module("Uelives").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $window, localStorageService, config) {
+angular.module("Uelives").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $q, $window, localStorageService, config) {
+    var weixin_config = {
+        "base_url": "https://open.weixin.qq.com/connect/oauth2/authorize",
+        "access_token_url": "https://api.weixin.qq.com/sns/oauth2/access_token",
+        "userinfo_url": "https://api.weixin.qq.com/sns/userinfo",
+        "appid": "wxfc4845662ab85927",
+        "secret": "1428c0468f80f233c7f17d887582f2f6",
+        "redirect_uri": "http://www.uelives.com/oauth",
+        "payment_redirect_uri": "http://www.uelives.com/mobile/weixinpay.html/#/index",
+        "response_type": "code",
+        "scope": "snsapi_userinfo",
+        "state": "weixin",
+        "wechat_redirect": "#wechat_redirect",
+    };
+
     function initWeixinShareEvent(title, link, thumbnail, desc) {
         wx.onMenuShareTimeline({
             title: title || config.share.title, // 分享标题
@@ -69,11 +83,13 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
     return {
         config: function() {
             // if (!$rootScope.wx_browser) return {};
-            this.query_signature($location.absUrl().split("#")[0]).then(function(data) {
+            return this.query_signature({
+                current_url: $location.absUrl().split("#")[0]
+            }).then(function(data) {
                 if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
                     wx.config({
                         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                        appId: "wxfc4845662ab85927", // 必填，公众号的唯一标识
+                        appId: weixin_config.appid, // 必填，公众号的唯一标识
                         timestamp: data.timestamp, // 必填，生成签名的时间戳
                         nonceStr: data.nonceStr, // 必填，生成签名的随机串
                         signature: data.signature, // 必填，签名，见附录1
@@ -90,6 +106,7 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
                 // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
             });
         },
+        // 获取配置签名
         query_signature: function(input) {
             return $http({
                 // by dribehance <dribehance.kksdapp.com>
@@ -100,80 +117,59 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
                 return data.data;
             });
         },
+        // 获取支付签名,根据订单号获取
+        query_payment_signature: function(input) {
+            return $http({
+                // by dribehance <dribehance.kksdapp.com>
+                url: config.url + "/app/OrdersManage/comfiyPay",
+                method: "GET",
+                params: angular.extend({}, config.common_params, input)
+            }).then(function(data) {
+                return data.data;
+            });
+        },
         // share
         initWeixinShareEvent: function(title, link, thumbnail, desc) {
             initWeixinShareEvent(title, link, thumbnail, desc);
         },
-        // login
+        // 显性授权 login
         queryAuthorizationCode: function() {
-            var url = config.weixin.base_url + "?" + "appid=" + config.weixin.appid + "&redirect_uri=" + encodeURIComponent(config.weixin.redirect_uri) + "&response_type=" + config.weixin.response_type + "&scope=" + config.weixin.scope + "&state=" + config.weixin.state + config.weixin.wechat_redirect;
+            var url = weixin_config.base_url + "?" + "appid=" + weixin_config.appid + "&redirect_uri=" + encodeURIComponent(weixin_config.redirect_uri) + "&response_type=" + weixin_config.response_type + "&scope=" + weixin_config.scope + "&state=" + weixin_config.state + weixin_config.wechat_redirect;
             $window.location.href = url;
         },
-        queryAccessToken: function(code) {
-            // var url = config.weixin.access_token_url + "?" + "appid=" + config.weixin.appid + "&secret=" + config.weixin.secret + "&code=" + code + "&grant_type=" + "authorization_code";
-            // $window.location.href = url;
-            var url = config.weixin.access_token_url + "?appid=" + config.weixin.appid + "&secret=" + config.weixin.secret + "&code=" + code + "&grant_type=authorization_code";
-            return $http({
-                // by dribehance <dribehance.kksdapp.com>
-                url: url,
-                method: "GET",
-            }).then(function(data) {
-                return data.data;
-            });
-        },
-        queryUserinfo: function(input) {
-            return $http({
-                // by dribehance <dribehance.kksdapp.com>
-                url: config.weixin.userinfo_url,
-                method: "GET",
-                params: angular.extend({}, {
-                    "access_token": input.access_token,
-                    "openid": input.openid,
-                    "lang": "zh_CN"
-                })
-            }).then(function(data) {
-                return data.data;
-            });
-        },
-        prepare_pay: function(payment) {
-            var url = config.weixin.base_url + "?" + "appid=" + config.weixin.appid + "&redirect_uri=" + encodeURIComponent(config.weixin.payment_redirect_uri) + "&response_type=" + config.weixin.response_type + "&scope=" + config.weixin.scope + "&state=" + JSON.stringify(payment) + config.weixin.wechat_redirect;
+        // 静默授权 silence authorization
+        prepare_pay: function(params) {
+            var url = weixin_config.base_url + "?" + "appid=" + weixin_config.appid + "&redirect_uri=" + encodeURIComponent(weixin_config.payment_redirect_uri) + "&response_type=" + weixin_config.response_type + "&scope=" + weixin_config.scope + "&state=" + JSON.stringify(params) + weixin_config.wechat_redirect;
             $window.location.href = url;
         },
-        // payment
-        pay: function(payment) {
+        // invoke weixin pay
+        pay: function(params) {
             toastServices.show();
             wx.chooseWXPay({
-                // "appId": payment.appId,//config.weixin.appid,
-                "timestamp": payment.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-                "nonceStr": payment.nonceStr, // 支付签名随机串，不长于 32 位
-                "package": payment.package_web, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-                "signType": payment.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-                "paySign": payment.paySign, // 支付签名
+                // "appId": params.appId,//weixin_config.appid,
+                "timestamp": params.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+                "nonceStr": params.nonceStr, // 支付签名随机串，不长于 32 位
+                "package": params.package_web, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+                "signType": params.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+                "paySign": params.paySign, // 支付签名
                 success: function(res) {
                     // 支付成功后的回调函数
                     toastServices.hide();
-                    // alert(JSON.stringify(res))
-                    // alert("$location.path('tasks').replace();");
-                    // $location.path("tasks").replace();
                     $timeout(function() {
-                        $location.path("tasks").replace()
+                        $window.location.href = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "#/order_management_user";
                     }, 1000)
                 },
                 cancel: function() {
                     toastServices.hide();
-                    // alert("cancel");
                     $timeout(function() {
-                        $location.path("tasks").replace()
+                        $rootScope.back();
                     }, 1000)
                 },
                 fail: function(res) {
                     toastServices.hide();
                     $timeout(function() {
-                        $location.path("tasks").replace()
+                        $rootScope.back();
                     }, 1000);
-                    // alert("chooseWXPay fail");
-                    // alert(JSON.stringify(res));
-                    // $rootScope.back();
                 }
             });
         }

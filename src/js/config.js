@@ -1,6 +1,6 @@
 angular.module("Uelives").constant("config", {
-	url: "http://uelives.com",
-	imageUrl: "http://uelives.com/files/image?name=",
+	url: "http://www.uelives.com",
+	imageUrl: "http://www.uelives.com/files/image?name=",
 	request: {
 		"SUCCESS": "200",
 		"TOKEN_INVALID": "405"
