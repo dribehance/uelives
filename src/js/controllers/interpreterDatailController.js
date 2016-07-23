@@ -52,6 +52,9 @@ angular.module("Uelives").controller("interpreterDetailController", function($sc
 			"order_id": $routeParams.order_id
 		})
 	}
+	$scope.replace_hash = function(hashs) {
+		return hashs && hashs.replace(/#/g, "、");
+	}
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", angular.extend({}, localStorageService.get("cache")), $scope.input);
 		$location.path(path).search("cache_key", key);

@@ -28,8 +28,8 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 				if (localStorageService.get("cache")) {
 					$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
 				}
-				$scope.input.start_time_option.value = $scope.input.start_time
-				$scope.input.end_time_option.value = $scope.input.end_time
+				$scope.input.start_time_option.value = $scope.input.start_time;
+				$scope.input.end_time_option.value = $scope.input.end_time;
 			} else {
 				errorServices.autoHide(data.message);
 			}
@@ -109,6 +109,15 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 			cache_key: key,
 			from: "edit"
 		});
+	}
+	$scope.toggle_nowaday = function() {
+		$scope.input.end_time_option.value = $scope.input.end_time_option.value == "至今" ? $filter("date")(new Date(), "yyyy-MM") : "至今";
+	}
+	$scope.valid_time = function(time) {
+		if (!time) {
+			return true;
+		}
+		return new Date(time) == "Invalid Date" ? false : true;
 	}
 	if ($routeParams.id) {
 		$scope.query_work_experience();

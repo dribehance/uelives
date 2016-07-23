@@ -45,10 +45,10 @@
                 <span ng-class="{'color-gray':user.email==''}">{{user.email || "暂无填写"}}</span>
             </div>
             <div class="edit-list">
-                工作类型: <span ng-class="{'color-gray':user.job_type==''}">{{user.job_type || "暂无填写"}}</span>
+                工作类型: <span ng-class="{'color-gray':user.job_type==''}">{{replace_hash(user.job_type) || "暂无填写"}}</span>
             </div>
             <div class="edit-list">
-                工作意向: <span ng-class="{'color-gray':user.job_property==''}">{{user.job_property || "暂无填写"}}</span>
+                工作意向: <span ng-class="{'color-gray':user.job_property==''}">{{replace_hash(user.job_property) || "暂无填写"}}</span>
             </div>
             <a class="edit-list">
                 <div class="text-area">母<span>空格</span>语:</div> <span ng-class="{'color-gray':user.mother_language==''}">{{user.mother_language || "暂无填写"}}</span>
@@ -66,7 +66,7 @@
                 <span ng-class="{'color-gray':user.second_language_level==''}">{{user.second_language_level || "暂无填写"}}</span>
             </div>
             <a class="edit-list">
-                擅长行业/领域: <span ng-class="{'color-gray':user.good_field==''}">{{user.good_field || "暂无填写"}}</span>
+                擅长行业/领域: <span ng-class="{'color-gray':user.good_field==''}">{{replace_hash(user.good_field) || "暂无填写"}}</span>
             </a>
             <div class="edit-list">
                 翻译经验年限: <span ng-class="{'color-gray':user.translate_year==''}">{{user.translate_year || "暂无填写"}}</span>

@@ -15,4 +15,7 @@ angular.module("Uelives").controller("onlinePreviewController", function($scope,
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
 	}
+	$scope.replace_hash = function(hashs) {
+		return hashs && hashs.replace(/#/g, "、");
+	}
 })

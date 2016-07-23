@@ -16,7 +16,9 @@
             </div>
             <div class="edit-item padding margin-left modify">
                 <!-- <input type="text" class="full-width" placeholder="离职时间" name="end_time" ng-model="input.end_time" required> -->
-                <mobilepicker options="input.end_time_option"></mobilepicker>
+                <span class="nowaday" ng-class="{'text-primary':!valid_time(input.end_time_option.value)}" ng-click="toggle_nowaday()">至今</span>
+                <input type="text" ng-if="!valid_time(input.end_time_option.value)" ng-model="input.end_time_option.value" readonly>
+                <mobilepicker options="input.end_time_option" ng-if="valid_time(input.end_time_option.value)"></mobilepicker>
             </div>
             <div class="edit-item padding margin-left modify">
                 <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" required>

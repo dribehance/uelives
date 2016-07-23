@@ -28,6 +28,9 @@ angular.module("Uelives").controller("informationController", function($scope, $
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
 	};
+	$scope.replace_hash = function(hashs) {
+		return hashs && hashs.replace(/#/g, "、");
+	}
 	// remove cache
 	localStorageService.remove("cache");
 })
