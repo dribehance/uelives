@@ -2,10 +2,12 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 	$scope.input = {};
 	$scope.input.remove_id = $routeParams.id;
 	$scope.input.start_time_option = {
-		placeholder: "入职年月/项目开始年月"
+		placeholder: "入职年月/项目开始年月",
+		theme: "month"
 	}
 	$scope.input.end_time_option = {
-		placeholder: "离职年月/项目结束年月"
+		placeholder: "离职年月/项目结束年月",
+		theme: "month"
 	}
 	if (localStorageService.get("cache")) {
 		$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
@@ -26,12 +28,8 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 				if (localStorageService.get("cache")) {
 					$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
 				}
-				$scope.input.start_time_option = {
-					value: $scope.input.start_time
-				};
-				$scope.input.end_time_option = {
-					value: $scope.input.end_time
-				};
+				$scope.input.start_time_option.value = $scope.input.start_time;
+				$scope.input.end_time_option.value = $scope.input.end_time;
 			} else {
 				errorServices.autoHide(data.message);
 			}
@@ -107,7 +105,19 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 	}
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", $scope.input);
-		$location.path(path).search("cache_key", key);
+		$location.path(path).search({
+			cache_key: key,
+			from: "edit"
+		});
+	}
+	$scope.toggle_nowaday = function() {
+		$scope.input.end_time_option.value = $scope.input.end_time_option.value == "至今" ? $filter("date")(new Date(), "yyyy-MM") : "至今";
+	}
+	$scope.valid_time = function(time) {
+		if (!time) {
+			return true;
+		}
+		return new Date(time) == "Invalid Date" ? false : true;
 	}
 	if ($routeParams.id) {
 		$scope.query_work_experience();

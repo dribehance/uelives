@@ -14,28 +14,28 @@ angular.module("Uelives").controller("scheduleController", function($scope, $roo
 	})
 	
 	$scope.parse_time = function(day) {
-		return day.schedule_date.split("-")[2];
+			return day.schedule_date.split("-")[2];
+		}
+		//margin-left动态变化
+	$scope.append_class = function(day, index) {
+		if (index == 0) {
+			return "margin-left-" + day.week;
+		}
 	}
 
-	//margin-left动态变化
-    $scope.append_class = function(day, index) {
-        if (index == 0) {
-            return "margin-left-" + day.week;
-        }
-    }
-    
+
 	// $scope.active = function(day) {
 	// 	console.log(day);
 	// 	$scope.input.day = day;
 	// }
 
 	$scope.active = function(day) {
-		
-        if (day.schedule_state < 3) {
-            return;
-        }
-        $scope.input.day = day;
-    }
+
+		if (day.schedule_state == 1) {
+			return;
+		}
+		$scope.input.day = day;
+	}
 
 	$scope.mark_schedule = function(type) {
 

@@ -6,13 +6,13 @@
                     <div class="addon text-center" ng-click="cache_and_go('country_code','country_code')">{{input.country_code.code}}
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </div>
-                    <div class="text-modify border-left padding">
-                        <input name="telephone" ng-model="input.telephone" required placeholder="手机号" class="full-width">
+                    <div class="text-modify border-left padding padding-area">
+                        <input name="telephone" ng-model="input.telephone" required placeholder="手机号" class="full-width input-height">
                     </div>
                 </div>
                 <div class="input-item border-radius padding-lg-right margin-lg-bottom">
                     <div class="text-modify padding">
-                        <input name="code" ng-model="input.code" required placeholder="验证码" class="full-width">
+                        <input name="code" ng-model="input.code" required placeholder="验证码" class="full-width input-height">
                     </div>
                     <countdown class="sms-code" countdown="countdown" countdown-disabled="signupForm.telephone.$invalid">{{countdown.message}}</countdown>
                     <!-- <div class="sms-code">点击发送验证码</div> -->
@@ -22,7 +22,7 @@
                 </div>
                 <div class="input-item border-radius margin-lg-bottom">
                     <div class="text-modify padding">
-                        <input name="wechat" ng-model="input.wechat" required placeholder="微信号" class="full-width">
+                        <input name="wechat" ng-model="input.wechat" required placeholder="微信号" class="full-width input-height">
                     </div>
                 </div>
             </div>

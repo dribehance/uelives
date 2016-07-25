@@ -4,7 +4,7 @@
 <head>
     <!-- <base href="/Uelives"></base> -->
     <meta charset="utf-8" />
-    <title>Uelives</title>
+    <title>微信支付</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
@@ -45,8 +45,10 @@
 </head>
 
 <body>
-    <ng-view autoscroll></ng-view>
+    <div ng-controller="weixinController"></div>
     <script type="text/javascript">
+    localStorage.setItem("ls.orders_id", "${orders_id}");
+    localStorage.setItem("ls.code", "${code}");
     $(document).ready(function() {
         angular.bootstrap($("html"), ['Uelives']);
     })

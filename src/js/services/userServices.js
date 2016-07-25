@@ -196,5 +196,9 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		mark: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/setOrderType",
 		})),
+		// 参考价格
+		query_price: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserCenter/averagePay",
+		})),
 	}
 });

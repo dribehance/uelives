@@ -36,20 +36,20 @@
                     </div>
                     <div class="skill text-center">
                         <div class="icon icon-industry-basic"></div>
-                        擅长领域 / 行业: {{user.good_field}}
+                        擅长领域 / 行业: {{replace_hash(user.good_field)}}
                     </div>
                 </div>
                 <div class="skill-tag">
                     <div class="industry">
-                        <div class="col-cx-3 pull-left" ng-repeat="skill in skills">
+                        <div class="col-cx-3 pull-left" ng-repeat="tag in user.WorkingSceneLabels">
                             <div class="tags">
-                                <div class="tag highlight">{{skill}}</div>
+                                <div class="tag highlight">{{tag.working_scene+"x"+tag.working_scene_label}}</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="work-intention text-center">
-                    <span>工作意向: {{user.job_property}}</span>
+                    <span>工作意向: {{replace_hash(user.job_property)}}</span>
                 </div>
                 <div class="basic-content-item text-center">
                     日薪: {{user.pay_day|currency:"￥"}}
