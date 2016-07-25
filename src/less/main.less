@@ -12,23 +12,30 @@
     user-select: none;
 }
 
-textarea,
+textarea::-webkit-input-placeholder {
+    color: gray !important;
+}
+
 input::-webkit-input-placeholder {
     color: gray !important;
-    line-height: 16px;
 }
 
 input:-moz-placeholder {
     color: #D6D0CA !important;
+    
+    vertical-align: middle;
     // Mozilla Firefox 4 to 18 
 }
 
 input::-moz-placeholder {
     color: #D6D0CA !important;
+    
+    vertical-align: middle;
     // / Mozilla Firefox 19+ /
 }
 
 input:-ms-input-placeholder {
+   
     color: #D6D0CA !important;
 }
 
@@ -46,6 +53,11 @@ textarea {
     outline: none;
     border: none;
     background-color: white;
+}
+.input-height{
+    line-height: 18px;
+    height: 18px;
+    vertical-align: middle;
 }
 
 .col-ms-7 {
@@ -116,7 +128,7 @@ textarea {
         .addon {
             position: absolute;
             display: block;
-            top: -1px;
+            top: 0;
             left: 5px;
             padding: 15px 5px;
             padding-right: 2px;
@@ -135,6 +147,9 @@ textarea {
             &.padding {
                 padding-left: 5px;
                 padding-right: 5px;
+            }
+            &.padding-area{
+                padding-bottom: 10px;
             }
             span {
                 color: #bdbdbd;
@@ -458,6 +473,7 @@ textarea {
                 position: relative;
                 display: block;
                 padding: 15px 0;
+                padding-top: 18px;
                 margin: 0 10px;
                 overflow: hidden;
                 .box-sizing(border-box);
@@ -479,32 +495,37 @@ textarea {
                     padding-left: 65px;
                 }
                 &.padding-lg-left {
-                    padding-left: 90px;
+                    padding-left: 93px;
                 }
                 &.modify {
                     border-bottom: 1px solid #EBEBEB;
                 }
+                input {
+                    height: 18px;
+                    line-height: 18px;
+                    vertical-align: middle;
+                }
                 .name {
                     position: absolute;
-                    top: 14px;
+                    top: 17.8px;
                     left: 0;
                     display: block;
                 }
                 .woman {
                     position: absolute;
-                    top: 14px;
+                    top: 16px;
                     right: 0;
                     color: #A9A9A9;
                 }
                 .man {
                     position: absolute;
-                    top: 14px;
+                    top: 16px;
                     right: 45px;
                     color: #BDBDBD;
                 }
                 .sms-code {
                     position: absolute;
-                    top: 5px;
+                    top: 7px;
                     right: 0;
                     display: block;
                     padding: 10px;
@@ -675,9 +696,9 @@ textarea {
                     color: white;
                 }
             }
-            .text-area{
+            .text-area {
                 display: inline-block;
-                span{
+                span {
                     color: white;
                 }
             }
@@ -835,8 +856,8 @@ textarea {
                 display: block;
                 margin: 0 5px;
             }
-            .work-intention{
-                span{
+            .work-intention {
+                span {
                     display: block;
                     margin-bottom: 10px;
                 }
@@ -1301,7 +1322,6 @@ textarea {
         position: relative;
         display: block;
         overflow: hidden;
-        
         .time-icon {
             position: relative;
             display: inline-block;
@@ -1499,3 +1519,6 @@ textarea {
         text-align: center;
     }
 }
+
+
+/***********************************练习****************************************/

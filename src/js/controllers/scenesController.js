@@ -1,5 +1,6 @@
 angular.module("Uelives").controller("scenesController", function($scope, $rootScope, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
+    
     $scope.select_scene = function(scene) {
         var scenes = $scope.scenes.filter(function(scene) {
             return scene.select;
@@ -10,25 +11,28 @@ angular.module("Uelives").controller("scenesController", function($scope, $rootS
             errorServices.autoHide("最多只能选择两个");
             return;
         }
-        scene.select = !scene.select;
-        var scenes = $scope.scenes.filter(function(scene) {
-            return scene.select;
-        }).map(function(scene) {
-            return scene.name
-        });
 
-        if (scenes.length > 2) {
-            errorServices.autoHide("最多只能选择两个");
-            return;
-        };
-        if ($routeParams.from) {
-            var cache = localStorageService.get("cache");
-            if (cache && $routeParams.cache_key) {
-                cache[$routeParams.cache_key] = scene.name
-                localStorageService.set("cache", cache);
-            }
-            $rootScope.back();
-        }
+        scene.select = !scene.select;
+
+
+        // var scenes = $scope.scenes.filter(function(scene) {
+        //     return scene.select;
+        // }).map(function(scene) {
+        //     return scene.name
+        // });
+
+        // if (scenes.length > 2) {
+        //     errorServices.autoHide("最多只能选择两个");
+        //     return;
+        // };
+        // if ($routeParams.from) {
+        //     var cache = localStorageService.get("cache");
+        //     if (cache && $routeParams.cache_key) {
+        //         cache[$routeParams.cache_key] = scene.name
+        //         localStorageService.set("cache", cache);
+        //     }
+        //     $rootScope.back();
+        // }
 
     }
 

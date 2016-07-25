@@ -12,6 +12,7 @@ angular.module("Uelives").controller("scheduleController", function($scope, $roo
 			errorServices.autoHide(data.message);
 		}
 	})
+	
 	$scope.parse_time = function(day) {
 			return day.schedule_date.split("-")[2];
 		}
@@ -21,6 +22,7 @@ angular.module("Uelives").controller("scheduleController", function($scope, $roo
 			return "margin-left-" + day.week;
 		}
 	}
+
 
 	// $scope.active = function(day) {
 	// 	console.log(day);
