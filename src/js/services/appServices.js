@@ -1,6 +1,6 @@
  // by dribehance <dribehance.kksdapp.com>
  // EventHandle
- angular.module("Uelives").factory("appServices", function($rootScope, $window, $location, errorServices, toastServices, config) {
+ angular.module("Uelives").factory("appServices", function($rootScope, $window, $location, errorServices, toastServices, localStorageService, config) {
  	var routeChangeStart = function(e) {
  		// do something white routechangestart,eg:
  		// toastServices.show();
@@ -33,6 +33,9 @@
  			}
  			$rootScope.back = function() {
  				$window.history.back();
+ 			}
+ 			if ($location.port() == "8000") {
+ 				localStorageService.set("token", "oeZT9szeTtxTyaACJPuR5QHla2eQ")
  			}
  			$rootScope.staticImageUrl = config.imageUrl;
  		}
