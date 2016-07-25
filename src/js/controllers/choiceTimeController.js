@@ -1,5 +1,6 @@
 angular.module("Uelives").controller("choiceTimeController", function($scope, $rootScope, $routeParams, $timeout, $route, userServices, errorServices, toastServices, localStorageService, config) {
     var cache = localStorageService.get("cache");
+    $scope.user_id = $routeParams.id;
     $scope.input = {};
     toastServices.show();
     userServices.query_schedule({
@@ -24,7 +25,7 @@ angular.module("Uelives").controller("choiceTimeController", function($scope, $r
     }
     $scope.parse_time = function(day) {
         return day.schedule_date.split("-")[2];
-    }
+    };
     //margin-left动态变化
     $scope.append_class = function(day, index) {
         if (index == 0) {

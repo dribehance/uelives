@@ -29,11 +29,11 @@
         <div class="time-icon can"></div>
         <span>可预约</span>
     </div>
-    <div class="no-booking">
+    <div class="no-booking" ng-if="user_id">
         <div class="time-icon caned"></div>
         <span>译员忙碌</span>
     </div>
-    <div class="no-booking">
+    <div class="no-booking" ng-if="user_id">
         <div class="time-icon selected"></div>
         <span>译员已被预约</span>
     </div>
