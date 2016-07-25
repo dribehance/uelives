@@ -10,7 +10,7 @@ angular.module("Uelives").controller("orderManagementUserController", function($
         message: "点击加载更多",
         // uid: "oqEj-vsfYWEE4l4rWAR7lxyJgO55",
         // uid: "oqEj-vsfYWEE4l4rWAR7lxyJgOLI",
-        uid: localStorageService.get("server").wechat,
+        // uid: localStorageService.get("server").wechat,
         order_type: $scope.input.type
     }
     $scope.loadMore = function() {
@@ -44,7 +44,7 @@ angular.module("Uelives").controller("orderManagementUserController", function($
             message: "点击加载更多",
             // uid: "oqEj-vsfYWEE4l4rWAR7lxyJgO55",
             // uid: "oqEj-vsfYWEE4l4rWAR7lxyJgOLI",
-            uid: localStorageService.get("server").wechat,
+            // uid: localStorageService.get("server").wechat,
             order_type: $scope.input.type
         }
         $scope.orders = [];

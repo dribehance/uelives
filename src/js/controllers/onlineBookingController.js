@@ -55,6 +55,17 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 	$scope.get_total_money = function(price) {
 		return parseFloat($scope.input.schedule_total) * parseFloat(price);
 	};
+	// hide fix bottom white focus
+	$("form[name='bookingForm']").find("input,textarea").focus(function() {
+		$(".pay").css({
+			position: "static"
+		});
+	})
+	$("form[name='bookingForm']").find("input,textarea").blur(function() {
+		$(".pay").css({
+			position: "fixed"
+		});
+	})
 	var cache = localStorageService.get("cache");
 	if (cache) {
 		$scope.input = angular.extend({}, $scope.input, cache);
@@ -82,6 +93,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			order_wechat: $scope.input.wechat,
 			money: $scope.get_total_money($scope.user.pay_day),
 			msg_code: $scope.input.smscode,
+			token: localStorageService.get("token")
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
