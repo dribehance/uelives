@@ -12,9 +12,11 @@ angular.module("Uelives").controller("scheduleController", function($scope, $roo
 			errorServices.autoHide(data.message);
 		}
 	})
+	
 	$scope.parse_time = function(day) {
 		return day.schedule_date.split("-")[2];
 	}
+
 	//margin-left动态变化
     $scope.append_class = function(day, index) {
         if (index == 0) {

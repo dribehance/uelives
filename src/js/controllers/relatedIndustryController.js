@@ -20,6 +20,7 @@ angular.module("Uelives").controller("relatedIndustryController", function($scop
             errorServices.autoHide(data.message);
         }
     })
+    
     $scope.save = function() {
         var industries = $scope.industries.filter(function(industry) {
             return industry.select;

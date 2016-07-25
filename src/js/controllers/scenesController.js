@@ -1,7 +1,11 @@
 angular.module("Uelives").controller("scenesController", function($scope, $rootScope, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
+    
     $scope.select_scene = function(scene) {
+
         scene.select = !scene.select;
+
+
         var scenes = $scope.scenes.filter(function(scene) {
             return scene.select;
         }).map(function(scene) {
