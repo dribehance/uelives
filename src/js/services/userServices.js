@@ -12,6 +12,7 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		// signup
 		signup: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/UserCenter/RegistTelOne",
+			token: localStorageService.get("token")
 		})),
 		// forget password
 		forget: apiServices._get(angular.extend({}, config.common_params, {
@@ -23,6 +24,7 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		})),
 		get_smscode: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/UserCenter/GetCode",
+			token: localStorageService.get("token")
 		})),
 		// query user basic information
 		query_basicinfo: apiServices._get(angular.extend({}, config.common_params, {
@@ -79,10 +81,12 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 		})),
 		query_country_code: apiServices._get(angular.extend({}, config.common_params, {
 			url: "city/country_code.json",
+			token: localStorageService.get("token")
 		})),
 		// 涉及行业列表
 		query_industries: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/UserCenter/translateFieldList",
+			token: localStorageService.get("token")
 		})),
 		// 新增教育经历
 		create_edu_experience: apiServices._get(angular.extend({}, config.common_params, {
@@ -159,46 +163,56 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/ScheduleManage/setTranslateTime",
 			token: localStorageService.get("token")
 		})),
-		// 预订
+		// 首页预订
 		booking: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/makeOrder",
+			token: localStorageService.get("token")
 		})),
 		// 合适的译员
 		query_qualified_translator: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Home/fullCompletelyUserList",
+			token: localStorageService.get("token")
 		})),
 		// 可能合适的译员
 		query_unqualified_translator: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Home/maybeUserList",
+			token: localStorageService.get("token")
 		})),
 		// 评论列表
 		query_comments: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Comments/myCommentList",
+			token: localStorageService.get("token")
 		})),
 		comment: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Comments/comment",
+			token: localStorageService.get("token")
 		})),
 		query_comment_by_order: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/commentDetail",
+			token: localStorageService.get("token")
 		})),
 		// 在线预订
 		online_booking: apiServices._get(angular.extend({}, config.common_params, {
-			url: config.url + "/app/OrdersManage/submitOrder",
+			url: config.url + "/app/OrdersManage/submitOrder"
 		})),
 		// 订单列表，根据微信uid获取
 		query_orders: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/myOrderList",
+			token: localStorageService.get("token")
 		})),
 		query_order: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/orderDetail",
+			token: localStorageService.get("token")
 		})),
 		// 订单评价，拒绝，同意
 		mark: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/OrdersManage/setOrderType",
+			token: localStorageService.get("token")
 		})),
 		// 参考价格
 		query_price: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/UserCenter/averagePay",
+			token: localStorageService.get("token")
 		})),
 	}
 });

@@ -27,6 +27,7 @@ angular.module("Uelives").factory("tokenInterceptor", function($location, $q, lo
 			if (response.data.code == config.request.TOKEN_INVALID) {
 				console.log("TOKEN_INVALID")
 				localStorageService.remove("token");
+				localStorageService.remove("user_id");
 				$location.path("/interpreter_settled").replace();
 				return defer.promise;
 			} else {

@@ -48,6 +48,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             if (localStorageService.get("cache")) {
                 $scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
             }
+            localStorageService.set("user_id", $scope.user.user_id)
         } else {
             errorServices.autoHide(data.message);
         }

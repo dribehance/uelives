@@ -8,6 +8,9 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
     $scope.is_agree = function() {
         $scope.agree = !$scope.agree;
     };
+    $scope.replace_hash = function(hashs) {
+        return hashs && hashs.replace(/#/g, "、");
+    };
     // 验证码
     $scope.countdown = {
         // count: "5",

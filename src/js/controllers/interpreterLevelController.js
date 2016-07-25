@@ -10,7 +10,9 @@ angular.module("Uelives").controller("interpreterLevelController", function($sco
         $rootScope.back();
     }
     toastServices.show();
-    userServices.query_price().then(function(data) {
+    userServices.query_price({
+        user_id: localStorageService.get("user_id"),
+    }).then(function(data) {
         toastServices.hide()
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
             $scope.price = data;

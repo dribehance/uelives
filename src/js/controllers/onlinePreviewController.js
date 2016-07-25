@@ -2,7 +2,7 @@ angular.module("Uelives").controller("onlinePreviewController", function($scope,
 	$scope.input = {};
 	toastServices.show();
 	userServices.query_basicinfo({
-		type: "2",
+		type: $routeParams.type,
 		ta_user_id: $routeParams.id
 	}).then(function(data) {
 		toastServices.hide()

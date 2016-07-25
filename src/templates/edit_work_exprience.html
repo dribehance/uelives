@@ -16,7 +16,7 @@
             </div>
             <div class="edit-item padding margin-left modify">
                 <!-- <input type="text" class="full-width" placeholder="离职时间" name="end_time" ng-model="input.end_time" required> -->
-                <span class="nowaday" ng-class="{'text-primary':!valid_time(input.end_time_option.value)}" ng-click="toggle_nowaday()">至今</span>
+                <span class="nowaday" ng-click="toggle_nowaday()"><i class="icon icon-on" ng-class="{'icon-on':!valid_time(input.end_time_option.value),'icon-off':valid_time(input.end_time_option.value)}"></i></span>
                 <input type="text" ng-if="!valid_time(input.end_time_option.value)" ng-model="input.end_time_option.value" readonly>
                 <mobilepicker options="input.end_time_option" ng-if="valid_time(input.end_time_option.value)"></mobilepicker>
             </div>
