@@ -9,7 +9,7 @@
                     {{input.language.from}} - {{input.language.to}} <span>.</span>&nbsp{{input.sex}}
                 </div>
                 <div class="booking-content text-center" ng-click="cache_and_go('related_industry','industry')">
-                    {{input.industry}} &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    {{replace_hash(input.industry)}} &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
                 </div>
                 <div class="booking-content text-center" ng-click="cache_and_go('choice_time','choice_time')">
                     {{input.schedule_from}}
