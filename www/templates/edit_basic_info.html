@@ -24,8 +24,8 @@
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">性<span>空格</span>别:</div>
-                    <span ng-class="{'text-primary':input.sex == '男'}" class="color" ng-click="single_check('sex','男')">男</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <span ng-class="{'text-primary':input.sex == '女'}" class="color" ng-click="single_check('sex','女')">女</span>
+                    <span ng-class="{'highlight':input.sex == '男'}" class="color" ng-click="single_check('sex','男')">男</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <span ng-class="{'highlight':input.sex == '女'}" class="color" ng-click="single_check('sex','女')">女</span>
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">最高学历:</div>
@@ -50,11 +50,11 @@
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">工作类型:</div>
-                    <span ng-class="{'text-primary':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in input.job_types">{{job.name}}</span>
+                    <span ng-class="{'highlight':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in input.job_types">{{job.name}}</span>
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">工作意向:</div>
-                    <span ng-class="{'text-primary':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in input.job_propertys">{{job.name}}</span>
+                    <span ng-class="{'highlight':job.selected}" style="margin-right:10px" class="color" ng-click="multi_check(job)" ng-repeat="job in input.job_propertys">{{job.name}}</span>
                 </div>
                 <div class="edit-list padding-sm-left" ng-click="cache_and_go('languages','mother_language')">
                     <div class="text-field">母<span>空格</span>语:</div>
