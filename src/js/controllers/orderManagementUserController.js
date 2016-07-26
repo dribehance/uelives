@@ -1,6 +1,6 @@
-angular.module("Uelives").controller("orderManagementUserController", function($scope, $route, $timeout, $filter, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("orderManagementUserController", function($scope, $routeParams, $route, $timeout, $filter, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {
-        type: '2',
+        type: $routeParams.type || "2",
         status: 'wait'
     }
     $scope.orders = [];
