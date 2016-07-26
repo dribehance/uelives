@@ -14,6 +14,10 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/UserCenter/RegistTelOne",
 			token: localStorageService.get("token")
 		})),
+		update_telephone: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserCenter/updateTelephone",
+			token: localStorageService.get("token")
+		})),
 		// forget password
 		forget: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "api_url",

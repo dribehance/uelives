@@ -40,9 +40,9 @@
                 <div class="edit-list padding-sm-left" ng-click="cache_and_go('choice_city','city')">
                     <div class="text-field">所在城市:</div><span ng-class="{'color-gray':input.city == ''}">{{input.city||"请选择"}}</span>
                 </div>
-                <div class="edit-list padding-sm-left">
+                <div class="edit-list padding-sm-left" ng-click="cache_and_go('update_telephone','telephone')">
                     <div class="text-field">联系电话:</div>
-                    <input type="text" class="full-width" placeholder="请填写联系电话" name="telephone" ng-model="input.telephone" required readonly>
+                    <span ng-class="{'color-gray':input.translate_level == ''}">{{input.telephone||"请选择"}}</span>
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field">联系邮箱:</div>

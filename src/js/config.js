@@ -46,5 +46,6 @@ angular.module("Uelives").constant("config", {
 		"preview_comment",
 		"country_code",
 		"money",
+		"update_telephone"
 	]
 });

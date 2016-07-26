@@ -1,0 +1,28 @@
+<div class="wrap">
+    <form name="updateForm" ng-submit="ajaxForm()">
+        <div class="signup">
+            <div class="input-group">
+                <div class="input-item padding-sm-left margin-lg-bottom border-radius">
+                    <div class="addon text-center" ng-click="cache_and_go('country_code','country_code')">{{input.country_code.code}}
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="text-modify border-left padding padding-area">
+                        <input name="telephone" ng-model="input.telephone" required placeholder="手机号" class="full-width input-height">
+                    </div>
+                </div>
+                <div class="input-item border-radius padding-lg-right margin-lg-bottom">
+                    <div class="text-modify padding">
+                        <input name="code" ng-model="input.code" required placeholder="验证码" class="full-width input-height">
+                    </div>
+                    <countdown class="sms-code" countdown="countdown" countdown-disabled="updateForm.telephone.$invalid">{{countdown.message}}</countdown>
+                    <!-- <div class="sms-code">点击发送验证码</div> -->
+                </div>
+            </div>
+            <div class="wrap text-center">
+                <div class="section">
+                    <button class="btn btn-lg btn-primary" type="submit" ng-disabled="$updateForm.$valid">更改</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
