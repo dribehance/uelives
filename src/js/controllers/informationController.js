@@ -33,8 +33,19 @@ angular.module("Uelives").controller("informationController", function($scope, $
 		return $filter("date")(time, format)
 	};
 	$scope.replace_hash = function(hashs) {
-			return hashs && hashs.replace(/#/g, "、");
-		}
-		// remove cache
+		return hashs && hashs.replace(/#/g, "、");
+	};
+	$scope.preview = function() {
+		toastServices.show();
+		userServices.preview().then(function(data) {
+			toastServices.hide()
+			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				$location.path("online_preview").search("id", $scope.user.user_id);
+			} else {
+				errorServices.autoHide(data.message);
+			}
+		})
+	};
+	// remove cache
 	localStorageService.remove("cache");
 })
