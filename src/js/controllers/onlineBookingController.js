@@ -74,7 +74,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		$scope.input.choice_time && ($scope.input.schedule_total = $scope.input.choice_time.length)
 	}
 	var server = localStorageService.get("server");
-	$scope.input.wechat = (server && server.wechat) || "";
+	// $scope.input.wechat = (server && server.wechat) || "";
 	$scope.ajaxForm = function() {
 		if (!$scope.agree) {
 			errorServices.autoHide("请同意使用条款");
