@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("informationController", function($scope, $filter, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("informationController", function($scope, $filter, $location, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	toastServices.show();
 	userServices.query_basicinfo({
@@ -24,6 +24,10 @@ angular.module("Uelives").controller("informationController", function($scope, $
 				errorServices.autoHide(data.message);
 			}
 		})
+	}
+	$scope.cache_and_go = function(path, key) {
+		localStorageService.set("cache", $scope.input);
+		$location.path(path).search("cache_key", key);
 	}
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
