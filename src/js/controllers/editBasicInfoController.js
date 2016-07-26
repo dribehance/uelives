@@ -1,5 +1,7 @@
 angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, $filter, userServices, errorServices, toastServices, localStorageService, config) {
-    $scope.input = {};
+    $scope.input = {
+        translate_year:''
+    };
     toastServices.show();
     userServices.query_basicinfo({
         type: "1",

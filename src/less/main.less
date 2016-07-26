@@ -22,20 +22,16 @@ input::-webkit-input-placeholder {
 
 input:-moz-placeholder {
     color: #D6D0CA !important;
-    
-    vertical-align: middle;
+   
     // Mozilla Firefox 4 to 18 
 }
 
 input::-moz-placeholder {
     color: #D6D0CA !important;
-    
-    vertical-align: middle;
     // / Mozilla Firefox 19+ /
 }
 
 input:-ms-input-placeholder {
-   
     color: #D6D0CA !important;
 }
 
@@ -54,11 +50,17 @@ textarea {
     border: none;
     background-color: white;
 }
-.input-height{
-    line-height: 18px;
-    height: 18px;
-    vertical-align: middle;
-}
+
+// .input-height {
+//     line-height: 18px;
+//     height: 18px;
+//     vertical-align: middle;
+// }
+// .input-heigh {
+//     line-height: 167px;
+//     height: 17px;
+//     vertical-align: middle;
+// }
 
 .col-ms-7 {
     width: 14.28%;
@@ -128,7 +130,7 @@ textarea {
         .addon {
             position: absolute;
             display: block;
-            top: 0;
+            top: 1px;
             left: 5px;
             padding: 15px 5px;
             padding-right: 2px;
@@ -148,7 +150,7 @@ textarea {
                 padding-left: 5px;
                 padding-right: 5px;
             }
-            &.padding-area{
+            &.padding-area {
                 padding-bottom: 10px;
             }
             span {
@@ -172,7 +174,7 @@ textarea {
         }
         .sms-code {
             position: absolute;
-            top: 5px;
+            top: 6px;
             right: 5px;
             display: block;
             padding: 10px 5px;
@@ -185,6 +187,9 @@ textarea {
     .item-title {
         display: block;
         margin-bottom: 15px;
+        a{
+            color: #79AAE3;
+        }
     }
 }
 
@@ -500,32 +505,33 @@ textarea {
                 &.modify {
                     border-bottom: 1px solid #EBEBEB;
                 }
-                input {
-                    height: 18px;
-                    line-height: 18px;
-                    vertical-align: middle;
-                }
+                // input {
+                //     height: 18px;
+                //     line-height: 18px;
+                //     vertical-align: middle;
+                // }
                 .name {
                     position: absolute;
-                    top: 17.8px;
+                    top: 18.5px;
                     left: 0;
                     display: block;
+
                 }
                 .woman {
                     position: absolute;
-                    top: 16px;
+                    top: 18px;
                     right: 0;
                     color: #A9A9A9;
                 }
                 .man {
                     position: absolute;
-                    top: 16px;
+                    top: 18px;
                     right: 45px;
                     color: #BDBDBD;
                 }
                 .sms-code {
                     position: absolute;
-                    top: 7px;
+                    top: 8px;
                     right: 0;
                     display: block;
                     padding: 10px;
@@ -563,7 +569,7 @@ textarea {
             position: relative;
             display: block;
             margin-bottom: 10px;
-            span {
+            a {
                 color: #79AAE3;
             }
             .fa {
@@ -594,6 +600,7 @@ textarea {
             border-right: 1px solid #BDBDBD;
         }
         span {
+            
             display: block;
             margin-bottom: 5px;
             text-align: center;
@@ -666,10 +673,12 @@ textarea {
         display: block;
         padding: 0 10px 10px 10px;
         .edit-title {
+            position: relative;
             display: block;
             padding: 15px 0;
             color: #00B5DA;
             border-bottom: 1px solid #EBEBEB;
+            
         }
         .edit-list {
             position: relative;
@@ -682,6 +691,7 @@ textarea {
             &.padding-lg-left {
                 padding-left: 95px;
             }
+
             span {
                 &.color {
                     color: #BDBDBD;
@@ -690,8 +700,12 @@ textarea {
             .text-field {
                 position: absolute;
                 display: block;
+
                 top: 0;
                 left: 0;
+                &.text-down{
+                    padding-top: 1px;
+                }
                 span {
                     color: white;
                 }
@@ -701,6 +715,9 @@ textarea {
                 span {
                     color: white;
                 }
+            }
+            .highlight {
+                color: #000 !important;
             }
         }
         .color-gray {
@@ -779,6 +796,7 @@ textarea {
         .font-color {
             color: #00B4DC;
         }
+        
     }
     .basic-backgroup {
         position: relative;
@@ -795,6 +813,9 @@ textarea {
         overflow: hidden;
         background-color: white;
         border-radius: 6px;
+        .fa{
+            color: #37B3D5;
+        }
         .basic-content {
             position: relative;
             display: block;
@@ -1402,10 +1423,7 @@ textarea {
                 input::-webkit-input-placeholder {
                     text-align: center;
                 }
-                input {
-                    .box-sizing(border-box);
-                    height: 16px;
-                }
+                
                 .fa {
                     position: absolute;
                     top: 10px;

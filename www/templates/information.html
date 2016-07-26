@@ -13,8 +13,9 @@
         <div class="edit-content">
             <a class="edit-title" ng-href="#/edit_basic_info">
                 基本信息
-                <span class="pull-right">编辑</span>
-                <div class="icon icon-infohead pull-right"></div>
+                <span class="pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</span>
+                
+                
             </a>
             <div class="edit-list">
                 <div class="text-area">姓<span>空格</span>名:</div> <span ng-class="{'color-gray':user.nickname ==''}">{{user.nickname || "暂无填写"}}</span>
@@ -94,7 +95,7 @@
                     <div class="exprience-time">
                         {{experience.end_time}}毕业
                         <a class="pull-right text-primary" ng-href="#/edit_edu_exprience?id={{experience.user_edu_experience_id}}">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑
                         </a>
                     </div>
                     <div class="exprience-school">
@@ -107,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <a class="newadd" ng-href="#/edit_edu_exprience">
+        <div class="newadd" ng-click="cache_and_go('edit_edu_exprience','')">
             <div class="add text-center">
                 <span> 
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -115,7 +116,7 @@
                 </span>
                 <small>请从最近毕业说起</small>
             </div>
-        </a>
+        </div>
     </div>
     <div class="detail">
         <div class="basic-info">
@@ -130,7 +131,7 @@
                     <div class="line"></div>
                     <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}
                         <a class="pull-right text-primary" ng-href="#/edit_work_exprience?id={{experience.user_work_experience_id}}">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑
                         </a>
                     </div>
                     <div class="exprience-company">
@@ -142,7 +143,7 @@
                 </div>
             </div>
         </div>
-        <a class="newadd" ng-href="#/edit_work_exprience">
+        <a class="newadd" ng-click="cache_and_go('edit_work_exprience','')">
             <div class="add text-center">
                 <span> 
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -171,7 +172,7 @@
                 </div>
             </div>
         </div>
-        <a class="newadd" ng-href="#/certificate">
+        <a class="newadd" ng-click="cache_and_go('certificate','')">
             <div class="add text-center">
                 <span> 
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -185,14 +186,16 @@
         <div class="basic-info">
             <a class="detail-header" ng-href="#/schedule?id={{user.user_id}}">
                 <span>可预约日期</span>
-                <span class="pull-right">编辑</span>
-                <div class="icon icon-infobooking pull-right"></div>
+                <span class="pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</span>
+                
             </a>
         </div>
     </div>
 </div>
 <div class="detail">
-    <a class="basic-backgroup" ng-href="#/online_preview?id={{user.user_id}}&type=1">
+    <a class="basic-backgroup" ng-href="#/online_preview?id={{user.user_id}}">
         <div class="btn btn-block btn-primary">完成并预览</div>
     </a>
 </div>
+
+
