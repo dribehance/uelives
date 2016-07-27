@@ -35,6 +35,11 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
     $scope.format_time = function(time, format) {
         return $filter("date")(time, format)
     }
+    $scope.input.country_code = {
+        name: "中国",
+        code: "+86"
+    }
+   
     $scope.cache_and_go = function(path, key) {
         localStorageService.set("cache", $scope.input);
         $location.path(path).search("cache_key", key);
