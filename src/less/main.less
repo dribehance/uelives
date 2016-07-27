@@ -135,8 +135,8 @@ textarea {
         }
         .text-modify {
             display: block;
-            padding-top: 15px;
-            padding-bottom: 15px;
+            // padding-top: 15px;
+            // padding-bottom: 15px;
             .box-sizing(border-box);
             &.border-left {
                 border-left: 1px solid #BDBDBD;
@@ -149,8 +149,10 @@ textarea {
                 padding-right: 5px;
             }
             &.padding-area {
-                padding-bottom: 10px;
+                padding-top: 15px;
+                padding-bottom: 15px;
             }
+
             span {
                 color: #bdbdbd;
                 .font-modify {
@@ -159,6 +161,10 @@ textarea {
             }
             small {
                 color: #bdbdbd;
+            }
+            input{
+                padding-top: 15px;
+                padding-bottom: 15px;
             }
             .font-color {
                 color: #62C3DE;
@@ -758,8 +764,13 @@ textarea {
     }
     .edit-money {
         display: block;
-        padding: 15px 5px;
+        padding-left: 5px;
+        padding-right: 5px;
         overflow: hidden;
+        input{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
     }
 }
 
