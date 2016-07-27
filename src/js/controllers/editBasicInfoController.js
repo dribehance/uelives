@@ -1,6 +1,7 @@
 angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, $filter, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {
-        translate_year: ''
+        translate_year: '',
+        options: {}
     };
     toastServices.show();
     userServices.query_basicinfo({
@@ -47,6 +48,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
             })
             if (localStorageService.get("cache")) {
                 $scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
+                console.log($scope.input)
             }
             localStorageService.set("user_id", $scope.user.user_id)
         } else {
@@ -89,6 +91,7 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         return hashs && hashs.replace(/#/g, "、");
     }
     $scope.cache_and_go = function(path, key) {
+        console.log($scope.input)
         localStorageService.set("cache", $scope.input);
         $location.path(path).search("cache_key", key);
     }
