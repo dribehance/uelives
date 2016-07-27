@@ -1,6 +1,6 @@
 angular.module("Uelives").controller("editBasicInfoController", function($scope, $rootScope, $timeout, $location, $filter, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {
-        translate_year:''
+        translate_year: ''
     };
     toastServices.show();
     userServices.query_basicinfo({
@@ -9,30 +9,28 @@ angular.module("Uelives").controller("editBasicInfoController", function($scope,
         toastServices.hide()
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
             $scope.user = data.Result.UserInfo;
-            $scope.input.nickname = $scope.user.nickname;
-            $scope.input.wechat = $scope.user.weChat;
-            $scope.input.sex = $scope.user.sex;
-            $scope.input.degree = $scope.user.edu;
-            $scope.input.birthday = $scope.user.birthday;
-            $scope.input.city = $scope.user.city;
-            $scope.input.telephone = $scope.user.telephone;
-            $scope.input.email = $scope.user.email;
-            $scope.input.job_type = $scope.user.job_type;
-            $scope.input.job_property = $scope.user.job_property;
-            $scope.input.mother_language = $scope.user.mother_language;
-            $scope.input.first_language = $scope.user.first_language;
-            $scope.input.first_language_level = $scope.user.first_language_level;
-            $scope.input.second_language = $scope.user.second_language;
-            $scope.input.second_language_level = $scope.user.second_language_level;
-            $scope.input.good_at = $scope.user.good_field;
+            $scope.input.nickname = $scope.user.nickname || "";
+            $scope.input.wechat = $scope.user.weChat || "";
+            $scope.input.sex = $scope.user.sex || "";
+            $scope.input.degree = $scope.user.edu || "";
+            $scope.input.birthday = $scope.user.birthday || "";
+            $scope.input.city = $scope.user.city || "";
+            $scope.input.telephone = $scope.user.telephone || "";
+            $scope.input.email = $scope.user.email || "";
+            $scope.input.job_type = $scope.user.job_type || "";
+            $scope.input.job_property = $scope.user.job_property || "";
+            $scope.input.mother_language = $scope.user.mother_language || "";
+            $scope.input.first_language = $scope.user.first_language || "";
+            $scope.input.first_language_level = $scope.user.first_language_level || "";
+            $scope.input.second_language = $scope.user.second_language || "";
+            $scope.input.second_language_level = $scope.user.second_language_level || "";
+            $scope.input.good_at = $scope.user.good_field || "";
             $scope.input.translate_year = $scope.user.translate_year || "";
-            $scope.input.translate_level = $scope.user.translate_level;
+            $scope.input.translate_level = $scope.user.translate_level || "";
             $scope.input.pay_day = $scope.user.pay_day || "";
             $scope.input.pay_day_example = $filter("currency")(data.average_pay_day || "0", "￥");
             // mobile picker
-            $scope.input.options = {
-                value: $scope.user.birthday
-            };
+            $scope.input.options.value = $scope.user.birthday;
             var job_type = $scope.input.job_type.split("#"),
                 job_property = $scope.input.job_property.split("#");
             $scope.input.job_types.map(function(job) {

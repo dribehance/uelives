@@ -35,7 +35,7 @@
  				$window.history.back();
  			}
  			if ($location.port() == "8000") {
- 				localStorageService.set("token", "oeZT9szeTtxTyaACJPuR5QHla2eQ")
+ 				localStorageService.set("token", "oeZT9s0s0P1-s5Ns7nQOxfUldSk3")
  			}
  			$rootScope.staticImageUrl = config.imageUrl;
  		}
