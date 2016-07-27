@@ -41,10 +41,10 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		code: "+86"
 	}
 	$scope.cache_and_go = function(path, key) {
-		localStorageService.set("cache", $scope.input);
-		$location.path(path).search("cache_key", key);
-	}
-	// 个人信息
+			localStorageService.set("cache", $scope.input);
+			$location.path(path).search("cache_key", key);
+		}
+		// 个人信息
 	toastServices.show();
 	userServices.query_basicinfo({
 		type: "2",
@@ -106,6 +106,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			order_wechat: $scope.input.wechat,
 			money: $scope.get_total_money($scope.user.pay_day),
 			msg_code: $scope.input.smscode,
+			country_code: $scope.input.country_code.code,
 			token: localStorageService.get("token")
 		}).then(function(data) {
 			toastServices.hide()

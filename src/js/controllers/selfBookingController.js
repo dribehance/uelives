@@ -44,7 +44,7 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
         name: "中国",
         code: "+86"
     }
-   
+
     $scope.cache_and_go = function(path, key) {
         localStorageService.set("cache", $scope.input);
         $location.path(path).search("cache_key", key);
@@ -72,18 +72,20 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
             order_wechat: $scope.input.wechat,
             money: $scope.input.money,
             msg_code: $scope.input.smscode,
+            country_code: $scope.input.country_code.code,
         }).then(function(data) {
             toastServices.hide()
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
                 errorServices.autoHide(data.message);
-                $rootScope.back();
-                // $timeout(function() {
-                //     $location.path("order_management_user").search({
-                //         id: null,
-                //         order_id: null,
-                //         money: null
-                //     }).replace();
-                // }, 2000)
+                $timeout(function() {
+                    localStorageService.remove("cache");
+                    $rootScope.back();
+                    // $location.path("order_management_user").search({
+                    //     id: null,
+                    //     order_id: null,
+                    //     money: null
+                    // }).replace();
+                }, 2000)
             } else {
                 errorServices.autoHide(data.message);
             }
