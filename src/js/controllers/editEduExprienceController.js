@@ -1,7 +1,7 @@
 angular.module("Uelives").controller("editEduExprienceController", function($scope, $routeParams, $filter, $rootScope, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
-		year:'',
-		degree:''
+		year: '',
+		degree: ''
 
 	};
 	$scope.input.remove_id = $routeParams.id;
