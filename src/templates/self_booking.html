@@ -59,8 +59,11 @@
                         <div class="name">公司名(如有):</div>
                         <input type="text" name="company" ng-model="input.company" placeholder="请输入公司名称" class="full-width">
                     </div>
-                    <div class="contact-item padding-left modify">
-                        <div class="name">手机:</div>
+                    <div class="contact-item padding-both modify">
+                        <div class="name" ng-click="cache_and_go('country_code','country_code')">
+                            {{input.country_code.code}}
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </div>
                         <input type="tel" class="full-width" name="telephone" ng-model="input.telephone" placeholder="请输入手机号" required>
                     </div>
                     <div class="contact-item padding-both modify">
