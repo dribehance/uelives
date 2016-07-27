@@ -1,6 +1,6 @@
 angular.module("Uelives").controller("certificateController", function($scope, $routeParams, $filter, $rootScope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
-		time_option:''
+		
 	};
 	$scope.input.remove_id = $routeParams.id;
 	$scope.time_option = parseFloat($filter("date")(new Date(), "yyyy"));
@@ -44,7 +44,7 @@ angular.module("Uelives").controller("certificateController", function($scope, $
 		userServices.create_cert_experience({
 			fileName: $scope.input.flow.opts.query.filename,
 			title: $scope.input.title,
-			get_time: $scope.input.time_option.value,
+			get_time: $scope.input.time_option,
 		}).then(function(data) {
 			toastServices.hide();
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
@@ -64,7 +64,7 @@ angular.module("Uelives").controller("certificateController", function($scope, $
 			user_identity_id: $routeParams.id,
 			fileName: $scope.input.image_01,
 			title: $scope.input.title,
-			get_time: $scope.input.time_option.value,
+			get_time: $scope.input.time_option,
 		}).then(function(data) {
 			toastServices.hide();
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {

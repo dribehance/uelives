@@ -31,6 +31,14 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			}
 		})
 	};
+	$scope.input.country_code = {
+		name: "中国",
+		code: "+86"
+	}
+	$scope.cache_and_go = function(path, key) {
+		localStorageService.set("cache", $scope.input);
+		$location.path(path).search("cache_key", key);
+	}
 	// 个人信息
 	toastServices.show();
 	userServices.query_basicinfo({
