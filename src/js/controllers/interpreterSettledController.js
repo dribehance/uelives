@@ -11,7 +11,8 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 	$scope.countdown.callback = function() {
 		toastServices.show();
 		userServices.get_smscode({
-			telephone: $scope.input.telephone
+			telephone: $scope.input.telephone,
+			country_code: $scope.input.country_code.code
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {

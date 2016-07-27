@@ -16,10 +16,15 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		// count: "5",
 		message: "获取验证码",
 	}
+	$scope.input.country_code = {
+		name: "中国",
+		code: "+86"
+	};
 	$scope.countdown.callback = function() {
 		toastServices.show();
 		userServices.get_smscode({
-			telephone: $scope.input.telephone
+			telephone: $scope.input.telephone,
+			country_code: $scope.input.country_code.code,
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
