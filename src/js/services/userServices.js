@@ -172,6 +172,11 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/OrdersManage/makeOrder",
 			token: localStorageService.get("token")
 		})),
+		// 预览
+		preview: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserCenter/doneAndLook",
+			token: localStorageService.get("token")
+		})),
 		// 合适的译员
 		query_qualified_translator: apiServices._get(angular.extend({}, config.common_params, {
 			url: config.url + "/app/Home/fullCompletelyUserList",

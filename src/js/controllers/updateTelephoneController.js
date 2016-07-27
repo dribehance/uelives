@@ -33,7 +33,7 @@ angular.module("Uelives").controller("updateTelephoneController", function($scop
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
-				localStorageService.set("token", data.token)
+				// localStorageService.set("token", data.token)
 				$timeout(function() {
 					$location.path("information").replace();
 				}, 2000)
