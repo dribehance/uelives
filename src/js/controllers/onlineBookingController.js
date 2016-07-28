@@ -1,4 +1,4 @@
-online_bookinangular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, $window, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, $window, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.input.sex = 1;
 	$scope.select_gender = function(gender) {

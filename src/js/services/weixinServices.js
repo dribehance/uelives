@@ -1,5 +1,12 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Uelives").factory("weixinServices", function($http, $route, $timeout, $rootScope, $location, toastServices, $q, $window, localStorageService, config) {
+    // user agent
+    var ua = $window.navigator.userAgent.toLowerCase();
+    if (ua.indexOf("micromessenger") != -1) {
+        $rootScope.wx_browser = true;
+    } else {
+        $rootScope.wx_browser = false;
+    };
     var weixin_config = {
         "base_url": "https://open.weixin.qq.com/connect/oauth2/authorize",
         "access_token_url": "https://api.weixin.qq.com/sns/oauth2/access_token",
@@ -12,13 +19,14 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
         "scope": "snsapi_userinfo",
         "state": "weixin",
         "wechat_redirect": "#wechat_redirect",
+        "share": {}
     };
 
     function initWeixinShareEvent(title, link, thumbnail, desc) {
         wx.onMenuShareTimeline({
-            title: title || config.share.title, // 分享标题
-            link: link || config.share.link, // 分享链接
-            imgUrl: thumbnail || config.share.thumbnail, // 分享图标
+            title: title || weixin_config.share.title, // 分享标题
+            link: link || weixin_config.share.link, // 分享链接
+            imgUrl: thumbnail || weixin_config.share.thumbnail, // 分享图标
             trigger: function() {
                 // alert("分享朋友圈")
             },
@@ -30,10 +38,10 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
             }
         });
         wx.onMenuShareAppMessage({
-            title: title || config.share.title, // 分享标题
-            desc: desc || config.share.desc, // 分享描述
-            link: link || config.share.link, // 分享链接
-            imgUrl: thumbnail || config.share.thumbnail, // 分享图标
+            title: title || weixin_config.share.title, // 分享标题
+            desc: desc || weixin_config.share.desc, // 分享描述
+            link: link || weixin_config.share.link, // 分享链接
+            imgUrl: thumbnail || weixin_config.share.thumbnail, // 分享图标
             type: "link", // 分享类型,music、video或link，不填默认为link
             dataUrl: "", // 如果type是music或video，则要提供数据链接，默认为空
             success: function() {
@@ -44,10 +52,10 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
             }
         });
         wx.onMenuShareQQ({
-            title: title || config.share.title, // 分享标题
-            desc: desc || config.share.desc, // 分享描述
-            link: link || config.share.link, // 分享链接
-            imgUrl: thumbnail || config.share.thumbnail, // 分享图标
+            title: title || weixin_config.share.title, // 分享标题
+            desc: desc || weixin_config.share.desc, // 分享描述
+            link: link || weixin_config.share.link, // 分享链接
+            imgUrl: thumbnail || weixin_config.share.thumbnail, // 分享图标
             success: function() {
                 // 用户确认分享后执行的回调函数
             },
@@ -56,10 +64,10 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
             }
         });
         wx.onMenuShareWeibo({
-            title: title || config.share.title, // 分享标题
-            desc: desc || config.share.desc, // 分享描述
-            link: link || config.share.link, // 分享链接
-            imgUrl: thumbnail || config.share.thumbnail, // 分享图标
+            title: title || weixin_config.share.title, // 分享标题
+            desc: desc || weixin_config.share.desc, // 分享描述
+            link: link || weixin_config.share.link, // 分享链接
+            imgUrl: thumbnail || weixin_config.share.thumbnail, // 分享图标
             success: function() {
                 // 用户确认分享后执行的回调函数
             },
@@ -68,10 +76,10 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
             }
         });
         wx.onMenuShareQZone({
-            title: title || config.share.title, // 分享标题
-            desc: desc || config.share.desc, // 分享描述
-            link: link || config.share.link, // 分享链接
-            imgUrl: thumbnail || config.share.thumbnail, // 分享图标
+            title: title || weixin_config.share.title, // 分享标题
+            desc: desc || weixin_config.share.desc, // 分享描述
+            link: link || weixin_config.share.link, // 分享链接
+            imgUrl: thumbnail || weixin_config.share.thumbnail, // 分享图标
             success: function() {
                 // 用户确认分享后执行的回调函数
             },

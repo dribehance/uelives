@@ -1,7 +1,7 @@
 // by dribehance <dribehance.kksdapp.com>
 angular.module("Uelives").controller("weixinController", function($scope, $rootScope, $location, $timeout, weixinServices, errorServices, toastServices, localStorageService, config) {
 	// config weixin
-	weixinServices.config().then(function(data) {
+	$rootScope.wx_browser && weixinServices.config().then(function(data) {
 		toastServices.show();
 		weixinServices.query_payment_signature({
 			orders_id: localStorageService.get("orders_id"),
