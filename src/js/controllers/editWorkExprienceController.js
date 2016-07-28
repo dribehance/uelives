@@ -113,6 +113,9 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 	$scope.toggle_nowaday = function() {
 		$scope.input.end_time_option.value = $scope.input.end_time_option.value == "至今" ? $filter("date")(new Date(), "yyyy-MM") : "至今";
 	}
+	$scope.replace_hash = function(hashs) {
+		return hashs && hashs.replace(/#/g, "、");
+	}
 	$scope.valid_time = function(time) {
 		if (!time) {
 			return true;
