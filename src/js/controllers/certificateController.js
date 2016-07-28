@@ -10,9 +10,6 @@ angular.module("Uelives").controller("certificateController", function($scope, $
 		$scope.time_option--;
 	}
 
-	// $scope.input.time_option = {
-	// 	placeholder: "请选择入职时间",
-	// };
 	$scope.query_cert_experience = function() {
 		toastServices.show();
 		userServices.query_cert_experience({
