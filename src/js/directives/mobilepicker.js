@@ -38,6 +38,8 @@ angular.module("Uelives").directive('mobilepicker', function($timeout) {
 				callBack: function(date) {
 					if (scope.options.theme == 'month') {
 						scope.options.value = date.y + "-" + date.M;
+					} else {
+						scope.options.value = date.y + "-" + date.M + "-" + date.d;
 					}
 				}
 			};

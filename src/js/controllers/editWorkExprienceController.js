@@ -19,12 +19,12 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				$scope.input.start_time = data.Result.UserWorkExperience.start_time;
-				$scope.input.end_time = data.Result.UserWorkExperience.end_time;
-				$scope.input.work_name = data.Result.UserWorkExperience.work_name;
-				$scope.input.position = data.Result.UserWorkExperience.position;
-				$scope.input.duty = data.Result.UserWorkExperience.duty;
-				$scope.input.working_scene = data.Result.UserWorkExperience.working_scene;
+				$scope.input.start_time = data.Result.UserWorkExperience.start_time || "";
+				$scope.input.end_time = data.Result.UserWorkExperience.end_time || "";
+				$scope.input.work_name = data.Result.UserWorkExperience.work_name || "";
+				$scope.input.position = data.Result.UserWorkExperience.position || "";
+				$scope.input.duty = data.Result.UserWorkExperience.duty || "";
+				$scope.input.working_scene = data.Result.UserWorkExperience.working_scene || "";
 				if (localStorageService.get("cache")) {
 					$scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
 				}

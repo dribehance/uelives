@@ -1,4 +1,4 @@
-angular.module("Uelives").controller("selfBookingController", function($scope, $filter, $location, $routeParams, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("selfBookingController", function($scope, $rootScope, $filter, $location, $routeParams, $timeout, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {};
     $scope.input.sex = 1;
     $scope.select_gender = function(gender) {
@@ -16,10 +16,15 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
         // count: "5",
         message: "获取验证码",
     }
+    $scope.input.country_code = {
+        name: "中国",
+        code: "+86"
+    };
     $scope.countdown.callback = function() {
         toastServices.show();
         userServices.get_smscode({
-            telephone: $scope.input.telephone
+            telephone: $scope.input.telephone,
+            country_code: $scope.input.country_code.code,
         }).then(function(data) {
             toastServices.hide()
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
@@ -39,7 +44,7 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
         name: "中国",
         code: "+86"
     }
-   
+
     $scope.cache_and_go = function(path, key) {
         localStorageService.set("cache", $scope.input);
         $location.path(path).search("cache_key", key);
@@ -67,16 +72,19 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
             order_wechat: $scope.input.wechat,
             money: $scope.input.money,
             msg_code: $scope.input.smscode,
+            country_code: $scope.input.country_code.code,
         }).then(function(data) {
             toastServices.hide()
             if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
                 errorServices.autoHide(data.message);
                 $timeout(function() {
-                    $location.path("order_management_user").search({
-                        id: null,
-                        order_id: null,
-                        money: null
-                    }).replace();
+                    localStorageService.remove("cache");
+                    $rootScope.back();
+                    // $location.path("order_management_user").search({
+                    //     id: null,
+                    //     order_id: null,
+                    //     money: null
+                    // }).replace();
                 }, 2000)
             } else {
                 errorServices.autoHide(data.message);

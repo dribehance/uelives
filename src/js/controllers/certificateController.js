@@ -1,6 +1,6 @@
 angular.module("Uelives").controller("certificateController", function($scope, $routeParams, $filter, $rootScope, $timeout, $location, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {
-		
+		time_option: ''
 	};
 	$scope.input.remove_id = $routeParams.id;
 	$scope.time_option = parseFloat($filter("date")(new Date(), "yyyy"));

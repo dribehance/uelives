@@ -1,4 +1,4 @@
-online_bookinangular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, $window, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
+angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, $window, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
 	$scope.input.sex = 1;
 	$scope.select_gender = function(gender) {
@@ -16,10 +16,15 @@ online_bookinangular.module("Uelives").controller("onlineBookingController", fun
 		// count: "5",
 		message: "获取验证码",
 	}
+	$scope.input.country_code = {
+		name: "中国",
+		code: "+86"
+	};
 	$scope.countdown.callback = function() {
 		toastServices.show();
 		userServices.get_smscode({
-			telephone: $scope.input.telephone
+			telephone: $scope.input.telephone,
+			country_code: $scope.input.country_code.code,
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
@@ -36,10 +41,10 @@ online_bookinangular.module("Uelives").controller("onlineBookingController", fun
 		code: "+86"
 	}
 	$scope.cache_and_go = function(path, key) {
-		localStorageService.set("cache", $scope.input);
-		$location.path(path).search("cache_key", key);
-	}
-	// 个人信息
+			localStorageService.set("cache", $scope.input);
+			$location.path(path).search("cache_key", key);
+		}
+		// 个人信息
 	toastServices.show();
 	userServices.query_basicinfo({
 		type: "2",
@@ -101,6 +106,7 @@ online_bookinangular.module("Uelives").controller("onlineBookingController", fun
 			order_wechat: $scope.input.wechat,
 			money: $scope.get_total_money($scope.user.pay_day),
 			msg_code: $scope.input.smscode,
+			country_code: $scope.input.country_code.code,
 			token: localStorageService.get("token")
 		}).then(function(data) {
 			toastServices.hide()
