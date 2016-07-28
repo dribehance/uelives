@@ -23,9 +23,7 @@ angular.module("Uelives").controller("certificateController", function($scope, $
 				$scope.input.get_time = data.Result.UserIdentity.get_time;
 				$scope.input.title = data.Result.UserIdentity.title;
 				$scope.input.image_01 = data.Result.UserIdentity.image_01;
-				$scope.input.time_option = {
-					value: $scope.input.get_time
-				};
+				$scope.input.time_option = $scope.input.get_time
 			} else {
 				errorServices.autoHide(data.message);
 			}
