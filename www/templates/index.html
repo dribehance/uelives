@@ -22,7 +22,7 @@
             <div class="input-item padding-xs-left padding-right" ng-click="cache_and_go('choice_time','choice_time')">
                 <div class="icon icon-date"></div>
                 <div class="text-modify padding-area modify " ng-if="!input.schedule_from"><span>请选择</span></div>
-                <div class="text-modify padding-area modify" ng-if="input.schedule_from">{{input.schedule_from}}<small> 开始 </small> - {{input.schedule_to}}<small> 结束 </small><small>(共{{input.schedule_total}}天)</small></div>
+                <div class="text-modify padding-area modify" ng-if="input.schedule_from">{{input.schedule_from||"请选择"}}<small> 开始 </small> - {{input.schedule_to||"请选择"}}<small> 结束 </small><small ng-if="input.schedule_from!=''&&input.schedule_to!=''">(共{{input.schedule_total}}天)</small></div>
                 <input type="hidden" ng-model="input.schedule_from" required>
                 <input type="hidden" ng-model="input.schedule_to" required>
                 <input type="hidden" ng-model="input.schedule_total" required>

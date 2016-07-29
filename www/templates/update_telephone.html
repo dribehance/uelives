@@ -14,7 +14,7 @@
                     <div class="text-modify padding">
                         <input type="tel" name="code" ng-model="input.code" required placeholder="验证码" class="full-width input-height">
                     </div>
-                    <countdown class="sms-code" countdown="countdown" countdown-disabled="updateForm.telephone.$invalid">{{countdown.message}}</countdown>
+                    <countdown class="sms-code" countdown="countdown" ng-class="{'color-primary':countdown.message!='获取验证码'}" countdown-disabled="updateForm.telephone.$invalid">{{countdown.message}}</countdown>
                     <!-- <div class="sms-code">点击发送验证码</div> -->
                 </div>
             </div>

@@ -69,7 +69,7 @@
                     <div class="contact-item padding-both modify">
                         <div class="name">验证码:</div>
                         <input type="tel" class="full-width" name="smscode" ng-model="input.smscode" placeholder="请输入验证码" required>
-                        <countdown class="sms-code" countdown="countdown" countdown-disabled="bookingForm.telephone.$invalid">{{countdown.message}}</countdown>
+                        <countdown class="sms-code" countdown="countdown" ng-class="{'color-primary':countdown.message!='获取验证码'}" countdown-disabled="bookingForm.telephone.$invalid">{{countdown.message}}</countdown>
                     </div>
                     <div class="contact-item padding-xs-left modify">
                         <div class="name">微信号:</div>

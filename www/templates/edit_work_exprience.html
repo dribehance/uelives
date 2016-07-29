@@ -20,11 +20,11 @@
                 <input type="text" ng-if="!valid_time(input.end_time_option.value)" ng-model="input.end_time_option.value" readonly>
                 <mobilepicker options="input.end_time_option" ng-if="valid_time(input.end_time_option.value)"></mobilepicker>
             </div>
-            <div class="edit-item padding margin-left modify">
-                <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" required>
+            <div class="edit-item padding margin-left modify"><!-- maxlength="40" title="最多可输入40个字符" -->
+                <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" ng-change="checkText()"  required>
             </div>
             <div class="edit-item padding margin-left modify" ng-click="cache_and_go('scenes','working_scene')">
-                <span ng-class="{'color-gray':!input.working_scene}">{{replace_hash(input.working_scene)||"请选择工作场景"}}</span>
+                <span ng-class="{'color-gray':!input.working_scene}">{{replace_hash(input.working_scene)||"请选择工作类型"}}</span>
             </div>
         </div>
     </div>
