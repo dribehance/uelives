@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="col-ms-4 pull-left">
-        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.type =='3'}" ng-click="active_tab('3')">
+        <a class="order-tab-item tab-modify text-center" ng-class="{'text-primary':input.type=='3'}" ng-click="active_tab('3')">
             已确认
         </a>
     </div>
@@ -23,7 +23,7 @@
 <div class="wrap">
     <div class="section" ng-repeat="order in orders">
         <!-- 1 -->
-        <div class="order" ng-if="input.type=='2' && order.is_translate=='0'">
+        <div class="order" ng-if="order.status=='2' && order.is_translate=='0'">
             <div class="order-title modify">
                 口译
             </div>
@@ -53,7 +53,7 @@
             </a>
         </div>
         <!-- 2 -->
-        <div class="order" ng-if="input.type=='2' && order.is_translate=='1'">
+        <div class="order" ng-if="order.status=='2' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
             </div>
@@ -79,7 +79,7 @@
             </div>
         </div>
         <!-- 3 -->
-        <div class="order" ng-if="input.type=='3' && order.is_translate=='0'">
+        <div class="order" ng-if="order.status=='3' && order.is_translate=='0'">
             <div class="order-title modify">
                 口译
             </div>
@@ -113,7 +113,7 @@
             </a>
         </div>
         <!-- 4 -->
-        <div class="order" ng-if="input.type=='3' && order.is_translate=='1'">
+        <div class="order" ng-if="order.status=='3' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
             </div>
@@ -145,7 +145,7 @@
             </a>
         </div>
         <!-- 5 -->
-        <div class="order" ng-if="input.type=='4' && order.is_translate=='0'">
+        <div class="order" ng-if="order.status=='4' && order.is_translate=='0'">
             <div class="order-title modify">
                 口译
             </div>
@@ -179,7 +179,7 @@
             <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==1">已评价</a>
         </div>
         <!-- 6 -->
-        <div class="order" ng-if="input.type=='4' && order.is_translate=='1'">
+        <div class="order" ng-if="order.status=='4' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
             </div>
@@ -204,8 +204,34 @@
                 </div>
             </div>
         </div>
+        <!-- 61 -->
+        <div class="order" ng-if="order.status=='41' && order.is_translate=='1'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <div class="order-btn">
+                <a class="col-ms-2 pull-left" ng-href="#/preview_comment?id={{order.orders_id}}">
+                    <div class="button text-center border-right">查看评价</div>
+                </a>
+                <div class="col-ms-2 pull-left">
+                    <a class="button text-center">已申请提款</a>
+                </div>
+            </div>
+        </div>
         <!-- 7 -->
-        <div class="order" ng-if="input.type=='5' && order.is_translate=='0'">
+        <div class="order" ng-if="order.status=='5' && order.is_translate=='0'">
             <div class="order-title modify">
                 口译
                 <span class="pull-right">已取消</span>
@@ -223,7 +249,7 @@
                 </div>
             </a>
         </div>
-        <div class="order" ng-if="input.type=='5' && order.is_translate=='1'">
+        <div class="order" ng-if="order.status=='5' && order.is_translate=='1'">
             <div class="order-title modify">
                 口译
                 <span class="pull-right">已取消</span>
