@@ -152,7 +152,6 @@ textarea {
                 padding-top: 15px;
                 padding-bottom: 15px;
             }
-
             span {
                 color: #bdbdbd;
                 .font-modify {
@@ -162,7 +161,7 @@ textarea {
             small {
                 color: #bdbdbd;
             }
-            input{
+            input {
                 padding-top: 15px;
                 padding-bottom: 15px;
             }
@@ -182,9 +181,13 @@ textarea {
             right: 5px;
             display: block;
             padding: 10px 5px;
-            border: 1px solid #BDBDBD;
+            border: 1px solid #37B3D5;
             border-radius: 4px;
             font-size: 12px;
+            color: #37B3D5;
+        }
+        .color-primary {
+            border: 1px solid #BDBDBD;
             color: #BDBDBD;
         }
     }
@@ -539,9 +542,9 @@ textarea {
                     right: 0;
                     display: block;
                     padding: 10px;
-                    border: 1px solid #EBEBEB;
+                    border: 1px solid #37B3D5;
                     font-size: 12px;
-                    color: #B3B3B3;
+                    color: #37B3D5;
                 }
                 .contact-item-title {
                     display: block;
@@ -561,6 +564,10 @@ textarea {
                 }
                 .highlight {
                     color: #000;
+                }
+                .color-primary {
+                    border: 1px solid #BDBDBD;
+                    color: #BDBDBD;
                 }
             }
         }
@@ -625,6 +632,7 @@ textarea {
 .edit-basic,
 .edit-edu,
 .edit-work {
+    position: relative;
     overflow: hidden;
     background-color: white;
     &.border-radius {
@@ -632,6 +640,9 @@ textarea {
     }
     &.margin-bottom {
         margin-bottom: 15px;
+    }
+    &.margin-left-area {
+        margin-left: 45px;
     }
     .edit-group {
         position: relative;
@@ -658,11 +669,10 @@ textarea {
                 position: absolute;
                 right: 10px;
             }
-            input{
+            input {
                 padding: 0;
                 margin: 0;
             }
-            
         }
         .edit-black {
             color: #000;
@@ -693,7 +703,7 @@ textarea {
             margin-top: 15px;
             margin-left: 15px;
             &.padding-sm-left {
-                padding-left: 65px;
+                padding-left: 70px;
             }
             &.padding-lg-left {
                 padding-left: 95px;
@@ -713,11 +723,10 @@ textarea {
                     vertical-align: middle;
                 }
                 select {
-
                     padding: 0;
                     margin: 0;
                 }
-                option{
+                option {
                     margin: 0;
                     padding: 0;
                 }
@@ -762,15 +771,26 @@ textarea {
             width: 82px;
         }
     }
-    .edit-money {
-        display: block;
-        padding-left: 5px;
-        padding-right: 5px;
-        overflow: hidden;
-        input{
-            padding-top: 15px;
-            padding-bottom: 15px;
+}
+
+.edit-money {
+    position: relative;
+    display: block;
+    padding-left: 55px;
+    padding-right: 5px;
+    overflow: hidden;
+    .input-block {
+        background-color: white;
+        border-radius: 6px;
+        input {
+            padding: 15px 5px;
+            border-radius: 6px;
         }
+    }
+    .rmb {
+        position: absolute;
+        top: 15px;
+        left: 0;
     }
 }
 
@@ -937,7 +957,7 @@ textarea {
                 .line {
                     position: absolute;
                     left: 5.5px;
-                    top: 10px;
+                    top: 11px;
                     height: 100%;
                     width: 1px;
                     background-color: #62C3DE;
@@ -1265,14 +1285,14 @@ textarea {
         display: block;
         top: 0;
         left: 0;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
         width: 100%;
         background-color: white;
         border-bottom: 1px solid #EBEBEB;
         z-index: 100;
         .time-title {
             display: block;
-            padding: 15px 0;
+            padding: 10px 0;
         }
     }
     .time-container {
@@ -1450,9 +1470,8 @@ textarea {
                 .box-sizing(border-box);
                 input::-webkit-input-placeholder {
                     text-align: center;
-
                 }
-                input{
+                input {
                     padding: 0;
                 }
                 .fa {

@@ -25,6 +25,10 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 		})
 	}
 	$scope.ajaxForm = function() {
+		if (!$scope.agree) {
+			errorServices.autoHide("请阅读并同意《译员协议》");
+			return;
+		}
 		toastServices.show();
 		userServices.signup({
 			country_code: $scope.input.country_code.code,
@@ -48,6 +52,11 @@ angular.module("Uelives").controller("interpreterSettledController", function($s
 		name: "中国",
 		code: "+86"
 	}
+	
+	$scope.agree = false;
+	$scope.is_agree = function() {
+		$scope.agree = !$scope.agree;
+	};
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", $scope.input);
 		$location.path(path).search("cache_key", key);

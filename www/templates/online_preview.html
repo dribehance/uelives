@@ -65,7 +65,7 @@
             </div>
             <div class="exprience-content">
                 <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserEduExperiences">
-                    <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
+                    <div class="circle"><i class="fa fa-circle" aria-hidden="true"></i></i></div>
                     <div class="line"></div>
                     <div class="exprience-time">
                         {{experience.end_time}}毕业
@@ -89,7 +89,7 @@
             </div>
             <div class="exprience-content">
                 <div class="exprience-content-wrap margin-top" ng-repeat="experience in user.UserWorkExperiences">
-                    <div class="circle"><i class="fa fa-circle-thin" aria-hidden="true"></i></div>
+                    <div class="circle"><i class="fa fa-circle" aria-hidden="true"></i></div>
                     <div class="line"></div>
                     <div class="exprience-time">{{format_time(experience.start_time,'yyyy.MM')}}-{{format_time(experience.end_time,'yyyy.MM')}}</div>
                     <div class="exprience-company">
@@ -111,7 +111,7 @@
             </div>
             <div class="exprience-content">
                 <div class="exprience-content-wrap">
-                    <div class="diploma" ng-repeat="experience in user.UserIdentitys">
+                    <div class="diploma" ng-repeat="experience in user.UserIdentitys" ng-if="experience.status == '1'">
                         {{experience.title}}
                         <a class="pull-right font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a>
                         <div class="modify-color" ng-if="experience.status == '0'"><span>(待审核)</span></div>
