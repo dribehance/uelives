@@ -2,12 +2,12 @@
 <div class="wrap">
     <div class="detail">
         <div class="basic-info">
-            <div class="detail-header modify">
+            <div class="detail-header modify font-big">
                 <span>基本信息</span>
                 <div class="icon icon-basicinfo pull-right"></div>
             </div>
             <div class="basic-content">
-                <div class="avatar-wrap text-center">
+                <div class="avatar-wrap text-center" style="padding-top:15px;">
                     <div class="avatar">
                         <imageview data-rate="1" center-only src="staticImageUrl+user.image_01"></imageview>
                         <div class="icon icon-man" ng-if="user.sex=='男'"></div>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="basic-content-item modify text-center">
-                    <span class="font-size">{{user.nickname}}</span>
+                    <span style="font-size:18px">{{user.nickname}}</span>
                 </div>
                 <div class="basic-content-item text-center">
                     <span>{{user.translate_level}} <label>.</label> {{user.translate_year}}翻译经验</span>
@@ -60,7 +60,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <div class="detail-header modify">
+            <div class="detail-header modify font-big">
                 <span>教育经历</span>
                 <div class="icon icon-basicedu pull-right"></div>
             </div>
@@ -84,8 +84,8 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <div class="detail-header modify">
-                <span>工作经历</span>
+            <div class="detail-header modify font-big">
+                <span>工作及翻译经验</span>
                 <div class="icon icon-basicwork pull-right"></div>
             </div>
             <div class="exprience-content">
@@ -105,7 +105,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <div class="detail-header modify">
+            <div class="detail-header modify font-big">
                 <span>语言能力及证书</span>
                 <!-- <label class="font-color">(官方认证)</label> -->
                 <div class="icon icon-basicdiploma pull-right"></div>
@@ -124,20 +124,20 @@
         </div>
     </div>
     <div class="detail">
-        <div class="basic-info">
+        <div class="basic-inner">
             <!-- <a class="detail-header" ng-href="#/schedule_preview?id={{user.user_id}}">
                 <span>可预约日期</span>
                 <div class="icon icon-basicdate pull-right"></div>
             </a> -->
-            <a class="detail-header" ng-click="cache_and_go('choice_time','choice_time')">
+            <a class="detail-header font-big" ng-click="cache_and_go('choice_time','choice_time')">
                 <span>可预约日期</span>
                 <div class="icon icon-basicdate pull-right"></div>
             </a>
         </div>
     </div>
     <div class="detail" ng-if="comments.length>0">
-        <div class="basic-info">
-            <div class="detail-header modify">
+        <div class="basic-info font-big">
+            <div class="detail-header modify font-big">
                 <span>客户评价</span>
                 <label><b>{{total_score}}</b> / 5</label>
                 <div class="icon icon-basicevaluate pull-right"></div>
@@ -146,8 +146,8 @@
                 <div class="exprience-content-wrap">
                     <div class="evaluate" ng-repeat="comment in comments">
                         <div class="evaluate-item">
-                            <b class="font-size font-color">{{comment.comment_name}}</b>
-                            <b class="pull-right font-size font-color">{{comment.post_date}}</b>
+                            <b class="font-color">{{comment.comment_name}}</b>
+                            <b class="pull-right font-color" style="font-size:14px">{{comment.post_date}}</b>
                         </div>
                         <div class="evaluate-item">
                             <i class="fa fa-star" ng-if="comment.comment_star>0" aria-hidden="true"></i>
@@ -159,7 +159,7 @@
                         <div class="evaluate-item">
                             {{comment.note}}
                         </div>
-                        <div class="evaluate-item">
+                        <div class="evaluate-item" style="font-size: 14px;">
                             <div class="icon icon-basiczan" ng-if="comment.tongue == 1"></div>
                             <span ng-if="comment.tongue == 1">语言能力</span>
                             <div class="icon icon-basiczan" ng-if="comment.service == 1"></div>

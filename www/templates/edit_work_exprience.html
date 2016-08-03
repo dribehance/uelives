@@ -6,10 +6,10 @@
                 <div class="icon icon-edit"></div>
             </div>
             <div class="edit-item padding margin-left modify">
-                <input type="text" class="full-width" placeholder="公司名称/项目名称" name="work_name" ng-model="input.work_name" required>
+                <input type="text" class="full-width" placeholder="公司名称/项目名称" name="work_name" ng-model="input.work_name">
             </div>
             <div class="edit-item padding margin-left modify">
-                <input type="text" class="full-width" placeholder="你的职位/你的职责" name="position" ng-model="input.position" required>
+                <input type="text" class="full-width" placeholder="你的职位/你的职责" name="position" ng-model="input.position" >
             </div>
             <div class="edit-item padding margin-left modify">
                 <!-- <input type="text" class="full-width" placeholder="入职时间" name="start_time" ng-model="input.start_time" required> -->
@@ -22,7 +22,7 @@
                 <mobilepicker options="input.end_time_option" ng-if="valid_time(input.end_time_option.value)"></mobilepicker>
             </div>
             <div class="edit-item padding margin-left modify"><!-- maxlength="40" title="最多可输入40个字符" -->
-                <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" ng-change="checkText()"  required>
+                <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" ng-change="checkText()">
             </div>
             <div class="edit-item padding margin-left modify" ng-click="cache_and_go('working_type','working_type')">
                 <span ng-class="{'color-gray':!input.working_type}">{{input.working_type||"请选择工作类型"}}</span>
@@ -31,6 +31,6 @@
     </div>
     <div class="wrap text-center">
         <button type="button" class="btn btn-lg btn-danger" ng-click="remove()" ng-if="input.remove_id">删除</button>
-        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="editForm.$invalid">保存</button>
+        <button type="submit" class="btn btn-lg btn-primary">保存</button>
     </div>
 </form>
