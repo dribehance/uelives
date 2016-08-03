@@ -1,6 +1,6 @@
 angular.module("Uelives").controller("scenesController", function($scope, $rootScope, $routeParams, userServices, errorServices, toastServices, localStorageService, config) {
     $scope.input = {}
-    
+
     $scope.select_scene = function(scene) {
         var scenes = $scope.scenes.filter(function(scene) {
             return scene.select;
@@ -37,7 +37,9 @@ angular.module("Uelives").controller("scenesController", function($scope, $rootS
     }
 
     toastServices.show();
-    userServices.query_scenes().then(function(data) {
+    userServices.query_scenes({
+        type: 2
+    }).then(function(data) {
         var cache = localStorageService.get("cache");
         toastServices.hide();
         if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {

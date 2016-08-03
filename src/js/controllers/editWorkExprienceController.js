@@ -16,7 +16,7 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
             $scope.input.duty = $scope.input.duty.substr(0, 40);
         };
     }
-    
+
     if (localStorageService.get("cache")) {
         $scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
     }
@@ -32,7 +32,7 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
                 $scope.input.work_name = data.Result.UserWorkExperience.work_name || "";
                 $scope.input.position = data.Result.UserWorkExperience.position || "";
                 $scope.input.duty = data.Result.UserWorkExperience.duty || "";
-                $scope.input.working_scene = data.Result.UserWorkExperience.working_scene || "";
+                $scope.input.working_type = data.Result.UserWorkExperience.working_scene || "";
                 if (localStorageService.get("cache")) {
                     $scope.input = angular.extend({}, $scope.input, localStorageService.get("cache"));
                 }
@@ -58,7 +58,7 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
             work_name: $scope.input.work_name,
             position: $scope.input.position,
             duty: $scope.input.duty,
-            working_scene: $scope.input.working_scene
+            working_scene: $scope.input.working_type
         }).then(function(data) {
             toastServices.hide();
             localStorageService.remove("cache");
@@ -81,7 +81,7 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
             work_name: $scope.input.work_name,
             position: $scope.input.position,
             duty: $scope.input.duty,
-            working_scene: $scope.input.working_scene
+            working_scene: $scope.input.working_type
         }).then(function(data) {
             toastServices.hide();
             localStorageService.remove("cache");

@@ -107,7 +107,7 @@
                         <!-- <span class="pull-right">等待译员接单</span> -->
                     </div>
                     <div class="order-wait-contact clearfix text-left">
-                        <span class="pull-left"><i class="fa fa-mobile" aria-hidden="true"></i> {{order.translate_telephone}}</span> &nbsp
+                        <span class="pull-left"><i class="fa fa-mobile" aria-hidden="true"></i> {{order.country_code}} {{order.translate_telephone}}</span> &nbsp
                         <span class="pull-left"><i class="fa fa-weixin" aria-hidden="true"></i>{{order.translate_wechat}}</span>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                     姓名: {{order.order_name}}
                 </div>
                 <div class="order-content-item">
-                    电话: {{order.order_telephone}}
+                    电话:{{order.country_code}} {{order.order_telephone}}
                 </div>
                 <div class="order-content-item">
                     微信号: {{order.order_wechat}}

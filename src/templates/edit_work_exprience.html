@@ -1,4 +1,4 @@
-<pagetitle title="'请编辑工作及翻译经验'"></pagetitle>
+<pagetitle title="'编辑工作及翻译经验'"></pagetitle>
 <form name="editForm" ng-submit="ajaxForm()">
     <div class="edit-work">
         <div class="edit-group">
@@ -24,8 +24,8 @@
             <div class="edit-item padding margin-left modify"><!-- maxlength="40" title="最多可输入40个字符" -->
                 <input type="text" class="full-width" placeholder="一句话描述你的职责" name="duty" ng-model="input.duty" ng-change="checkText()"  required>
             </div>
-            <div class="edit-item padding margin-left modify" ng-click="cache_and_go('scenes','working_scene')">
-                <span ng-class="{'color-gray':!input.working_scene}">{{replace_hash(input.working_scene)||"请选择工作类型"}}</span>
+            <div class="edit-item padding margin-left modify" ng-click="cache_and_go('working_type','working_type')">
+                <span ng-class="{'color-gray':!input.working_type}">{{input.working_type||"请选择工作类型"}}</span>
             </div>
         </div>
     </div>

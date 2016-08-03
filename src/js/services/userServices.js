@@ -163,7 +163,7 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			token: localStorageService.get("token")
 		})),
 		// 标记时间表
-		mark_schedule: apiServices._get(angular.extend({}, config.common_params, {
+		mark_schedule: apiServices._post(angular.extend({}, config.common_params, {
 			url: config.url + "/app/ScheduleManage/setTranslateTime",
 			token: localStorageService.get("token")
 		})),
