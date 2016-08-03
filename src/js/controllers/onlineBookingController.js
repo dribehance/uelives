@@ -41,10 +41,13 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		code: "+86"
 	}
 	$scope.cache_and_go = function(path, key) {
-			localStorageService.set("cache", $scope.input);
-			$location.path(path).search("cache_key", key);
-		}
-		// 个人信息
+		localStorageService.set("cache", $scope.input);
+		$location.path(path).search("cache_key", key);
+	};
+	$scope.replace_hash = function(hashs) {
+		return hashs && hashs.replace(/#/g, "、");
+	};
+	// 个人信息
 	toastServices.show();
 	userServices.query_basicinfo({
 		type: "2",
