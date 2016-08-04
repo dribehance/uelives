@@ -1,7 +1,7 @@
 <pagetitle title="'编辑简历'"></pagetitle>
 <div class="wrap">
     <div class="section">
-        <div class="avatar-wrap text-center justified">
+        <div class="avatar-wrap text-center justified" style="padding-bottom:15px;">
             <div class="avatar">
                 <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{user.image_01}}" class="full-width full-height block"></uploader>
                 <div class="icon icon-man" ng-if="user.sex=='男'"></div>
@@ -12,7 +12,7 @@
     </div>
     <div class="edit-basic border-radius margin-bottom">
         <div class="edit-content">
-            <a class="edit-title" ng-href="#/edit_basic_info">
+            <a class="edit-title font-big" ng-href="#/edit_basic_info">
                 基本信息
                 <span class="pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</span>
                 
@@ -84,7 +84,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header modify">
+            <a class="detail-header modify font-big">
                 <span>教育经历</span>
                 <!-- <span class="pull-right">新增</span> -->
                 <div class="icon icon-basicedu pull-right"></div>
@@ -121,7 +121,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header modify">
+            <a class="detail-header modify font-big">
                 <span>工作及翻译经验</span>
                 <!-- <span class="pull-right">新增</span> -->
                 <div class="icon icon-basicwork pull-right"></div>
@@ -156,7 +156,7 @@
     </div>
     <div class="detail">
         <div class="basic-info">
-            <a class="detail-header modify" ng-href="#/certificate">
+            <a class="detail-header modify font-big">
                 <span>语言能力及证书</span>
                 <!-- <span class="pull-right">新增</span> -->
                 <!-- <label class="font-color">(官方认证)</label> -->
@@ -169,9 +169,9 @@
                         <a class="pull-right text-primary" ng-href="#/certificate?id={{experience.user_identity_id}}">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</a>
                         <div class="get"> <a class="font-color">{{format_time(experience.get_time,'yyyy年MM月')}}获得</a></div>
-                         <div class="modify-color" ng-if="experience.status == '0'"><span>(待审核)</span></div>
-                        <div class="modify-color" ng-if="experience.status == '1'"><span>(审核通过)</span></div>
-                        <div class="modify-color" ng-if="experience.status == '2'"><span>(审核未通过，请修改及重新上传图片)</span></div>
+                         <div class="modify-color" ng-if="experience.status == '0'"><small>(待审核)</small></div>
+                        <div class="modify-color" ng-if="experience.status == '1'"><small>(审核通过)</small></div>
+                        <div class="modify-color" ng-if="experience.status == '2'"><small>(审核未通过，请修改及重新上传图片)</small></div>
                     </div>
                 </div>
             </div>
@@ -187,8 +187,8 @@
         </a>
     </div>
     <div class="detail">
-        <div class="basic-info">
-            <a class="detail-header" ng-href="#/schedule?id={{user.user_id}}">
+        <div class="basic-inner" style="padding-bottpm: 0;">
+            <a class="detail-header font-big" ng-href="#/schedule?id={{user.user_id}}">
                 <span>可预约日期</span>
                 <span class="pull-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>编辑</span>
                 

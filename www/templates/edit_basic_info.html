@@ -1,6 +1,6 @@
 <pagetitle title="'编辑基本信息'"></pagetitle>
 <div class="section">
-    <div class="avatar-wrap text-center">
+    <div class="avatar-wrap text-center" style="padding-top:15px;">
         <div class="avatar">
             <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{user.image_01}}" class="full-width full-height block"></uploader>
             <div class="icon icon-man" ng-if="user.sex=='男'"></div>
@@ -12,7 +12,7 @@
     <div class="wrap">
         <div class="edit-basic border-radius">
             <div class="edit-content">
-                <div class="edit-title">
+                <div class="edit-title font-big">
                     基本信息
                 </div>
                 <div class="edit-list padding-sm-left">
@@ -25,7 +25,7 @@
                 <div class="edit-list padding-sm-left">
                     <div class="text-field text-down">微<span>空格</span>信:</div>
                     <div class="right-text">
-                        <input type="text" class="full-width" name="wechat" placeholder="请输入微信号" ng-model="input.wechat" required>
+                        <input type="text" class="full-width" name="wechat" placeholder="请输入微信号" ng-model="input.wechat">
                     </div>
                 </div>
                 <div class="edit-list padding-sm-left">
@@ -62,7 +62,7 @@
                 <div class="edit-list padding-sm-left">
                     <div class="text-field text-down">联系邮箱:</div>
                     <div class="right-text">
-                        <input type="email" class="full-width" placeholder="请填写联系邮箱" name="email" ng-model="input.email" required>
+                        <input type="email" class="full-width" placeholder="请填写联系邮箱" name="email" ng-model="input.email">
                     </div>
                 </div>
                 <div class="edit-list padding-sm-left">
@@ -108,7 +108,7 @@
                 <div class="edit-list padding-lg-left">
                     <div class="text-field">翻译经验年限:</div>
                     <div class="right-text">
-                        <select class="full-width" placeholder="" name="translate_year" ng-model="input.translate_year" ng-options="translate_year for translate_year in translate_years" ng-class="{'color-gray':input.translate_year == ''}" required>
+                        <select class="full-width" placeholder="" name="translate_year" ng-model="input.translate_year" ng-options="translate_year for translate_year in translate_years" ng-class="{'color-gray':input.translate_year == ''}">
                             <option value="">请选择</option>
                         </select>
                     </div>
@@ -131,6 +131,6 @@
         </div>
     </div>
     <div class="wrap text-center">
-        <button class="btn btn-lg btn-primary" type="submit" ng-disabled="editForm.$invalid">保存</button>
+        <button class="btn btn-lg btn-primary" type="submit">保存</button>
     </div>
 </form>

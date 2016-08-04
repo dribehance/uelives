@@ -152,6 +152,10 @@ textarea {
                 padding-top: 15px;
                 padding-bottom: 15px;
             }
+            &.font-big {
+                font-size: 18px;
+                font-weight: bold;
+            }
             span {
                 color: #bdbdbd;
                 .font-modify {
@@ -240,7 +244,7 @@ textarea {
 .industry {
     display: block;
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 0 5px;
     overflow: hidden;
     background-color: white;
     &.space {
@@ -277,18 +281,26 @@ textarea {
         display: block;
         margin-bottom: 15px;
         font-size: 16px;
-    }
-    .fa {
-        position: relative;
-        top: 2px;
-        font-size: 20px;
-        color: #00B4D6;
+        .fa {
+            position: relative;
+            top: 2px;
+            font-size: 20px;
+            color: #00B4D6;
+        }
     }
     .level-content {
         position: relative;
         display: block;
         padding-left: 45px;
         margin-bottom: 15px;
+        color: #4e4a4a;
+        .fa {
+            position: absolute;
+            top: 3px;
+            left: 20px;
+            color: #00B4D6;
+            font-size: 12px;
+        }
         input {
             padding: 5px;
             width: 30%;
@@ -437,7 +449,7 @@ textarea {
             position: relative;
             display: block;
             padding-top: 15px;
-            font-size: 14px;
+            font-size: 15px;
             overflow: hidden;
             span {
                 position: relative;
@@ -696,6 +708,10 @@ textarea {
             padding: 15px 0;
             color: #00B5DA;
             border-bottom: 1px solid #EBEBEB;
+            &.font-big {
+                font-size: 18px;
+                font-weight: bold;
+            }
         }
         .edit-list {
             position: relative;
@@ -703,10 +719,10 @@ textarea {
             margin-top: 15px;
             margin-left: 15px;
             &.padding-sm-left {
-                padding-left: 70px;
+                padding-left: 75px;
             }
             &.padding-lg-left {
-                padding-left: 95px;
+                padding-left: 100px;
             }
             .right-text {
                 display: inline-block;
@@ -801,7 +817,7 @@ textarea {
 .avatar-wrap {
     position: relative;
     display: block;
-    padding-bottom: 15px;
+    // padding-bottom: 15px;
     &.padding-top {
         padding-top: 15px;
     }
@@ -828,9 +844,13 @@ textarea {
     .box-sizing(border-box);
     .detail-header {
         display: block;
-        padding: 10px 0;
+        padding: 15px 0;
         &.modify {
             border-bottom: 1px solid #EBEBEB;
+        }
+        &.font-big {
+            font-size: 18px;
+            font-weight: bold;
         }
         span {
             color: #62C3DE;
@@ -858,6 +878,7 @@ textarea {
         position: relative;
         display: block;
         padding: 10px;
+        padding-top: 0;
         overflow: hidden;
         background-color: white;
         border-radius: 6px;
@@ -867,14 +888,14 @@ textarea {
         .basic-content {
             position: relative;
             display: block;
-            font-size: 13px;
+            font-size: 15px;
             .basic-content-item {
                 position: relative;
                 display: block;
-                margin: 0 50px;
+                margin: 0 30px;
                 span {
                     display: block;
-                    padding: 10px 0;
+                    padding: 5px 0;
                 }
                 label {
                     position: relative;
@@ -892,8 +913,8 @@ textarea {
             .basic-content-skill {
                 position: relative;
                 display: block;
-                margin: 0 20px;
-                padding: 10px 0;
+                margin: 0 5px;
+                padding: 10px 0 5px;
                 &.modify {
                     border: 1px dashed #BDBDBD;
                     border-left: none;
@@ -902,7 +923,7 @@ textarea {
                 .skill {
                     position: relative;
                     display: block;
-                    margin-top: 5px;
+                    // margin-top: 5px;
                     span {
                         display: inline-block;
                     }
@@ -928,7 +949,7 @@ textarea {
             .work-intention {
                 span {
                     display: block;
-                    margin-bottom: 10px;
+                    margin-bottom: 5px;
                 }
             }
         }
@@ -946,6 +967,7 @@ textarea {
                     position: absolute;
                     top: -2px;
                     left: 0;
+                    z-index: 5;
                     .fa {
                         color: #37B3D5;
                     }
@@ -957,24 +979,24 @@ textarea {
                 .line {
                     position: absolute;
                     left: 5.5px;
-                    top: 11px;
+                    top: 10px;
                     height: 100%;
                     width: 1px;
                     background-color: #62C3DE;
                 }
                 .exprience-time {
-                    color: #B3B3B3;
-                    font-size: 14px;
+                    color: #a5a2a2;
+                    // font-size: 14px;
                 }
                 .exprience-school {
                     display: block;
                     padding-top: 10px;
-                    font-size: 14px;
+                    // font-size: 14px;
                     span {
                         display: inline-block;
                         margin-top: 5px;
-                        font-size: 13px;
-                        color: #B3B3B3;
+                        font-size: 15px;
+                        color: #a5a2a2;
                     }
                     .padding-left {
                         padding-left: 5px;
@@ -989,7 +1011,7 @@ textarea {
                 .exprience-company {
                     display: block;
                     padding-top: 10px;
-                    font-size: 14px;
+                    //font-size: 14px;
                     span {
                         display: inline-block;
                         padding: 0 5px;
@@ -999,14 +1021,14 @@ textarea {
                     }
                 }
                 .duty {
-                    color: #B3B3B3;
-                    font-size: 13px;
+                    color: rgb(165, 162, 162);
+                    font-size: 15px;
                 }
                 .diploma {
                     display: block;
                     padding: 15px 0;
                     border-bottom: 1px solid #EBEBEB;
-                    font-size: 14px;
+                    //font-size: 14px;
                     span {
                         font-size: 12px;
                     }
@@ -1030,6 +1052,7 @@ textarea {
                         display: block;
                         overflow: hidden;
                         margin-top: 10px;
+                        font-size: 15px;
                         span {
                             display: inline-block;
                             color: #FCEE69;
@@ -1043,13 +1066,21 @@ textarea {
                     }
                 }
                 .font-size {
-                    font-size: 12px;
+                    font-size: 14px;
                 }
                 .font-color {
-                    color: #B3B3B3;
+                    color: #BDBDBD;
                 }
             }
         }
+    }
+    .basic-inner {
+        position: relative;
+        display: block;
+        padding: 0 10px;
+        overflow: hidden;
+        background-color: white;
+        border-radius: 6px;
     }
     .newadd {
         position: relative;
@@ -1222,9 +1253,8 @@ textarea {
                 left: 0;
                 height: 55px;
                 width: 55px;
-                img {
-                    display: block;
-                    border-radius: 50px;
+                imageview {
+                    border-radius: 100%;
                 }
             }
             .review-info {
@@ -1371,7 +1401,6 @@ textarea {
             color: white;
             border: 1px solid #37B3D5;
             background-color: #37B3D5;
-
         }
         //已预约
         .bookinged {

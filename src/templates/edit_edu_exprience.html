@@ -6,19 +6,19 @@
                 <div class="icon icon-edit"></div>
             </div>
             <div class="edit-item padding margin-left modify">
-                <input type="text" class="full-width" placeholder="学校名称" name="school_name" ng-model="input.school_name" required>
+                <input type="text" class="full-width" placeholder="学校名称" name="school_name" ng-model="input.school_name" >
             </div>
             <div class="edit-item padding margin-left modify">
-                <input type="text" class="full-width" placeholder="所学专业" name="major" ng-model="input.major" required>
+                <input type="text" class="full-width" placeholder="所学专业" name="major" ng-model="input.major">
             </div>
             <div class="edit-item padding margin-left modify">
                 <!-- <input type="text" class="full-width" placeholder="毕业年份" name="end_time" ng-model="input.end_time" required> -->
-                <select style="padding:0;margin:0;" ng-options="year for year in years" class="color-gray full-width" ng-model="input.year" ng-class="{'color-black':input.year != ''}" required>
+                <select style="padding:0;margin:0;" ng-options="year for year in years" class="color-gray full-width" ng-model="input.year" ng-class="{'color-black':input.year != ''}">
                     <option  value="">毕业年份</option>
                 </select>
             </div>
             <div class="edit-item padding margin-left modify">
-                <select style="padding:0;" ng-options="degree for degree in degrees" class="color-gray full-width" ng-model="input.degree" ng-class="{'color-black':input.degree != ''}" required >
+                <select style="padding:0;" ng-options="degree for degree in degrees" class="color-gray full-width" ng-model="input.degree" ng-class="{'color-black':input.degree != ''}" >
                     <option value="">学历</option>
                 </select>
             </div>
@@ -26,6 +26,6 @@
     </div>
     <div class="wrap text-center">
         <button type="button" class="btn btn-lg btn-danger" ng-click="remove()" ng-if="input.remove_id">删除</button>
-        <button type="submit" class="btn btn-lg btn-primary" ng-disabled="editForm.$invalid">保存</button>
+        <button type="submit" class="btn btn-lg btn-primary">保存</button>
     </div>
 </form>
