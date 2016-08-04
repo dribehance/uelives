@@ -45,7 +45,7 @@ angular.module("Uelives").directive('mobilepicker', function($timeout) {
 			};
 			// function body
 			$timeout(function() {
-				$(element).find("input").datePicker(angular.extend({}, options, scope.options));
+				var a = $(element).find("input").datePicker(angular.extend({}, options, scope.options));
 			}, 0)
 		}
 	};

@@ -45,9 +45,9 @@
                 scrollOpt: {
                     snap: "li",
                     checkDOMChanges: true,
-                    vScrollbar:false,
-                    hScrollbar:false,
-                    hScroll:false
+                    vScrollbar: false,
+                    hScrollbar: false,
+                    hScroll: false
                 },
                 callBack: function() {}
             }
@@ -112,7 +112,13 @@
                     var m = $('#minuteScroll li').eq(initI).data('num');
                     that.val($('.d-return-info').html());
                     $('#datePlugin').hide().html('');
-                    opts.callBack({y:y,M:M,d:d,h:h,m:m});
+                    opts.callBack({
+                        y: y,
+                        M: M,
+                        d: d,
+                        h: h,
+                        m: m
+                    });
                 });
                 $('#d-cancleBtn').on('click', function(event) {
                     destroyScroll();
@@ -218,15 +224,17 @@
                         break;
                 }
             }
-            function destroyScroll(){//销毁iscroll滚动
-                var scrollArr=[yearScroll,monthScroll,dayScroll,hourScroll,minuteScroll];
-                scrollArr.forEach(function(itm){
-                    if (itm!=null) {
+
+            function destroyScroll() { //销毁iscroll滚动
+                var scrollArr = [yearScroll, monthScroll, dayScroll, hourScroll, minuteScroll];
+                scrollArr.forEach(function(itm) {
+                    if (itm != null) {
                         itm.destroy();
-                        itm=null;
+                        itm = null;
                     }
                 });
             }
+
             function createYear() {
                 var yearDom = $('#yearScroll'),
                     yearNum = opts.endyear - opts.beginyear,
@@ -325,12 +333,13 @@
                     }
                 };
                 hourDom.find('ul').html(hourHtml).append('<li></li>');
-                hourScroll = new iScroll('hourScroll',  $.extend(true, {}, opts.scrollOpt, {
+                hourScroll = new iScroll('hourScroll', $.extend(true, {}, opts.scrollOpt, {
                     onScrollEnd: function() {
                         hourScrollEnd(this);
                     }
                 }));
                 hourScroll.scrollTo(0, -(initH - 1) * opts.liH);
+
                 function hourScrollEnd(_this) {
                     initH = Math.floor(-_this.y / opts.liH) + 1;
                     showTxt();
@@ -354,6 +363,7 @@
                     }
                 }));
                 minuteScroll.scrollTo(0, -(initI - 1) * opts.liH);
+
                 function minuteScrollEnd(_this) {
                     initI = Math.floor(-_this.y / opts.liH) + 1;
                     showTxt();
@@ -362,4 +372,3 @@
         });
     }
 })(typeof(Zepto) != 'undefined' ? Zepto : jQuery);
-
