@@ -17,7 +17,7 @@
         <div class="day-wrap">
             <div class="col-ms-7 pull-left" ng-class="append_class(day,$index)" ng-repeat="day in schedule.scheduleBeans">
                 <div class="day" ng-click="active(day)">
-                    <div class="day-item text-center" ng-class="{'unselect':day.schedule_state == '1','busy':day.schedule_state == '2','default':day.schedule_state == '3','highlight':day.schedule_state == '4'|| day==input.day}">{{parse_time(day)}}</div>
+                    <div class="day-item text-center" ng-class="{'bookinged':day.schedule_state =='0','unselect':day.schedule_state == '1','busy':day.schedule_state == '2','default':day.schedule_state == '3','highlight':day.schedule_state == '4'|| day==input.day}">{{parse_time(day)}}</div>
                 </div>
             </div>
         </div>
