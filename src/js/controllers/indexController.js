@@ -26,9 +26,10 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 		$location.path(path).search("cache_key", key);
 	}
 	var today = new Date(),
-		yesterday = new Date();
-	yesterday.setDate(yesterday.getDate() + 1);
-	$scope.input.choice_time = [$scope.format_time(today, "yyyy-MM-dd"), $scope.format_time(yesterday, "yyyy-MM-dd")]
+		tomorrow = new Date();
+	today.setDate(today.getDate() + 1);
+	tomorrow.setDate(tomorrow.getDate() + 2);
+	$scope.input.choice_time = [$scope.format_time(today, "yyyy-MM-dd"), $scope.format_time(tomorrow, "yyyy-MM-dd")]
 	var cache = localStorageService.get("cache");
 	if (cache) {
 		$scope.input = angular.extend({}, $scope.input, cache);
