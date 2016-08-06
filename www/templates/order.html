@@ -9,13 +9,13 @@
                 {{order.from_language}} - {{order.to_language}} <span>.</span>&nbsp{{order.sex}}
             </div>
             <div class="booking-content text-center">
-                {{order.translate_scene}}
+                {{replace_hash(order.translate_scene)}}
             </div>
             <div class="booking-container text-center">
                 {{order.schedule_from}}
                 <span>开始</span> - {{order.schedule_to}}
                 <span>结束</span>&nbsp <!-- 共{{order.translate_day}}天 -->
-                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
             </div>
         </div>
     </div>
