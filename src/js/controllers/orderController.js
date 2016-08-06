@@ -16,6 +16,9 @@ angular.module("Uelives").controller("orderController", function($scope, $routeP
 	$scope.format_time = function(time, format) {
 		return $filter("date")(time, format)
 	}
+	$scope.replace_hash = function(hashs) {
+        return hashs && hashs.replace(/#/g, "、");
+    }
 	$scope.parse_time = function(time) {
 		return time.split("#").map(function(t) {
 			return $scope.format_time(t, "yyyy.MM.dd");

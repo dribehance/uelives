@@ -66,6 +66,7 @@ angular.module("Uelives").controller("orderManagementUserController", function($
     }
     $scope.mark = function(type, order) {
         var confirm_title = ["", "接受", "拒绝", "收款"];
+        $scope.confirm.title = "请确认";
         $scope.confirm.content = confirm_title[type];
         $scope.confirm.open();
         $scope.confirm.cancle_callback = function() {}
