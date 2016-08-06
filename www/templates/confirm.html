@@ -6,7 +6,7 @@
             <i class="pull-right fa fa-times close" ng-click="confirm.cancel()"></i>
         </div>
         <div class="confirm-content" ng-if="confirm.content_type !='input'">
-            {{confirm.content}}
+            {{confirm.content}}该预约
         </div>
         <div class="confirm-content" ng-if="confirm.content_type =='input'">
             <input type="text" class="form-control full-width" ng-model="confirm.content" placeholder="....">
