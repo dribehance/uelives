@@ -124,7 +124,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
 				weixinServices.prepare_pay({
-					id: $routeParams.order_id
+					id: data.orders_id
 				});
 			} else {
 				errorServices.autoHide(data.message);
