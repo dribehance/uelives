@@ -10,7 +10,7 @@
                     {{input.language.from || user.mother_language}} - {{input.language.to || user.first_language}} <span>.</span>&nbsp{{input.sex || user.sex}}
                 </div>
                 <div class="booking-content text-center" ng-click="cache_and_go('related_industry','industry')">
-                    {{replace_hash(input.industry) ||"请选择"}} &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
+                    {{replace_hash(input.industry) ||"行业/领域 请选择"}} &nbsp<i class="fa fa-angle-right" aria-hidden="true"></i>
                 </div>
                 <div class="booking-container text-center" ng-click="cache_and_go('choice_time','choice_time')">
                     {{input.schedule_from}}
