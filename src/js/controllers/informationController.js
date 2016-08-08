@@ -36,15 +36,18 @@ angular.module("Uelives").controller("informationController", function($scope, $
 		return hashs && hashs.replace(/#/g, "、");
 	};
 	$scope.preview = function() {
-		toastServices.show();
-		userServices.preview().then(function(data) {
-			toastServices.hide()
-			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
-				$location.path("online_preview").search("id", $scope.user.user_id);
-			} else {
-				errorServices.autoHide(data.message);
-			}
-		})
+		$location.path("interpreter_detail").search({
+			"id": $scope.user.user_id,
+		});
+		// toastServices.show();
+		// userServices.preview().then(function(data) {
+		// 	toastServices.hide()
+		// 	if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+		// 		$location.path("online_preview").search("id", $scope.user.user_id);
+		// 	} else {
+		// 		errorServices.autoHide(data.message);
+		// 	}
+		// })
 	};
 	// remove cache
 	localStorageService.remove("cache");
