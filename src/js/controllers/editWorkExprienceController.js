@@ -7,7 +7,8 @@ angular.module("Uelives").controller("editWorkExprienceController", function($sc
     }
     $scope.input.end_time_option = {
         placeholder: "离职年月/项目结束年月",
-        theme: "month"
+        theme: "month",
+        today: true
     }
 
     $scope.checkText = function() {

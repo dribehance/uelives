@@ -63,6 +63,17 @@
 
             function init() { //初始化函数
                 initVal = that.val();
+                if (new Date(initVal) == "Invalid Date") {
+                    var _m = new Date().getMonth() + 1,
+                        _d = new Date().getDate();
+                    if (_m < 10) {
+                        _m = "0" + _m;
+                    }
+                    if (_d < 10) {
+                        _d = "0" + _d;
+                    }
+                    initVal = new Date().getFullYear() + "-" + _m + "-" + _d;
+                }
                 if (!$('#datePlugin').size()) {
                     $('body').append('<div id="datePlugin"></div>');
                 }
@@ -125,6 +136,15 @@
                     $('#datePlugin').hide().html('');
                     document.getElementsByTagName('body')[0].removeEventListener('touchmove', cancleDefault, false);
                 });
+                $('#d-todayBtn').on('click', function(event) {
+                    destroyScroll();
+                    document.getElementsByTagName('body')[0].removeEventListener('touchmove', cancleDefault, false);
+                    that.val("至今");
+                    $('#datePlugin').hide().html('');
+                    opts.callBack({
+                        y: "至今",
+                    });
+                });
             }
 
             function cancleDefault(event) {
@@ -140,7 +160,11 @@
             }
 
             function renderDom() {
-                var mainHtml = ' <div class="d-date-box"><div class="d-date-title">请选择日期</div><p class="d-date-info"><span class="d-day-info"></span><span class="d-return-info"></span></p></div>';
+                var todayHtml = '';
+                if (opts.today) {
+                    todayHtml = '<div class="d-date-title d-date-today pull-right" id="d-todayBtn">至今</div>';
+                }
+                var mainHtml = ' <div class="d-date-box">' + todayHtml + '<div class="d-date-title">请选择日期</div><p class="d-date-info"><span class="d-day-info"></span><span class="d-return-info"></span></p></div>';
                 var btnHtml = '<div class="d-date-btns"><button class="d-btn" id="d-okBtn">确定</button><button class="d-btn" id="d-cancleBtn">取消</button></div>';
                 var dateHtml = '<div class="d-date-wrap">';
                 dateHtml += '<div class="d-date-mark"></div>';
