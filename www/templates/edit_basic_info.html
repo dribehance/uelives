@@ -55,9 +55,10 @@
                         <span ng-class="{'color-gray':input.city == ''}">{{input.city||"请选择"}}</span>
                     </div>
                 </div>
-                <div class="edit-list padding-sm-left" ng-click="cache_and_go('update_telephone','telephone')">
+                <div class="edit-list padding-sm-left">
                     <div class="text-field">联系电话:</div>
                     <span ng-class="{'color-gray':input.translate_level == ''}">{{input.telephone||"请选择"}}</span>
+                    <span class="pull-right" ng-click="cache_and_go('update_telephone','telephone')">更改</span>
                 </div>
                 <div class="edit-list padding-sm-left">
                     <div class="text-field text-down">联系邮箱:</div>
