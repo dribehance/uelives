@@ -98,6 +98,14 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		}
 		toastServices.show();
 		userServices.online_booking({
+			city: $scope.input.city,
+			from_language: $scope.input.language.from,
+			to_language: $scope.input.language.to,
+			translate_scene: $scope.input.scenes,
+			order_time: $scope.input.choice_time.join("#"),
+			translate_day: $scope.input.schedule_total,
+			translate_field: $scope.input.industry,
+			sex: $scope.input.sex,
 			type: $scope.input.check,
 			orders_id: $routeParams.order_id,
 			translate_user_id: $routeParams.id,
@@ -116,7 +124,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
 				weixinServices.prepare_pay({
-					id: $routeParams.order_id
+					id: data.orders_id
 				});
 			} else {
 				errorServices.autoHide(data.message);

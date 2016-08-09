@@ -40,7 +40,7 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
     $scope.format_time = function(time, format) {
         return $filter("date")(time, format)
     }
-    
+
 
     $scope.cache_and_go = function(path, key) {
         localStorageService.set("cache", $scope.input);
@@ -58,6 +58,14 @@ angular.module("Uelives").controller("selfBookingController", function($scope, $
     $scope.ajaxForm = function() {
         toastServices.show();
         userServices.online_booking({
+            city: $scope.input.city,
+            from_language: $scope.input.language.from,
+            to_language: $scope.input.language.to,
+            translate_scene: $scope.input.scenes,
+            order_time: $scope.input.choice_time.join("#"),
+            translate_day: $scope.input.schedule_total,
+            translate_field: $scope.input.industry,
+            sex: $scope.input.sex,
             type: 3,
             orders_id: $routeParams.order_id,
             translate_user_id: $routeParams.id,
