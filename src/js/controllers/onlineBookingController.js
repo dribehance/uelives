@@ -1,6 +1,6 @@
 angular.module("Uelives").controller("onlineBookingController", function($scope, $filter, $location, $routeParams, $timeout, $window, weixinServices, userServices, errorServices, toastServices, localStorageService, config) {
 	$scope.input = {};
-	$scope.input.sex = 1;
+	// $scope.input.sex = "男";
 	$scope.select_gender = function(gender) {
 		$scope.input.sex = gender;
 	};
@@ -99,10 +99,10 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		toastServices.show();
 		userServices.online_booking({
 			city: $scope.input.city,
-			from_language: $scope.input.language.from,
-			to_language: $scope.input.language.to,
+			from_language: $scope.input.language && $scope.input.language.from,
+			to_language: $scope.input.language && $scope.input.language.to,
 			translate_scene: $scope.input.scenes,
-			order_time: $scope.input.choice_time.join("#"),
+			order_time: $scope.input.choice_time && $scope.input.choice_time.join("#"),
 			translate_day: $scope.input.schedule_total,
 			translate_field: $scope.input.industry,
 			sex: $scope.input.sex,

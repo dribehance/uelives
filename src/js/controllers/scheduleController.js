@@ -58,7 +58,7 @@ angular.module("Uelives").controller("scheduleController", function($scope, $roo
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
 				errorServices.autoHide(data.message);
 				$timeout(function() {
-					$route.reload();
+					$rootScope.back();
 				}, 2000)
 			} else {
 				errorServices.autoHide(data.message);
