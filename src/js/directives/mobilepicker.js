@@ -32,15 +32,19 @@ angular.module("Uelives").directive('mobilepicker', function($timeout) {
 				theme: "date",
 				// 调出插件的事件,默认为click
 				event: "click",
+				today: false,
 				// iscroll4滚动设置,详情参见iscroll4
 				// scrollOpt: {},
 				// 回调函数，按确认后执行的函数，默认function(){}
 				callBack: function(date) {
-					if (scope.options.theme == 'month') {
-						scope.options.value = date.y + "-" + date.M;
-					} else {
-						scope.options.value = date.y + "-" + date.M + "-" + date.d;
+					var value = "";
+					for (key in date) {
+						if (date[key]) {
+							value += date[key] + "-"
+						}
 					}
+					value = value.substring(0, value.length - 1)
+					scope.options.value = value;
 				}
 			};
 			// function body
