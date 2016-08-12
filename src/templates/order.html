@@ -9,7 +9,7 @@
                 {{order.from_language}} - {{order.to_language}} <span>.</span>&nbsp{{order.sex}}
             </div>
             <div class="booking-content text-center">
-                {{replace_hash(order.translate_scene)}}
+                {{replace_hash(order.translate_field)}}
             </div>
             <div class="booking-container text-center">
                 {{order.schedule_from}}
@@ -42,6 +42,14 @@
             </div>
             <div class="booking-content">
                 <textarea class="full-width" name="other_require" ng-model="order.other_require" placeholder="请简单描述其他要求" readonly cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="pay">
+        <div class="col-ms-2 pull-left">
+            <div class="total">
+                <span>{{order.translate_day}}天</span>
+                <span>总共<label>{{order.money ||"0"}}</label>元</span>
             </div>
         </div>
     </div>

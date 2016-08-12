@@ -122,6 +122,8 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 		}).then(function(data) {
 			toastServices.hide()
 			if (data.code == config.request.SUCCESS && data.status == config.response.SUCCESS) {
+				// remove cache
+				localStorageService.remove("cache");
 				errorServices.autoHide(data.message);
 				weixinServices.prepare_pay({
 					id: data.orders_id
