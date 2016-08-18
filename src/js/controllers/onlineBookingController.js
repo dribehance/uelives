@@ -128,9 +128,19 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 				weixinServices.prepare_pay({
 					id: data.orders_id
 				});
-			} else {
-				errorServices.autoHide(data.message);
+				return;
 			}
+			if (data.status == "3") {
+				// remove cache
+				localStorageService.remove("cache");
+				errorServices.autoHide(data.message);
+				weixinServices.queryAuthorizationCodeSilently({
+					url: "http://www.uelives.com/app/MenuController/getWeixinOauth",
+					id: $routeParams.id
+				});
+				return;
+			}
+			errorServices.autoHide(data.message);
 		})
 	}
 })

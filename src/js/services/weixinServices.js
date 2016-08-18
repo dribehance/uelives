@@ -146,9 +146,18 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
             $window.location.href = url;
         },
         // 静默授权 silence authorization
-        prepare_pay: function(params) {
-            var url = weixin_config.base_url + "?" + "appid=" + weixin_config.appid + "&redirect_uri=" + encodeURIComponent(weixin_config.payment_redirect_uri) + "&response_type=" + weixin_config.response_type + "&scope=" + weixin_config.scope + "&state=" + JSON.stringify(params) + weixin_config.wechat_redirect;
+        queryAuthorizationCodeSilently: function(params) {
+            var url = weixin_config.base_url + "?" + "appid=" + weixin_config.appid + "&redirect_uri=" + encodeURIComponent(params.redirect_uri) + "&response_type=" + weixin_config.response_type + "&scope=" + weixin_config.scope + "&state=" + JSON.stringify(params) + weixin_config.wechat_redirect;
             $window.location.href = url;
+        },
+        // 支付前 静默授权
+        prepare_pay: function(params) {
+            params = angular.extend({}, params, {
+                redirect_uri: weixin_config.payment_redirect_uri
+            })
+            this.queryAuthorizationCodeSilently(params);
+            // var url = weixin_config.base_url + "?" + "appid=" + weixin_config.appid + "&redirect_uri=" + encodeURIComponent(weixin_config.payment_redirect_uri) + "&response_type=" + weixin_config.response_type + "&scope=" + weixin_config.scope + "&state=" + JSON.stringify(params) + weixin_config.wechat_redirect;
+            // $window.location.href = url;
         },
         // invoke weixin pay
         pay: function(params) {
