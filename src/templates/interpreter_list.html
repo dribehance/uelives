@@ -29,9 +29,11 @@
                             <span>{{translator.translate_level}}</span>
                         </div>
                         <div class="list-info-content">
-                            <span>{{translator.mother_language}}*母语</span>
-                            <span class="modify">{{translator.first_language}}*{{translator.first_language_level}}</span>
-                            <span>{{translator.second_language}}<span ng-if="translator.second_language">*</span>{{translator.second_language_level}}</span>
+                            <span>{{translator.mother_language}}<label ng-if="translator.mother_language">*</label>母语</span>
+                            <label ng-if="translator.mother_language">|</label>
+                            <span class="">{{translator.first_language}}<label ng-if="translator.first_language">*</label>{{translator.first_language_level}}</span>
+                            <label ng-if="translator.second_language">|</label>
+                            <span>{{translator.second_language}}<label ng-if="translator.second_language">*</label>{{translator.second_language_level}}</span>
                         </div>
                     </div>
                 </div>
@@ -65,9 +67,14 @@
                             <span>{{translator.translate_level}}</span>
                         </div>
                         <div class="list-info-content">
-                            <span>{{translator.mother_language}}*母语</span>
-                            <span class="modify">{{translator.first_language}}*{{translator.first_language_level}}</span>
-                            <span>{{translator.second_language}}<span ng-if="translator.second_language">*</span>{{translator.second_language_level}}</span>
+                            <span>{{translator.mother_language}}
+                                <label ng-if="translator.mother_language">*</label>
+                                母语
+                            </span>
+                            <label ng-if="translator.mother_language">|</label>
+                            <span class="">{{translator.first_language}}<b ng-if="translator.first_language">*</b>{{translator.first_language_level}}</span>
+                            <label ng-if="translator.second_language">|</label>
+                            <span>{{translator.second_language}}<label ng-if="translator.second_language">*</label>{{translator.second_language_level}}</span>
                         </div>
                     </div>
                 </div>
