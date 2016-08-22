@@ -31,7 +31,7 @@
                         <div class="list-info-content">
                             <span>{{translator.mother_language}}*母语</span>
                             <span class="modify">{{translator.first_language}}*{{translator.first_language_level}}</span>
-                            <span>{{translator.second_language}}*{{translator.second_language_level}}</span>
+                            <span>{{translator.second_language}}<span ng-if="translator.second_language">*</span>{{translator.second_language_level}}</span>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                         <div class="list-info-content">
                             <span>{{translator.mother_language}}*母语</span>
                             <span class="modify">{{translator.first_language}}*{{translator.first_language_level}}</span>
-                            <span>{{translator.second_language}}*{{translator.second_language_level}}</span>
+                            <span>{{translator.second_language}}<span ng-if="translator.second_language">*</span>{{translator.second_language_level}}</span>
                         </div>
                     </div>
                 </div>
