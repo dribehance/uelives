@@ -147,6 +147,7 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
         },
         // 静默授权 silence authorization
         queryAuthorizationCodeSilently: function(params) {
+            params = angular.extend({}, params);
             var url = weixin_config.base_url + "?" + "appid=" + weixin_config.appid + "&redirect_uri=" + encodeURIComponent(params.redirect_uri) + "&response_type=" + weixin_config.response_type + "&scope=" + weixin_config.scope + "&state=" + JSON.stringify(params) + weixin_config.wechat_redirect;
             $window.location.href = url;
         },
