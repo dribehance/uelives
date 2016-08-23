@@ -26,7 +26,7 @@
                         <b ng-if="user.mother_language">|</b>
                         <span>{{user.first_language}}<label ng-if="user.first_language">.</label>{{user.first_language_level}}</span>
                         <b ng-if="user.second_language">|</b>
-                        <span>{{user.second_language}}<label ng-if="user.second_language">.</label>{{user.second_language_level}}</span>
+                        <span ng-if="user.second_language">{{user.second_language}}<label>.</label>{{user.second_language_level}}</span>
                     </div>
                     <div class="skill text-center">
                         <div class="icon icon-person"></div>
