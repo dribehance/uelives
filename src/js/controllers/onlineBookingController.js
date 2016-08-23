@@ -62,7 +62,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 	});
 	// get information from cache
 	$scope.format_time = function(time, format) {
-		return $filter("date")(time, format)
+		return time.split("-").join(".");
 	};
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", $scope.input);
@@ -135,8 +135,8 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 				localStorageService.remove("cache");
 				errorServices.autoHide(data.message);
 				weixinServices.queryAuthorizationCodeSilently({
-					redirect_uri: "http://www.uelives.com/app/MenuController/getWeixinOauth",
-					id: $routeParams.id
+					id: $routeParams.id,
+					redirect_uri: "http://www.uelives.com/app/MenuController/getWeixinOauth"
 				});
 				return;
 			}

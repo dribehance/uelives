@@ -23,7 +23,7 @@ angular.module("Uelives").controller("interpreterDetailController", function($sc
 		}
 	})
 	$scope.format_time = function(time, format) {
-		return $filter("date")(time, format)
+		return time.split("-").join(".");
 	}
 	$scope.comments = [];
 	$scope.page = {

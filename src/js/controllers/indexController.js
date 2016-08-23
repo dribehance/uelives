@@ -16,7 +16,7 @@ angular.module("Uelives").controller("indexController", function($scope, $filter
 		$scope.input.sex = n;
 	};
 	$scope.format_time = function(time, format) {
-		return $filter("date")(time, format)
+		return time.split("-").join(".");
 	}
 	$scope.replace_hash = function(hashs) {
 		return hashs && hashs.replace(/#/g, "、");
