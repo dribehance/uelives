@@ -155,7 +155,7 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
         prepare_pay: function(params) {
             params = angular.extend({}, params, {
                 redirect_uri: weixin_config.payment_redirect_uri
-            })
+            });
             this.queryAuthorizationCodeSilently(params);
             // var url = weixin_config.base_url + "?" + "appid=" + weixin_config.appid + "&redirect_uri=" + encodeURIComponent(weixin_config.payment_redirect_uri) + "&response_type=" + weixin_config.response_type + "&scope=" + weixin_config.scope + "&state=" + JSON.stringify(params) + weixin_config.wechat_redirect;
             // $window.location.href = url;

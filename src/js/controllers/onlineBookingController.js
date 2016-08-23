@@ -135,7 +135,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 				localStorageService.remove("cache");
 				errorServices.autoHide(data.message);
 				weixinServices.queryAuthorizationCodeSilently({
-					url: "http://www.uelives.com/app/MenuController/getWeixinOauth",
+					redirect_uri: "http://www.uelives.com/app/MenuController/getWeixinOauth",
 					id: $routeParams.id
 				});
 				return;
