@@ -23,7 +23,9 @@ angular.module("Uelives").controller("onlinePreviewController", function($scope,
 		}
 	})
 	$scope.format_time = function(time, format) {
-		return time.split("-").join(".");
+		if (time) {
+			return time.split("-").join(".");
+		}
 	}
 	$scope.replace_hash = function(hashs) {
 		return hashs && hashs.replace(/#/g, "、");

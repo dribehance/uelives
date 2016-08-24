@@ -62,7 +62,9 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 	});
 	// get information from cache
 	$scope.format_time = function(time, format) {
-		return time.split("-").join(".");
+		if (time) {
+			return time.split("-").join(".");
+		}
 	};
 	$scope.cache_and_go = function(path, key) {
 		localStorageService.set("cache", $scope.input);

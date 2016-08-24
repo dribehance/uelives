@@ -23,7 +23,9 @@ angular.module("Uelives").controller("interpreterDetailController", function($sc
 		}
 	})
 	$scope.format_time = function(time, format) {
-		return time.split("-").join(".");
+		if (time) {
+			return time.split("-").join(".");
+		}
 	}
 	$scope.comments = [];
 	$scope.page = {

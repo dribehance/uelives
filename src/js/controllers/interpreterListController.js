@@ -6,7 +6,9 @@ angular.module("Uelives").controller("interpreterListController", function($scop
 	};
 	$scope.qualified_translators = [];
 	$scope.format_time = function(time, format) {
-		return time.split("-").join(".");
+		if (time) {
+			return time.split("-").join(".");
+		}
 	}
 	var cache = localStorageService.get("cache");
 	if (cache) {

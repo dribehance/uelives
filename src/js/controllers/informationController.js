@@ -30,7 +30,9 @@ angular.module("Uelives").controller("informationController", function($scope, $
 		$location.path(path).search("cache_key", key);
 	}
 	$scope.format_time = function(time, format) {
-		return time.split("-").join(".");
+		if (time) {
+			return time.split("-").join(".");
+		}
 	};
 	$scope.replace_hash = function(hashs) {
 		return hashs && hashs.replace(/#/g, "、");
