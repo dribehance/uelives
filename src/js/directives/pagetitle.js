@@ -9,7 +9,7 @@ angular.module("Uelives").directive('pagetitle', function($document) {
 			// function body
 			$document[0].title = scope.title;
 			var $body = $('body');
-			var $iframe = $('<iframe src="/favicon.ico"></iframe>');
+			var $iframe = $('<iframe src="/favicon.ico" style="display:none"></iframe>');
 			$iframe.on('load', function() {
 				setTimeout(function() {
 					$iframe.off('load').remove();

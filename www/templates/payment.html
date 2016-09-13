@@ -1,0 +1,28 @@
+<pagetitle title="'在线预约'"></pagetitle>
+<div class="list-group"></div>
+<div class="list-group">
+    <div class="list-group-item">
+        支付金额：<span class="text-primary text-large">{{payment.money}}</span>
+    </div>
+</div>
+<div class="list-group">
+    <div class="list-group-item">
+        请选择支付方式 - 支付金额大于3000，请选择银联支付
+    </div>
+    <div class="list-group-item" ng-click="weixinpay()">
+        微信支付 <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+    </div>
+    <div class="list-group-item" ng-click="yinlianpay()">
+        银联支付 <i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+    </div>
+</div>
+<!-- yinlian -->
+<form name="yinlianForm" method="post" id="yinlianForm" action="http://www.uelives.com/app/UnipayManage/unionpayPay">
+    <input type="hidden" name="orders_id" value="{{order_id}}">
+    <!-- <input type="hidden" name="invoke" value="h5">
+    <input type="hidden" name="language_app" value="{{yinlian.language_app}}">
+    <input type="hidden" name="user_id" value="{{yinlian.user_id}}">
+    <input type="hidden" name="task_id" value="{{yinlian.task_id}}">
+    <input type="hidden" name="pay_type" value="{{yinlian.pay_type}}">
+    <input type="hidden" name="pay_total_money" value="{{yinlian.pay_total_money}}"> -->
+</form>

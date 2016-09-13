@@ -98,6 +98,31 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 			errorServices.autoHide("请同意使用条款");
 			return;
 		}
+		localStorageService.set("payment", {
+			city: $scope.input.city,
+			from_language: $scope.input.language && $scope.input.language.from,
+			to_language: $scope.input.language && $scope.input.language.to,
+			translate_scene: $scope.input.scenes,
+			order_time: $scope.input.choice_time && $scope.input.choice_time.join("#"),
+			translate_day: $scope.input.schedule_total,
+			translate_field: $scope.input.industry,
+			sex: $scope.input.sex,
+			type: $scope.input.check,
+			orders_id: $routeParams.order_id,
+			translate_user_id: $routeParams.id,
+			work_content: $scope.input.work_content,
+			other_require: $scope.input.other_require,
+			order_name: $scope.input.nickname,
+			order_company: $scope.input.company,
+			order_telephone: $scope.input.telephone,
+			order_wechat: $scope.input.wechat,
+			money: $scope.get_total_money($scope.user.pay_day),
+			msg_code: $scope.input.smscode,
+			country_code: $scope.input.country_code.code,
+			token: localStorageService.get("token")
+		});
+		// $location.path("payment")
+		// return;
 		toastServices.show();
 		userServices.online_booking({
 			city: $scope.input.city,
@@ -127,19 +152,24 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 				// remove cache
 				localStorageService.remove("cache");
 				errorServices.autoHide(data.message);
-				weixinServices.prepare_pay({
-					id: data.orders_id
-				});
+				$location.path("payment").search("order_id", data.orders_id);
+				// weixinServices.prepare_pay({
+				// 	id: data.orders_id
+				// });
 				return;
 			}
 			if (data.status == "3") {
 				// remove cache
 				localStorageService.remove("cache");
 				errorServices.autoHide(data.message);
-				weixinServices.queryAuthorizationCodeSilently({
-					id: $routeParams.id,
-					redirect_uri: "http://www.uelives.com/app/MenuController/getWeixinOauth"
+				$location.path("payment").search({
+					"order_id": data.orders_id,
+					"status": data.status
 				});
+				// weixinServices.queryAuthorizationCodeSilently({
+				// 	id: $routeParams.id,
+				// 	redirect_uri: "http://www.uelives.com/app/MenuController/getWeixinOauth"
+				// });
 				return;
 			}
 			errorServices.autoHide(data.message);

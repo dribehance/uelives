@@ -179,6 +179,40 @@
             </a>
             <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==1">已评价</a>
         </div>
+        <!-- 51 -->
+        <div class="order" ng-if="order.status=='41' && order.is_translate=='0'">
+            <div class="order-title modify">
+                口译
+            </div>
+            <a class="order-content modify" ng-href="#/order?id={{order.orders_id}}">
+                <div class="order-content-item">
+                    {{order.city+order.from_language+"-"+order.to_language}}翻译
+                </div>
+                <div class="order-content-item">
+                    {{parse_time(order.order_time)}},共{{order.translate_day}}天
+                    <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                </div>
+                <div class="order-content-item">
+                    {{replace_hash(order.translate_scene)}}
+                </div>
+            </a>
+            <a class="order-wait modify" ng-href="#/online_preview?id={{order.translate_user_id}}&type=2">
+                <div class="order-wait-content">
+                    <div class="avatar">
+                        <imageview data-rate='1' src="staticImageUrl+order.translate_user_image_01" center-only></imageview>
+                    </div>
+                    <div class="order-wait-info">
+                        {{order.translate_user_name}}
+                        <i class="fa fa-chevron-right pull-right" aria-hidden="true"></i>
+                        <!-- <span class="pull-right">等待译员接单</span> -->
+                    </div>
+                </div>
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==0" ng-href="#/interpreter_evaluate?id={{order.translate_user_id}}&order_id={{order.orders_id}}">
+            去评价
+            </a>
+            <a class="order-to-evaluate text-center text-primary" ng-if="order.is_comment==1">已评价</a>
+        </div>
         <!-- 6 -->
         <div class="order" ng-if="order.status=='4' && order.is_translate=='1'">
             <div class="order-title modify">
