@@ -223,5 +223,10 @@ angular.module("Uelives").factory("userServices", function($rootScope, $http, ap
 			url: config.url + "/app/UserCenter/averagePay",
 			token: localStorageService.get("token")
 		})),
+		// 上传头像
+		upload: apiServices._get(angular.extend({}, config.common_params, {
+			url: config.url + "/app/UserCenter/downWeixinImg",
+			token: localStorageService.get("token")
+		})),
 	}
 });

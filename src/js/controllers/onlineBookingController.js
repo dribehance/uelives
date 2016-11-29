@@ -163,6 +163,7 @@ angular.module("Uelives").controller("onlineBookingController", function($scope,
 				localStorageService.remove("cache");
 				errorServices.autoHide(data.message);
 				$location.path("payment").search({
+					"id": $routeParams.id,
 					"order_id": data.orders_id,
 					"status": data.status
 				});

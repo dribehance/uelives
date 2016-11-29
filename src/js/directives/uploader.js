@@ -25,8 +25,9 @@ angular.module("Uelives").directive('uploader', function($timeout, localStorageS
 				flow.files[0].name.replace(/.png|.jpg|.jpeg|.gif/g, function(ext) {
 					extension = ext;
 					return ext;
-				})
-				filename = new Date().getTime() + extension;
+				});
+				var random = Math.floor(Math.random() * 1000000) + extension;
+				filename = new Date().getTime() + random;
 				flow.opts.target = config.url + "/app/UserCenter/updatePic";
 				flow.opts.testChunks = false;
 				flow.opts.fileParameterName = "image_01";

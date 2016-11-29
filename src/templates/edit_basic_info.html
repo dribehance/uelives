@@ -2,7 +2,8 @@
 <div class="section">
     <div class="avatar-wrap text-center" style="padding-top:15px;">
         <div class="avatar">
-            <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{user.image_01}}" class="full-width full-height block"></uploader>
+            <!-- <uploader flow-init='{singleFile:true}' flow-name="input.flow" flow-file-success="update_avatar()" flow-btn data-rate="1" src="{{user.image_01}}" class="full-width full-height block"></uploader> -->
+            <imageview center-only data-rate='1' src='staticImageUrl + user.image_01' ng-click="choose_image()"></imageview>
             <div class="icon icon-man" ng-if="user.sex=='男'"></div>
             <div class="icon icon-nv" ng-if="user.sex=='女'"></div>
         </div>

@@ -101,7 +101,7 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
                         timestamp: data.timestamp, // 必填，生成签名的时间戳
                         nonceStr: data.nonceStr, // 必填，生成签名的随机串
                         signature: data.signature, // 必填，签名，见附录1
-                        jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone", "chooseWXPay"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                        jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "onMenuShareQZone", "chooseWXPay", "chooseImage", "uploadImage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
                     });
                 }
             });
@@ -174,7 +174,7 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
                     // 支付成功后的回调函数
                     toastServices.hide();
                     $timeout(function() {
-                        $window.location.href = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/mobile/#/order_management_user";
+                        $window.location.href = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/mobile/#/orders";
                     }, 1000)
                 },
                 cancel: function() {
@@ -188,6 +188,31 @@ angular.module("Uelives").factory("weixinServices", function($http, $route, $tim
                     $timeout(function() {
                         $rootScope.back();
                     }, 1000);
+                }
+            });
+        },
+        // choose image
+        choose_image: function(params, callback) {
+            var callback = callback || angular.noop;
+            wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function(res) {
+                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    callback(localIds)
+                }
+            });
+        },
+        // upload image
+        upload_image: function(params, callback) {
+            var callback = callback || angular.noop;
+            wx.uploadImage({
+                localId: params.localId, // 需要上传的图片的本地ID，由chooseImage接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function(res) {
+                    var serverId = res.serverId; // 返回图片的服务器端ID
+                    callback(serverId);
                 }
             });
         }

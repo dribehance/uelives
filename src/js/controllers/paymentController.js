@@ -13,7 +13,7 @@ angular.module("Uelives").controller("paymentController", function($scope, $root
 		}
 		if ($routeParams.status == 3) {
 			weixinServices.queryAuthorizationCodeSilently({
-				id: $routeParams.id,
+				orders_id: $scope.order_id,
 				redirect_uri: "http://www.uelives.com/app/MenuController/getWeixinOauth"
 			});
 			return;
